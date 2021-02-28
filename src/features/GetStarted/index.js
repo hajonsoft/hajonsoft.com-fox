@@ -3,7 +3,7 @@ import React from 'react'
 const GetStarted = () => {
     return (
         <div>
-            Get Started
+            Get Started component
         </div>
     )
 }
