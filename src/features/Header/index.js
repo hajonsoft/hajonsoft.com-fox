@@ -3,7 +3,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Styled from './components/styled-components';
-import logo from './logo-dark.png';
+import logo from '../../images/logo.png';
 
 const Header = ({ onLanguageChange }) => {
     const [language, setLanguage] = useState('en');

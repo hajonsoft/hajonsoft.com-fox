@@ -1,12 +1,12 @@
 import { Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import passportReader from './3m-passport-reader.png';
-import bau from './bab-al-umrah.png';
-import gma from './gabul-ya-haj.png';
-import mohu from './ministry-of-hajj-and-umrah.jpg';
-import twf from './tawaf.png';
-import wtu from './way-to-umrah.png';
+import passportReader from '../../images/3m-passport-reader.png';
+import bau from '../../images/bab-al-umrah.png';
+import gma from '../../images/gabul-ya-haj.png';
+import mohu from '../../images/ministry-of-hajj-and-umrah.jpg';
+import twf from '../../images/tawaf.png';
+import wtu from '../../images/way-to-umrah.png';
 const Features = () => {
     return (
         <div style={{ paddingTop: '5rem' }}>
