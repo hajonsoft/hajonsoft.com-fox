@@ -38,11 +38,25 @@ const theme = createMuiTheme({
 function App() {
 
   const [language, setLanguage] = useState(navigatorLanguage || 'en')
+  const [dir, setDir] = useState("ltr")
+
+  const handleLanguageChange = (lang) => {
+    if (lang === "ar" && dir !== "rtl") {
+      setDir("rtl")
+    } 
+
+    if (lang !== "ar" && dir === "rtl") {
+      setDir("ltr")
+    } 
+    setLanguage(lang);
+  };
+
+  document.dir = dir;
   return (
     <div>
       <ThemeProvider theme={theme}>
         <IntlProvider messages={messages[language]} locale={language} >
-          <Header onLanguageChange={setLanguage} />
+          <Header onLanguageChange={handleLanguageChange} />
           <GetStarted />
           <Countries />
           <Features />

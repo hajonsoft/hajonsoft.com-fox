@@ -63,8 +63,8 @@ const Header = ({ onLanguageChange }) => {
                 </Grid>
                 <Select value={language} onChange={handleLanguageChange} >
                     <MenuItem value="en">English</MenuItem>
-                    <MenuItem value="ar">Arabic</MenuItem>
-                    <MenuItem value="fr">French</MenuItem>
+                    <MenuItem value="ar"><Typography variant="h6">اللغه العربيه</Typography></MenuItem>
+                    <MenuItem value="fr"><Typography variant="body1">Française</Typography></MenuItem>
                 </Select>
             </Toolbar>
         </AppBar>
