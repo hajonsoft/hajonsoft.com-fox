@@ -4,6 +4,8 @@ import logo from '../../images/logo.png';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import { FormattedMessage } from 'react-intl';
+
 
 const Footer = () => {
     return (
@@ -25,17 +27,17 @@ const Footer = () => {
                     <Grid item xs={2} container spacing={2} alignContent="flex-start">
                         <Grid item xs={12}>
 
-                            <Typography variant="button">company</Typography>
+                            <Typography variant="button"><FormattedMessage id="company" /></Typography>
                             <div style={{ border: '2px solid rgb(57,63,82)', width: '90%' }}></div>
                         </Grid>
                         <Grid item xs={12}>
-                            About Us
+                        <FormattedMessage id="about-us" />
                     </Grid>
                         <Grid item xs={12}>
-                            Contact Us
+                        <FormattedMessage id="contact-us" />
                     </Grid>
                         <Grid item xs={12}>
-                            Find
+                        <FormattedMessage id="find" />
                     </Grid>
                     </Grid>
                     <Grid item xs={2} container spacing={2} alignContent="flex-start">
@@ -44,9 +46,9 @@ const Footer = () => {
                             <Typography variant="button">resources</Typography>
                             <div style={{ border: '2px solid rgb(57,63,82)', width: '90%' }}></div>
                         </Grid>
-                        <Grid item xs={12}>Demos</Grid>
-                        <Grid item xs={12}>Common Questions</Grid>
-                        <Grid item xs={12}>Insights</Grid>
+                        <Grid item xs={12}><FormattedMessage id="demo" /></Grid>
+                        <Grid item xs={12}><FormattedMessage id="common-questions" /></Grid>
+                        <Grid item xs={12}><FormattedMessage id="insights" /></Grid>
 
                     </Grid>
                     <Grid item xs={2} container spacing={2} alignContent="flex-start">
@@ -55,9 +57,9 @@ const Footer = () => {
                             <Typography variant="button">our product</Typography>
                             <div style={{ border: '2px solid rgb(57,63,82)', width: '90%' }}></div>
                         </Grid>
-                        <Grid item xs={12}>Desktop</Grid>
-                        <Grid item xs={12}>Web</Grid>
-                        <Grid item xs={12}>Pricing</Grid>
+                        <Grid item xs={12}><FormattedMessage id="desktop" /></Grid>
+                        <Grid item xs={12}><FormattedMessage id="web" /></Grid>
+                        <Grid item xs={12}><FormattedMessage id="pricing" /></Grid>
                     </Grid>
                     <Grid item xs={2} container spacing={2} alignContent="flex-start">
                         <Grid item xs={12}>
@@ -65,9 +67,9 @@ const Footer = () => {
                             <Typography variant="button">get the app</Typography>
                             <div style={{ border: '2px solid rgb(57,63,82)', width: '90%' }}></div>
                         </Grid>
-                        <Grid item xs={12}>Coming soon...</Grid>
-                        <Grid item xs={12}>App store</Grid>
-                        <Grid item xs={12}>Google Play</Grid>
+                        <Grid item xs={12}><FormattedMessage id="coming-soon" /></Grid>
+                        <Grid item xs={12}><FormattedMessage id="app-store" /></Grid>
+                        <Grid item xs={12}><FormattedMessage id="google-play" /></Grid>
 
                     </Grid>
                 </Grid>
@@ -88,7 +90,7 @@ const Footer = () => {
                     <LinkedInIcon />
 <TwitterIcon />
                     </Grid>
-                    <Grid item style={{marginRight: '1rem'}}><Button variant="contained" color="primary" >Help</Button></Grid>
+                    <Grid item style={{marginRight: '1rem'}}><Button variant="contained" color="primary" ><FormattedMessage id="help" /></Button></Grid>
                 </Grid>
             </div>
         </div>
