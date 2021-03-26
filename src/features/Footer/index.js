@@ -21,7 +21,7 @@ const Footer = () => {
                             hajonsoft@gmail.com
 </Grid>
                         <Grid item xs={12}>
-                            1 (949) 522 1879
+                        <Typography variant="button"><FormattedMessage id="telephone" /></Typography>
 </Grid>
                     </Grid>
                     <Grid item xs={2} container spacing={2} alignContent="flex-start">
@@ -43,7 +43,8 @@ const Footer = () => {
                     <Grid item xs={2} container spacing={2} alignContent="flex-start">
                         <Grid item xs={12}>
 
-                            <Typography variant="button">resources</Typography>
+                            <Typography variant="button"><FormattedMessage id="resources" /></Typography>
+
                             <div style={{ border: '2px solid rgb(57,63,82)', width: '90%' }}></div>
                         </Grid>
                         <Grid item xs={12}><FormattedMessage id="demo" /></Grid>
@@ -54,7 +55,8 @@ const Footer = () => {
                     <Grid item xs={2} container spacing={2} alignContent="flex-start">
                         <Grid item xs={12}>
 
-                            <Typography variant="button">our product</Typography>
+                            <Typography variant="button"><FormattedMessage id="our-product" /></Typography>
+
                             <div style={{ border: '2px solid rgb(57,63,82)', width: '90%' }}></div>
                         </Grid>
                         <Grid item xs={12}><FormattedMessage id="desktop" /></Grid>
@@ -64,7 +66,8 @@ const Footer = () => {
                     <Grid item xs={2} container spacing={2} alignContent="flex-start">
                         <Grid item xs={12}>
 
-                            <Typography variant="button">get the app</Typography>
+                            <Typography variant="button"><FormattedMessage id="get-the-app" /></Typography>
+
                             <div style={{ border: '2px solid rgb(57,63,82)', width: '90%' }}></div>
                         </Grid>
                         <Grid item xs={12}><FormattedMessage id="coming-soon" /></Grid>
