@@ -1,33 +1,32 @@
-import React from 'react'
 import { Button, Container, Grid, Typography } from '@material-ui/core';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
-import getStartedImage from './get-started.png'
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import getStartedImage from '../../images/get-started.png';
+
 const GetStarted = () => {
     return (
         <div style={{ background: 'linear-gradient(90deg, rgba(56,134,176,1) 0%, rgba(71,161,177,1) 100%)', marginTop: '1rem', color: 'white' }}>
-
             <Container>
-
                 <Grid container justify="center" spacing={6}>
                     <Grid item container direction="column" justify="space-around" xs={6}>
                         <Grid item>
                             <Typography variant="h4" gutterBottom><FormattedMessage id="more-than-software" /></Typography>
                         </Grid>
                         <Grid item>
-                            <Typography variant="h6" ><FormattedMessage id="we-are-team" /></Typography>
+                            <Typography variant="h5" ><FormattedMessage id="we-are-team" /></Typography>
                         </Grid>
                         <Grid item container justify="center" spacing={4}>
                             <Grid item>
-                                <Button variant="contained" color="primary" style={{ textTransform: 'none', backgroundColor: 'white', color: 'black' }}>
-                                <FormattedMessage id="get-started" />
-</Button>
+                                <Button variant="contained" color="primary" style={{ textTransform: 'none', backgroundColor: 'white', color: 'black', height: '3rem', width: '15rem' }}>
+                                    <FormattedMessage id="get-started" />
+                                </Button>
                             </Grid>
 
                             <Grid item>
-                                <Button variant="outlined" style={{ textTransform: 'none', color: 'white', border: '1px solid white' }} startIcon={<PlayCircleOutlineIcon />}>
-                                <FormattedMessage id="see-platform" />
-</Button>
+                                <Button variant="outlined" style={{ textTransform: 'none', color: 'white', border: '1px solid white', height: '3rem', width: '15rem' }} startIcon={<PlayCircleOutlineIcon />}>
+                                    <FormattedMessage id="see-platform" />
+                                </Button>
                             </Grid>
 
                         </Grid>

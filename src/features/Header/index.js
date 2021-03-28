@@ -2,8 +2,8 @@ import { AppBar, Grid, Select, Toolbar, Typography } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
-import Styled from './components/styled-components';
 import logo from '../../images/logo.png';
+import Styled from './components/styled-components';
 
 const Header = ({ onLanguageChange }) => {
     const [language, setLanguage] = useState('en');
@@ -19,51 +19,49 @@ const Header = ({ onLanguageChange }) => {
                         <Typography variant="body2">hajonsoft@gmail.com</Typography>
                     </Grid>
                     <Grid item>
-                        <Typography variant="body2">1 (949) 522-1879</Typography>
+                        <Typography variant="body2">1(949)522-1879</Typography>
                     </Grid>
                 </Grid>
             </Styled.TopBar>
             <Toolbar >
-                <img src={logo} alt="logo" width="64"></img>
-
+                <img src={logo} alt="logo" width="64" />
                 <Grid container justify="center" alignItems="center" spacing={2} >
-
                     <Grid item>
                         <Styled.HeaderButton color="primary">
-                            <Typography variant="h6">
+                            <Typography variant="body1">
                                 <FormattedMessage id="home" />
                             </Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
                         <Styled.HeaderButton color="primary">
-                            <Typography variant="h6"><FormattedMessage id="features" /></Typography>
+                            <Typography variant="body1"><FormattedMessage id="features" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
                         <Styled.HeaderButton color="primary">
-                            <Typography variant="h6"><FormattedMessage id="pricing" /></Typography>
+                            <Typography variant="body1"><FormattedMessage id="pricing" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
                         <Styled.HeaderButton color="primary">
-                            <Typography variant="h6"><FormattedMessage id="demo" /></Typography>
+                            <Typography variant="body1"><FormattedMessage id="demo" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
                         <Styled.HeaderButton color="primary">
-                            <Typography variant="h6"><FormattedMessage id="downloads" /></Typography>
+                            <Typography variant="body1"><FormattedMessage id="downloads" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
                         <Styled.HeaderButton color="primary">
-                            <Typography variant="h6"><FormattedMessage id="contact-us" /></Typography>
+                            <Typography variant="body1"><FormattedMessage id="contact-us" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                 </Grid>
-                <Select value={language} onChange={handleLanguageChange} >
-                    <MenuItem value="en">English</MenuItem>
-                    <MenuItem value="ar"><Typography variant="h6">اللغه العربيه</Typography></MenuItem>
+                <Select value={language} onChange={handleLanguageChange} variant="standard">
+                    <MenuItem value="en"><Typography variant="body1">English</Typography></MenuItem>
+                    <MenuItem value="ar"><Typography variant="body1">اللغه العربيه</Typography></MenuItem>
                     <MenuItem value="fr"><Typography variant="body1">Française</Typography></MenuItem>
                 </Select>
             </Toolbar>

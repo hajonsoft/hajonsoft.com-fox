@@ -9,13 +9,13 @@ import twf from '../../images/tawaf.png';
 import wtu from '../../images/way-to-umrah.png';
 const Features = () => {
     return (
-        <div style={{ paddingTop: '5rem' }}>
+        <div style={{ padding: '1rem' , backgroundColor: '#f0f1f3'}}>
             <Grid container justify="center" spacing={4}>
                 <Grid item xs={12}>
-                    <Typography variant="h5" align="center"><FormattedMessage id="manage-effortlessly" /></Typography>
+                    <Typography variant="h6" align="center"><FormattedMessage id="manage-effortlessly" /></Typography>
                 </Grid>
                 <Grid item xs={12}>
-                    <Typography variant="h6" align="center"><FormattedMessage id="complete-software" /></Typography>
+                    <Typography variant="body1" align="center"><FormattedMessage id="complete-software" /></Typography>
                 </Grid>
                 <Grid item xs={12} container justify="center" spacing={2} alignItems="center">
                     <Grid item>
