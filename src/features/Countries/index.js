@@ -1,6 +1,7 @@
 import React from 'react'
-import { Container, Grid, Typography, Tooltip } from '@material-ui/core';
+import { Container, Grid, Typography, Tooltip, Box } from '@material-ui/core';
 import { findFlagUrlByCountryName } from 'country-flags-svg'
+import { FormattedMessage } from 'react-intl';
 
 const countries = ['United States', 'Canada', 'United Kingdom', 'Denmark', 'Sweden', 'Norway', 'India', 'Pakistan', 'Australia',
     'South Africa', 'Niger', 'Mali', 'Egypt', 'Liberia', 'Côte d\'Ivoire',
@@ -13,7 +14,14 @@ const countries = ['United States', 'Canada', 'United Kingdom', 'Denmark', 'Swed
 const Countries = () => {
     return (
         <Container style={{ marginTop: '2rem' }}>
-            <Typography variant="h6" align="center" gutterBottom>{`In more than ${countries.length} country`}</Typography>
+            <Typography variant="body1" align="center" letterSpacing={20} gutterBottom>
+                <Box letterSpacing={5} fontSize={32}>
+                    <FormattedMessage
+                        id="in-countries"
+                        values={{ countries: countries.length }}
+                    />
+                </Box>
+            </Typography>
             <Grid container spacing={2} alignItems="center" justify="center">
                 {countries.map(country =>
                     <Grid item>
