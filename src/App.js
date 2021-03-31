@@ -23,8 +23,6 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 
 // addLocaleData([...locale_en, ...locale_ar, ...locale_fr]);
 
-
-
 const messages = {
   "fr": messages_fr,
   "ar": messages_ar,
