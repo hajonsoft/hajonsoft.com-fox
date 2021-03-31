@@ -1,11 +1,12 @@
 import { Button, Card, CardActions, CardContent, CardHeader, Divider, Grid, Typography } from '@material-ui/core'
 import CheckIcon from '@material-ui/icons/Check';
+import trans from '../../../util/trans'
 import React from 'react'
 
-const PriceCard = ({ name, price, priceTerm, inclusions, exclusions }) => {
+const PriceCard = ({ name, price, priceTerm, inclusions, background}) => {
     return (
         <Card raised>
-            <CardHeader
+            <CardHeader style={{backgroundColor: background}}
                 title={name}
                 subheader={priceTerm}
             />
@@ -16,11 +17,10 @@ const PriceCard = ({ name, price, priceTerm, inclusions, exclusions }) => {
                 <Divider />
 
                 <Typography variant="body1" gutterBottom style={{ marginTop: '1rem' }}>
-                    INCLUDES:
+                    {trans('includes')}
             </Typography>
                 {inclusions && inclusions.map(i => <Grid container spacing={2} alignItems="center" style={{ marginLeft: '2rem' }}>
                     <grid item>
-
                         <CheckIcon style={{color: '#85C24B'}}></CheckIcon>
                     </grid>
                     <Grid item>

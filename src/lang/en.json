@@ -1,5 +1,4 @@
 {
-	"a": "Ayman",
 	"about-us": "About Us",
 	"app-store": "App store",
 	"basic": "Basic",
@@ -22,6 +21,7 @@
 	"help": "Help",
 	"home": "Home",
 	"in-countries": "In {countries} country",
+	"includes": "INCLUDES",
 	"insights": "Insights",
 	"lifetime": "Life Time",
 	"manage-effortlessly": "Manage your Hajj and Umrah business effortlessly",
