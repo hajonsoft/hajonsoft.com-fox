@@ -34,7 +34,7 @@ const PriceCard = ({ name, price, priceTerm, inclusions, background}) => {
             </CardContent>
 
             <CardActions>
-                <Button>Buy</Button>
+                <Button>{trans('buy-now')}</Button>
             </CardActions>
         </Card>
     )

@@ -7,7 +7,7 @@ import Demo from './features/Demo'
 import Contact from './features/Contact'
 import Why from './features/Why'
 import Footer from './features/Footer'
-
+import { Grid } from '@material-ui/core'
 
 import { useState } from 'react';
 
@@ -41,11 +41,11 @@ function App() {
   const handleLanguageChange = (lang) => {
     if (lang === "ar" && dir !== "rtl") {
       setDir("rtl")
-    } 
+    }
 
     if (lang !== "ar" && dir === "rtl") {
       setDir("ltr")
-    } 
+    }
     setLanguage(lang);
   };
 
@@ -55,14 +55,41 @@ function App() {
       <ThemeProvider theme={theme}>
         <IntlProvider messages={messages[language]} locale={language} >
           <Header onLanguageChange={handleLanguageChange} />
-          <GetStarted />
-          <Countries />
-          <Features />
-          <Pricing />
-          <Demo />
-          <Contact />
-          <Why />
-          <Footer />
+          <Grid container spacing={2} direction="column">
+            <Grid item>
+
+              <GetStarted />
+            </Grid>
+            <Grid item>
+
+              <Countries />
+            </Grid>
+            <Grid item>
+
+              <Features />
+            </Grid>
+            <Grid item>
+
+              <Pricing />
+            </Grid>
+            <Grid item>
+
+              <Demo />
+            </Grid>
+            <Grid item>
+
+              <Contact />
+            </Grid>
+            <Grid item>
+
+              <Why />
+            </Grid>
+            <Grid item>
+
+              <Footer />
+            </Grid>
+          </Grid>
+
         </IntlProvider>
       </ThemeProvider>
 

@@ -19,13 +19,17 @@ const GetStarted = () => {
                         <Grid item container justify="center" spacing={4}>
                             <Grid item>
                                 <Button variant="contained" color="primary" style={{ textTransform: 'none', backgroundColor: 'white', color: 'black', height: '3rem', width: '15rem' }}>
-                                    <FormattedMessage id="get-started" />
+                                    <Typography variant="h6">
+                                        <FormattedMessage id="get-started" />
+                                    </Typography>
                                 </Button>
                             </Grid>
 
                             <Grid item>
-                                <Button variant="outlined" style={{ textTransform: 'none', color: 'white', border: '1px solid white', height: '3rem', width: '15rem' }} startIcon={<PlayCircleOutlineIcon />}>
-                                    <FormattedMessage id="see-platform" />
+                                <Button variant="outlined" style={{ textTransform: 'none', color: 'white', border: '1px solid white', height: '3rem', width: '15rem' }} startIcon={<PlayCircleOutlineIcon fontSize="large"/>}>
+                                    <Typography variant="body1">
+                                        <FormattedMessage id="see-platform" />
+                                    </Typography>
                                 </Button>
                             </Grid>
 

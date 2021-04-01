@@ -13,6 +13,7 @@ const TopBar = styled.div`
     justify-content: flex-end;
     align-items: center;
     height: 2rem;
+    text-transform: none;
 `;
 
 const Styled = {HeaderButton, TopBar};
