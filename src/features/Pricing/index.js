@@ -8,7 +8,7 @@ const Pricing = () => {
         <Container>
             <Grid container justify="space-between" spacing={2}>
                 <Grid item xs={3}>
-                    <PriceCard name={trans('basic')} price="200" priceTerm={trans('one-time-payment')} inclusions={['Installation', 'Video training', '1 support hour']} background="#57A3D0" />
+                    <PriceCard name={trans('basic')} price="200" priceTerm={trans('one-time-payment')} inclusions={[trans('installation'), 'Video training', '1 support hour']} background="#57A3D0" />
                 </Grid>
                 <Grid item xs={4}>
                     <PriceCard name={trans('premium')} price="800" priceTerm={trans('one-time-payment')}   inclusions={['Dedicated technician 1000 Travellers', 'One-on-One training', '20 support hours']} background="#C0C4C8"/>
