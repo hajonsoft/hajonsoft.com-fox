@@ -1,6 +1,5 @@
 import { Container, Grid } from '@material-ui/core'
 import React from 'react'
-import trans from '../../util/trans'
 import PriceCard from './components/PriceCard'
 
 const Pricing = () => {
