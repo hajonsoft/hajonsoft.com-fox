@@ -10,7 +10,6 @@ import { FormattedMessage } from 'react-intl';
 const Footer = () => {
     return (
         <div>
-
             <Container>
                 <Grid container justify="center" spacing={2} alignItems="stretch">
                     <Grid item sm={12} md={3} lg container  justify="center" spacing={2}>

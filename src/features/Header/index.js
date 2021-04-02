@@ -5,8 +5,8 @@ import { FormattedMessage } from 'react-intl';
 import logo from '../../images/logo.png';
 import Styled from './components/styled-components';
 
-const Header = ({ onLanguageChange }) => {
-    const [language, setLanguage] = useState('en');
+const Header = ({ onLanguageChange, lang }) => {
+    const [language, setLanguage] = useState(lang);
     const handleLanguageChange = (e) => {
         setLanguage(e.target.value);
         onLanguageChange(e.target.value);
