@@ -24,26 +24,22 @@ const PriceCard = ({ name, price, subHeader, inclusions, paymentTerm, background
                     <Grid item>
                         {trans(paymentTerm)}
                     </Grid>
-
                 </Grid>
-
                 <Divider />
-
                 <Typography variant="body1" gutterBottom style={{ marginTop: '1rem' }}>
                     {trans('includes')}
                 </Typography>
                 {inclusions && inclusions.map(i => <Grid container spacing={2} alignItems="center" style={{ marginLeft: '2rem' }}>
-                    <grid item>
-                        <CheckIcon style={{ color: '#85C24B' }}></CheckIcon>
-                    </grid>
                     <Grid item>
-
+                        <CheckIcon style={{ color: '#85C24B' }}></CheckIcon>
+                    </Grid>
+                    <Grid item>
                         <Typography variant="body2">
                             {trans(i)}
                         </Typography>
                     </Grid>
-
-                </Grid>)}
+                </Grid>)
+                }
             </CardContent>
 
             <CardActions>
