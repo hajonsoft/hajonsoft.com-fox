@@ -2,17 +2,20 @@ import { Button, Card, CardActions, CardContent, CardHeader, Divider, Grid, Typo
 import CheckIcon from '@material-ui/icons/Check';
 import trans from '../../../util/trans'
 import React from 'react'
+import { FormattedNumber } from 'react-intl';
 
-const PriceCard = ({ name, price, priceTerm, inclusions, background}) => {
+const PriceCard = ({ name, price, subHeader, inclusions, background}) => {
     return (
         <Card raised>
             <CardHeader style={{backgroundColor: background}}
                 title={name}
-                subheader={priceTerm}
+                subheader={subHeader}
             />
             <CardContent>
                 <Typography variant="h4" align="center" gutterBottom>
-                    {`USD ${price}`}
+                    <FormattedNumber value={price}></FormattedNumber>
+                    {` `}
+                    {trans('usd')} 
                 </Typography>
                 <Divider />
 

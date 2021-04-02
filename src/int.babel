@@ -584,7 +584,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>one-time-payment</name>
+                <name>basic-subheader</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>

@@ -8,13 +8,13 @@ const Pricing = () => {
         <Container>
             <Grid container justify="space-between" spacing={2}>
                 <Grid item xs={3}>
-                    <PriceCard name={trans('basic')} price="200" priceTerm={trans('one-time-payment')} inclusions={[trans('installation'), 'Video training', '1 support hour']} background="#57A3D0" />
+                    <PriceCard name={trans('basic')} price="200" paymentTerm={trans('one-time')} subHeader={trans('basic-subheader')} inclusions={[trans('installation'), trans('video-training'), trans('one-support-hour')]} background="#57A3D0" />
                 </Grid>
                 <Grid item xs={4}>
-                    <PriceCard name={trans('premium')} price="800" priceTerm={trans('one-time-payment')}   inclusions={['Dedicated technician 1000 Travellers', 'One-on-One training', '20 support hours']} background="#C0C4C8"/>
+                    <PriceCard name={trans('premium')} price="800" subHeader={trans('basic-subheader')}   inclusions={['Dedicated technician 1000 Travellers', 'One-on-One training', '20 support hours']} background="#C0C4C8"/>
                 </Grid>
                 <Grid item xs>
-                    <PriceCard name={trans('lifetime')} price="9,500" priceTerm={trans('one-time-payment')}   inclusions={['Dedicated technician unlimited travellers', 'Marketing and sales support', 'Unlimited support hours']} background="#E0E4E8"/>
+                    <PriceCard name={trans('lifetime')} price="9500" subHeader={trans('basic-subheader')}   inclusions={['Dedicated technician unlimited travellers', 'Marketing and sales support', 'Unlimited support hours']} background="#E0E4E8"/>
                 </Grid>
             </Grid>
         </Container>
