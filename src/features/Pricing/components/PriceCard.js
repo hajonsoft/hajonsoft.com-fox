@@ -4,32 +4,42 @@ import trans from '../../../util/trans'
 import React from 'react'
 import { FormattedNumber } from 'react-intl';
 
-const PriceCard = ({ name, price, subHeader, inclusions, background}) => {
+const PriceCard = ({ name, price, subHeader, inclusions, paymentTerm, background }) => {
     return (
         <Card raised>
-            <CardHeader style={{backgroundColor: background}}
-                title={name}
-                subheader={subHeader}
+            <CardHeader style={{ backgroundColor: background }}
+                title={trans(name)}
+                subheader={trans(subHeader)}
             />
             <CardContent>
-                <Typography variant="h4" align="center" gutterBottom>
-                    <FormattedNumber value={price}></FormattedNumber>
-                    {` `}
-                    {trans('usd')} 
-                </Typography>
+                <Grid container spacing={1} justify="center" alignItems="flex-end">
+                    <Grid item>
+                        {trans('usd')}
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h4" align="center" gutterBottom>
+                            <FormattedNumber value={price}></FormattedNumber>
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        {trans(paymentTerm)}
+                    </Grid>
+
+                </Grid>
+
                 <Divider />
 
                 <Typography variant="body1" gutterBottom style={{ marginTop: '1rem' }}>
                     {trans('includes')}
-            </Typography>
+                </Typography>
                 {inclusions && inclusions.map(i => <Grid container spacing={2} alignItems="center" style={{ marginLeft: '2rem' }}>
                     <grid item>
-                        <CheckIcon style={{color: '#85C24B'}}></CheckIcon>
+                        <CheckIcon style={{ color: '#85C24B' }}></CheckIcon>
                     </grid>
                     <Grid item>
 
                         <Typography variant="body2">
-                            {i}
+                            {trans(i)}
                         </Typography>
                     </Grid>
 
