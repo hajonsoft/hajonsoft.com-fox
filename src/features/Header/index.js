@@ -19,7 +19,7 @@ const Header = ({ onLanguageChange, lang }) => {
                         <Typography variant="body2">hajonsoft@gmail.com</Typography>
                     </Grid>
                     <Grid item>
-                        <Typography variant="body2">1(949)522-1879</Typography>
+                        <Typography variant="body2"><FormattedMessage id="telephone"></FormattedMessage></Typography>
                     </Grid>
                 </Grid>
             </Styled.TopBar>
