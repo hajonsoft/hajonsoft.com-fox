@@ -35,7 +35,7 @@ const theme = createMuiTheme({
 function App() {
 
   const [language, setLanguage] = useState(localStorage.getItem('langOverride') || navigatorLanguage)
-  const [dir, setDir] = useState("ltr")
+  const [dir, setDir] = useState(localStorage.getItem('langOverride') === "ar" ? "rtl" : "ltr")
 
   const handleLanguageChange = (lang) => {
     if (lang === "ar" && dir !== "rtl") {
