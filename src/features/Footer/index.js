@@ -13,14 +13,16 @@ const Footer = () => {
             <Container>
                 <Grid container justify="center" spacing={2} alignItems="stretch">
                     <Grid item sm={12} md={3} lg container  justify="center" spacing={2}>
-                        <Grid item xs={12}>
+                        <Grid item sm={12} md={12} lg={12}>
                             <img src={logo} alt="logo" width="128" />
                         </Grid>
-                        <Grid item sm md lg>
-                            hajonsoft@gmail.com
+                        <Grid item sm={12} md={12} lg={12}>
+                            <Typography  variant="body2">
+                                hajonsoft@gmail.com
+                            </Typography>
                         </Grid>
-                        <Grid item sm md lg>
-                            <Typography variant="button"><FormattedMessage id="telephone" /></Typography>
+                        <Grid item sm={12} md={12} lg={12}>
+                            <Typography variant="body2"><FormattedMessage id="telephone" /></Typography>
                         </Grid>
                     </Grid>
                     <Grid item sm={12} md={2} lg container spacing={2} alignContent="flex-start">
