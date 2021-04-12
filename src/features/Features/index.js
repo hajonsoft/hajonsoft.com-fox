@@ -12,10 +12,10 @@ const Features = () => {
         <div style={{ padding: '1rem' , backgroundColor: '#f0f1f3'}}>
             <Grid container justify="center" spacing={4}>
                 <Grid item xs={12}>
-                    <Typography variant="h6" align="center"><FormattedMessage id="manage-effortlessly" /></Typography>
+                    <Typography variant="h6" align="center"><FormattedMessage id="features.manage-effortlessly" /></Typography>
                 </Grid>
                 <Grid item xs={12}>
-                    <Typography variant="body1" align="center"><FormattedMessage id="complete-software" /></Typography>
+                    <Typography variant="body1" align="center"><FormattedMessage id="features.complete-software" /></Typography>
                 </Grid>
                 <Grid item xs={12} container justify="center" spacing={2} alignItems="center">
                     <Grid item>
@@ -25,7 +25,7 @@ const Features = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography align="center" variant="body1">
-                                    <FormattedMessage id="quality-passport-reader" />
+                                    <FormattedMessage id="features.quality-passport-reader" />
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -37,7 +37,7 @@ const Features = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography align="center" variant="body1">
-                                    <FormattedMessage id="ehaj-integration" />
+                                    <FormattedMessage id="features.ehaj-integration" />
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -49,7 +49,7 @@ const Features = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography align="center" variant="body1">
-                                    <FormattedMessage id="wtu-sender" />
+                                    <FormattedMessage id="features.wtu-sender" />
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -61,7 +61,7 @@ const Features = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography align="center" variant="body1">
-                                    <FormattedMessage id="bau-sender" />
+                                    <FormattedMessage id="features.bau-sender" />
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -73,7 +73,7 @@ const Features = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography align="center" variant="body1">
-                                    <FormattedMessage id="gma-sender" />
+                                    <FormattedMessage id="features.gma-sender" />
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -85,7 +85,7 @@ const Features = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography align="center" variant="body1">
-                                    <FormattedMessage id="twf-sender" />
+                                    <FormattedMessage id="features.twf-sender" />
                                 </Typography>
                             </Grid>
                         </Grid>

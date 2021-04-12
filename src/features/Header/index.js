@@ -19,7 +19,7 @@ const Header = ({ onLanguageChange, lang }) => {
                         <Typography variant="body2">hajonsoft@gmail.com</Typography>
                     </Grid>
                     <Grid item>
-                        <Typography variant="body2"><FormattedMessage id="telephone"></FormattedMessage></Typography>
+                        <Typography variant="body2"><FormattedMessage id="header.telephone"></FormattedMessage></Typography>
                     </Grid>
                 </Grid>
             </Styled.TopBar>
@@ -29,33 +29,33 @@ const Header = ({ onLanguageChange, lang }) => {
                     <Grid item>
                         <Styled.HeaderButton color="primary">
                             <Typography variant="body1">
-                                <FormattedMessage id="home" />
+                                <FormattedMessage id="header.home" />
                             </Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
                         <Styled.HeaderButton color="primary">
-                            <Typography variant="body1"><FormattedMessage id="features" /></Typography>
+                            <Typography variant="body1"><FormattedMessage id="header.features" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
                         <Styled.HeaderButton color="primary">
-                            <Typography variant="body1"><FormattedMessage id="pricing" /></Typography>
+                            <Typography variant="body1"><FormattedMessage id="header.pricing" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
                         <Styled.HeaderButton color="primary">
-                            <Typography variant="body1"><FormattedMessage id="demo" /></Typography>
+                            <Typography variant="body1"><FormattedMessage id="header.demo" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
                         <Styled.HeaderButton color="primary">
-                            <Typography variant="body1"><FormattedMessage id="downloads" /></Typography>
+                            <Typography variant="body1"><FormattedMessage id="header.downloads" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
                         <Styled.HeaderButton color="primary">
-                            <Typography variant="body1"><FormattedMessage id="contact-us" /></Typography>
+                            <Typography variant="body1"><FormattedMessage id="header.contact-us" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                 </Grid>

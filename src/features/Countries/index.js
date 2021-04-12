@@ -17,7 +17,7 @@ const Countries = () => {
             <Typography variant="body1" align="center" letterSpacing={20} gutterBottom>
                 <Box letterSpacing={5} fontSize={32}>
                     <FormattedMessage
-                        id="in-countries"
+                        id="countries.in-countries"
                         values={{ countries: countries.length }}
                     />
                 </Box>

@@ -17,7 +17,7 @@
         <name/>
         <children>
             <concept_node>
-                <name>100-visa-proxy</name>
+                <name>pricing.100-visa-proxy</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -38,7 +38,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>15-support-calls</name>
+                <name>pricing.15-support-calls</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -59,7 +59,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>15-years-support</name>
+                <name>pricing.15-years-support</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -80,7 +80,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>about-us</name>
+                <name>footer.about-us</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -164,7 +164,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>bau-sender</name>
+                <name>features.bau-sender</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -227,7 +227,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>common-questions</name>
+                <name>footer.common-questions</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -248,7 +248,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>company</name>
+                <name>footer.company</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -269,7 +269,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>complete-software</name>
+                <name>features.complete-software</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -290,7 +290,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>contact-us</name>
+                <name>header.contact-us</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -311,7 +311,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>demo</name>
+                <name>header.demo</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -332,7 +332,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>desktop</name>
+                <name>footer.desktop</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -353,7 +353,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>downloads</name>
+                <name>header.downloads</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -374,7 +374,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>ehaj-integration</name>
+                <name>features.ehaj-integration</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -395,7 +395,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>features</name>
+                <name>header.features</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -437,7 +437,49 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>get-started</name>
+                <name>get-started.get-started</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>ar-AE</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>fr-FR</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
+            <concept_node>
+                <name>get-started.get-started.more-than-software</name>
+                <definition_loaded>false</definition_loaded>
+                <description/>
+                <comment/>
+                <default_text/>
+                <translations>
+                    <translation>
+                        <language>ar-AE</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>en-US</language>
+                        <approved>false</approved>
+                    </translation>
+                    <translation>
+                        <language>fr-FR</language>
+                        <approved>false</approved>
+                    </translation>
+                </translations>
+            </concept_node>
+            <concept_node>
+                <name>get-started.get-started.we-are-team</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -479,7 +521,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>gma-sender</name>
+                <name>features.gma-sender</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -584,7 +626,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>home</name>
+                <name>header.home</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -605,7 +647,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>in-countries</name>
+                <name>countries.in-countries</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -647,7 +689,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>insights</name>
+                <name>footer.insights</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -668,7 +710,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>installation</name>
+                <name>pricing.installation</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -710,7 +752,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>manage-effortlessly</name>
+                <name>features.manage-effortlessly</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -731,28 +773,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>more-than-software</name>
-                <definition_loaded>false</definition_loaded>
-                <description/>
-                <comment/>
-                <default_text/>
-                <translations>
-                    <translation>
-                        <language>ar-AE</language>
-                        <approved>false</approved>
-                    </translation>
-                    <translation>
-                        <language>en-US</language>
-                        <approved>false</approved>
-                    </translation>
-                    <translation>
-                        <language>fr-FR</language>
-                        <approved>false</approved>
-                    </translation>
-                </translations>
-            </concept_node>
-            <concept_node>
-                <name>one-support-hour</name>
+                <name>pricing.one-support-hour</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -794,7 +815,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>our-product</name>
+                <name>footer.our-product</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -899,7 +920,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>pricing</name>
+                <name>header.pricing</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -920,7 +941,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>quality-passport-reader</name>
+                <name>features.quality-passport-reader</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -941,7 +962,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>resources</name>
+                <name>footer.resources</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -962,7 +983,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>season-support</name>
+                <name>pricing.season-support</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -983,7 +1004,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>season-support-haj</name>
+                <name>pricing.season-support-haj</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -1004,7 +1025,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>season-support-umrah</name>
+                <name>pricing.season-support-umrah</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -1025,7 +1046,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>see-platform</name>
+                <name>get-started.see-platform</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -1067,7 +1088,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>telephone</name>
+                <name>header.telephone</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -1088,7 +1109,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>twf-sender</name>
+                <name>features.twf-sender</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -1130,7 +1151,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>unlimited-support-calls</name>
+                <name>pricing.unlimited-support-calls</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -1151,7 +1172,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>unlimited-visa-proxy</name>
+                <name>pricing.unlimited-visa-proxy</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -1193,28 +1214,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>video-training</name>
-                <definition_loaded>false</definition_loaded>
-                <description/>
-                <comment/>
-                <default_text/>
-                <translations>
-                    <translation>
-                        <language>ar-AE</language>
-                        <approved>false</approved>
-                    </translation>
-                    <translation>
-                        <language>en-US</language>
-                        <approved>false</approved>
-                    </translation>
-                    <translation>
-                        <language>fr-FR</language>
-                        <approved>false</approved>
-                    </translation>
-                </translations>
-            </concept_node>
-            <concept_node>
-                <name>we-are-team</name>
+                <name>pricing.video-training</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -1256,7 +1256,7 @@
                 </translations>
             </concept_node>
             <concept_node>
-                <name>wtu-sender</name>
+                <name>features.wtu-sender</name>
                 <definition_loaded>false</definition_loaded>
                 <description/>
                 <comment/>
@@ -1318,7 +1318,7 @@
     <primary_language>en-US</primary_language>
     <configuration>
         <indent>tab</indent>
-        <format>json</format>
+        <format>plaintext-json</format>
         <support_arrays>true</support_arrays>
     </configuration>
 </babeledit_project>

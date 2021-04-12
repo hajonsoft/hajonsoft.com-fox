@@ -22,19 +22,19 @@ const Footer = () => {
                             </Typography>
                         </Grid>
                         <Grid item sm={12} md={12} lg={12}>
-                            <Typography variant="body2"><FormattedMessage id="telephone" /></Typography>
+                            <Typography variant="body2"><FormattedMessage id="header.telephone" /></Typography>
                         </Grid>
                     </Grid>
                     <Grid item sm={12} md={2} lg container spacing={2} alignContent="flex-start">
                         <Grid item xs={12}>
-                            <Typography variant="button"><FormattedMessage id="company" /></Typography>
+                            <Typography variant="button"><FormattedMessage id="footer.company" /></Typography>
                             <div style={{ border: '2px solid rgb(57,63,82)', width: '90%' }}></div>
                         </Grid>
                         <Grid item xs={12}>
-                            <FormattedMessage id="about-us" />
+                            <FormattedMessage id="footer.about-us" />
                         </Grid>
                         <Grid item xs={12}>
-                            <FormattedMessage id="contact-us" />
+                            <FormattedMessage id="header.contact-us" />
                         </Grid>
                         <Grid item xs={12}>
                             <FormattedMessage id="find" />
@@ -42,21 +42,21 @@ const Footer = () => {
                     </Grid>
                     <Grid item sm={12} md={2} lg container spacing={2} alignContent="flex-start">
                         <Grid item xs={12}>
-                            <Typography variant="button"><FormattedMessage id="resources" /></Typography>
+                            <Typography variant="button"><FormattedMessage id="footer.resources" /></Typography>
                             <div style={{ border: '2px solid rgb(57,63,82)', width: '90%' }}></div>
                         </Grid>
-                        <Grid item xs={12}><FormattedMessage id="demo" /></Grid>
-                        <Grid item xs={12}><FormattedMessage id="common-questions" /></Grid>
-                        <Grid item xs={12}><FormattedMessage id="insights" /></Grid>
+                        <Grid item xs={12}><FormattedMessage id="header.demo" /></Grid>
+                        <Grid item xs={12}><FormattedMessage id="footer.common-questions" /></Grid>
+                        <Grid item xs={12}><FormattedMessage id="footer.insights" /></Grid>
                     </Grid>
                     <Grid item sm={12} md={2} lg container spacing={2} alignContent="flex-start">
                         <Grid item xs={12}>
-                            <Typography variant="button"><FormattedMessage id="our-product" /></Typography>
+                            <Typography variant="button"><FormattedMessage id="footer.our-product" /></Typography>
                             <div style={{ border: '2px solid rgb(57,63,82)', width: '90%' }}></div>
                         </Grid>
-                        <Grid item xs={12}><FormattedMessage id="desktop" /></Grid>
+                        <Grid item xs={12}><FormattedMessage id="footer.desktop" /></Grid>
                         <Grid item xs={12}><FormattedMessage id="web" /></Grid>
-                        <Grid item xs={12}><FormattedMessage id="pricing" /></Grid>
+                        <Grid item xs={12}><FormattedMessage id="header.pricing" /></Grid>
                     </Grid>
                     <Grid item sm={12} md={2} lg container spacing={2} alignContent="flex-start">
                         <Grid item xs={12}>
