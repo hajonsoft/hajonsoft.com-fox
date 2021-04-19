@@ -20,26 +20,35 @@ const hosSortedCountries = () => {
         const foundCountry = countries.find(flagCountry => flagCountry.name === country);
         const zones = moment.tz.zonesForCountry(foundCountry.iso2);
         for (const zone of zones) {
-            if (moment().tz(zone).isAfter(moment().tz(zone).set('hour', 9).set('minute', 0)) && moment().tz(zone).isBefore(moment().tz(zone).set('hour', 17).set('minute', 0))){
+            if (moment().tz(zone).isAfter(moment().tz(zone).set('hour', 9).set('minute', 0)) && moment().tz(zone).isBefore(moment().tz(zone).set('hour', 17).set('minute', 0))) {
                 awake.push(country);
                 break;
             }
         }
-        if (!awake.includes(country)){
+        if (!awake.includes(country)) {
             sleeping.push(country);
         }
 
     })
-    return {awake,sleeping};
+    return { awake, sleeping };
 }
 const countryTooltip = (country) => {
     const foundCountry = countries.find(flagCountry => flagCountry.name === country);
     const zones = moment.tz.zonesForCountry(foundCountry.iso2);
+    const processedTimes = new Set();
+
+    const canDisplay = (value) => {
+        if (!processedTimes.has(value)) {
+            processedTimes.add(value);
+            return true;
+        }
+        return false;
+    }
     return (
         <React.Fragment>
             <strong>{country}</strong>
             {
-                zones.map(zone => <Grid container justify="space-between" spacing={2}>
+                zones.map(zone => canDisplay(moment().tz(zone).format('hh:mm a')) && <Grid container justify="space-between" spacing={2}>
                     <Grid item>{zone}</Grid>
                     <Grid item>{moment().tz(zone).format('hh:mm a')}</Grid>
                 </Grid>)
@@ -67,7 +76,7 @@ const Countries = () => {
                             <img src={findFlagUrlByCountryName(country)} alt={country} style={{ width: '3rem', border: '1px solid gold', boxShadow: '2px 2px gold' }} />
                         </Tooltip>
                     </Grid>)}
-                    {hosSortedCountries().sleeping.map(country =>
+                {hosSortedCountries().sleeping.map(country =>
                     <Grid item>
                         <Tooltip title={countryTooltip(country)}>
                             <img src={findFlagUrlByCountryName(country)} alt={country} style={{ width: '3rem', border: '1px solid black', boxShadow: '3px 3px lightgray' }} />
