@@ -1,8 +1,8 @@
-import React from 'react'
-import { Container, Grid, Typography, Tooltip, Box } from '@material-ui/core';
-import { findFlagUrlByCountryName, countries } from 'country-flags-svg'
-import { FormattedMessage } from 'react-intl';
+import { Box, Container, Grid, Tooltip, Typography } from '@material-ui/core';
+import { countries, findFlagUrlByCountryName } from 'country-flags-svg';
 import moment from 'moment-timezone';
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 const hosCountries = ['United States', 'Canada', 'United Kingdom', 'Denmark', 'Sweden', 'Norway', 'India', 'Pakistan', 'Australia',
     'South Africa', 'Niger', 'Mali', 'Egypt', 'Liberia', 'Côte d\'Ivoire',
@@ -12,45 +12,46 @@ const hosCountries = ['United States', 'Canada', 'United Kingdom', 'Denmark', 'S
     'Spain', 'Sri Lanka', 'Switzerland', 'Thailand', 'Vietnam'
 ];
 
-const hosSortedCountries = () => {
-    const awake = [];
-    const sleeping = [];
+const START_HOUR = 9;
+const END_HOUR = 18;
+
+const hosWorld = () => {
+    const world = []; //[{country, isAwake, zones: [{zone, zoneMoment}]}]
 
     hosCountries.forEach(country => {
-        const foundCountry = countries.find(flagCountry => flagCountry.name === country);
-        const zones = moment.tz.zonesForCountry(foundCountry.iso2);
-        for (const zone of zones) {
-            if (moment().tz(zone).isAfter(moment().tz(zone).set('hour', 9).set('minute', 0)) && moment().tz(zone).isBefore(moment().tz(zone).set('hour', 17).set('minute', 0))) {
-                awake.push(country);
-                break;
+        const countryModel = countries.find(flagCountry => flagCountry.name === country);
+        if (!countryModel) return;
+        const zones = moment.tz.zonesForCountry(countryModel.iso2);
+        const countryZones = { country, zones: [] };
+        world.push(countryZones);
+        zones.forEach(zone => {
+            const zoneMoment = moment().tz(zone);
+            countryZones.zones.push({ name: zone, time: zoneMoment });
+            if (zoneMoment.isAfter(moment(zoneMoment).set('hour', START_HOUR).set('minute', 0)) && moment(zoneMoment).isBefore(moment(zoneMoment).set('hour', END_HOUR).set('minute', 0))) {
+                countryZones.isAwake = true;
             }
-        }
-        if (!awake.includes(country)) {
-            sleeping.push(country);
-        }
-
+        });
+        countryZones.zones = countryZones.zones.sort((a, b) => {
+            return parseInt(a.time.format('HHmm')) - parseInt(b.time.format('HHmm'));
+        });
+        countryZones.meanTime = countryZones.zones[Math.floor(countryZones.zones.length / 2)].time;
     })
-    return { awake, sleeping };
+    return world;
 }
-const countryTooltip = (country) => {
-    const foundCountry = countries.find(flagCountry => flagCountry.name === country);
-    const zones = moment.tz.zonesForCountry(foundCountry.iso2);
-    const processedTimes = new Set();
 
-    const canDisplay = (value) => {
-        if (!processedTimes.has(value)) {
-            processedTimes.add(value);
-            return true;
-        }
-        return false;
-    }
+
+const regionTooltip = (region) => {
+
     return (
         <React.Fragment>
-            <strong>{country}</strong>
+            <Grid container justify="space-between" spacing={2}>
+                <Grid item>{region.country}</Grid>
+                <Grid item>{region.meanTime.format('hh:mm a')}</Grid>
+            </Grid>
             {
-                zones.map(zone => canDisplay(moment().tz(zone).format('hh:mm a')) && <Grid container justify="space-between" spacing={2}>
-                    <Grid item>{zone}</Grid>
-                    <Grid item>{moment().tz(zone).format('hh:mm a')}</Grid>
+                region.zones.map(zone => <Grid container justify="space-between" spacing={2}>
+                    <Grid item>{zone.name}</Grid>
+                    <Grid item>{zone.time.format('hh:mm a')}</Grid>
                 </Grid>)
             }
         </React.Fragment>
@@ -70,16 +71,20 @@ const Countries = () => {
                 </Box>
             </Typography>
             <Grid container spacing={2} alignItems="center" justify="center">
-                {hosSortedCountries().awake.map(country =>
+                {hosWorld().filter(country => country.isAwake).sort((a, b) => {
+                    return a.meanTime.format('HHmm') - b.meanTime.format('HHmm');
+                }).map(region =>
                     <Grid item>
-                        <Tooltip title={countryTooltip(country)}>
-                            <img src={findFlagUrlByCountryName(country)} alt={country} style={{ width: '3rem', border: '1px solid gold', boxShadow: '2px 2px gold' }} />
+                        <Tooltip title={regionTooltip(region)}>
+                            <img src={findFlagUrlByCountryName(region.country)} alt={region.country} style={{ width: '3rem', border: '1px solid #589aae', boxShadow: '10px 10px 5px #cfd8dc' }} />
                         </Tooltip>
                     </Grid>)}
-                {hosSortedCountries().sleeping.map(country =>
+                {hosWorld().filter(country => !country.isAwake).sort((a, b) => {
+                    return a.meanTime.format('HHmm') - b.meanTime.format('HHmm');
+                }).map(region =>
                     <Grid item>
-                        <Tooltip title={countryTooltip(country)}>
-                            <img src={findFlagUrlByCountryName(country)} alt={country} style={{ width: '3rem', border: '1px solid black', boxShadow: '3px 3px lightgray' }} />
+                        <Tooltip title={regionTooltip(region)}>
+                            <img src={findFlagUrlByCountryName(region.country)} alt={region} style={{ width: '3rem', border: '1px solid #589aae', boxShadow: '10px 10px 10px #616161' }} />
                         </Tooltip>
                     </Grid>)}
             </Grid>
