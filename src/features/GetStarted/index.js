@@ -1,10 +1,14 @@
-import { Button, Container, Grid, Typography } from '@material-ui/core';
+import { Button, Container, Grid, Typography, useMediaQuery, useTheme } from '@material-ui/core';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import getStartedImage from '../../images/get-started.png';
 
 const GetStarted = () => {
+
+    const theme = useTheme();
+    const aboveSmall = useMediaQuery(theme.breakpoints.up('sm'));
+
     return (
         <div style={{ background: 'linear-gradient(90deg, rgba(56,134,176,1) 0%, rgba(71,161,177,1) 100%)', marginTop: '1rem', color: 'white' }}>
             <Container>
@@ -36,9 +40,9 @@ const GetStarted = () => {
                         </Grid>
                     </Grid>
 
-                    <Grid item xs={5}>
+                    {aboveSmall && <Grid item xs={5}>
                         <img src={getStartedImage} alt="hajonsoft software" width="300px" />
-                    </Grid>
+                    </Grid>}
 
                 </Grid>
             </Container>
