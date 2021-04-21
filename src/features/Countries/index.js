@@ -1,4 +1,5 @@
-import { Box, Container, Divider, Grid, Tooltip, Typography } from '@material-ui/core';
+import { Box, Container, Grid, Tooltip, Typography } from '@material-ui/core';
+import WbSunnyOutlinedIcon from '@material-ui/icons/WbSunnyOutlined';
 import { countries, findFlagUrlByCountryName } from 'country-flags-svg';
 import moment from 'moment-timezone';
 import React from 'react';
@@ -79,7 +80,7 @@ const Countries = () => {
                             <img src={findFlagUrlByCountryName(region.country)} alt={region.country} style={{ width: '3rem', border: '1px solid #589aae', boxShadow: '10px 10px 5px #cfd8dc' }} />
                         </Tooltip>
                     </Grid>)}
-                <Divider orientation="vertical" flexItem />
+                <WbSunnyOutlinedIcon />
                 {hosWorld().filter(country => !country.isAwake).sort((a, b) => {
                     return a.meanTime.format('HHmm') - b.meanTime.format('HHmm');
                 }).map(region =>

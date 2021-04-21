@@ -1,4 +1,5 @@
-import { createMuiTheme, Grid, ThemeProvider } from '@material-ui/core'
+import { createMuiTheme, Grid, ThemeProvider, Button } from '@material-ui/core'
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { useState } from 'react'
 import { IntlProvider } from 'react-intl'
 import Contact from './features/Contact'
@@ -32,6 +33,22 @@ const theme = createMuiTheme({
   direction: "ltr",
 });
 
+const handleScrolltopClick = () => {
+  const element = document.getElementById("home");
+  if (element) {
+    element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  }
+};
+
+onscroll = function () {
+  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  if (scrollTop > 300) {
+    document.getElementById('back-to-top').style.visibility = "visible"
+  } else {
+    document.getElementById('back-to-top').style.visibility = "hidden"
+  }
+};
+
 function App() {
 
   const [language, setLanguage] = useState(localStorage.getItem('langOverride') || navigatorLanguage)
@@ -50,6 +67,7 @@ function App() {
   };
 
   document.dir = dir;
+
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -84,7 +102,7 @@ function App() {
 
         </IntlProvider>
       </ThemeProvider>
-
+      <div id="back-to-top" style={{ position: 'fixed', bottom: '6rem', right: 0, padding: '1rem' , visibility: 'hidden'}} onClick={handleScrolltopClick}><Button><ArrowUpwardIcon fontSize="large" color="#69A2CC"/></Button></div>
     </div>
   );
 }
