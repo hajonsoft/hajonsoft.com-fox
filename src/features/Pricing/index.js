@@ -4,7 +4,7 @@ import PriceCard from './components/PriceCard'
 
 const Pricing = () => {
     return (
-        <Container>
+        <Container id="pricing">
             <Grid container justify="space-between" spacing={2}>
                 <Grid item sm={12} md={3} lg>
                     <PriceCard name="basic" price="200" paymentTerm="one-time" subHeader="basic-subheader" inclusions={['pricing.installation', 'pricing.video-training', 'pricing.one-support-hour']} background="#57A3D0" />

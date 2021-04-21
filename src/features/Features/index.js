@@ -9,7 +9,7 @@ import twf from '../../images/tawaf.png';
 import wtu from '../../images/way-to-umrah.png';
 const Features = () => {
     return (
-        <div style={{ padding: '1rem' , backgroundColor: '#f0f1f3'}}>
+        <div id="features" style={{ padding: '1rem' , backgroundColor: '#f0f1f3'}}>
             <Grid container justify="center" spacing={4}>
                 <Grid item xs={12}>
                     <Typography variant="h6" align="center"><FormattedMessage id="features.manage-effortlessly" /></Typography>

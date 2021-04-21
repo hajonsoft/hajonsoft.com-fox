@@ -11,8 +11,15 @@ const Header = ({ onLanguageChange, lang }) => {
         setLanguage(e.target.value);
         onLanguageChange(e.target.value);
     }
+
+    const handleBookmarkClick = (bookmark) => {
+        const element = document.getElementById(bookmark);
+        if (element){
+            element.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+        }
+    }
     return (
-        <AppBar position="static" color="inherit">
+        <AppBar id="home" position="static" color="inherit">
             <Styled.TopBar>
                 <Grid container spacing={2} justify="flex-end" style={{ marginRight: '6rem' }}>
                     <Grid item>
@@ -27,34 +34,34 @@ const Header = ({ onLanguageChange, lang }) => {
                 <img src={logo} alt="logo" width="64" />
                 <Grid container justify="center" alignItems="center" spacing={2} >
                     <Grid item>
-                        <Styled.HeaderButton color="primary">
+                        <Styled.HeaderButton color="primary" onClick={() => handleBookmarkClick("home")}>
                             <Typography variant="body1">
                                 <FormattedMessage id="header.home" />
                             </Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
-                        <Styled.HeaderButton color="primary">
+                        <Styled.HeaderButton color="primary" onClick={() => handleBookmarkClick("features")}>
                             <Typography variant="body1"><FormattedMessage id="header.features" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
-                        <Styled.HeaderButton color="primary">
+                        <Styled.HeaderButton color="primary" onClick={() => handleBookmarkClick("pricing")}>
                             <Typography variant="body1"><FormattedMessage id="header.pricing" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
-                        <Styled.HeaderButton color="primary">
+                        <Styled.HeaderButton color="primary" onClick={() => handleBookmarkClick("demo")}>
                             <Typography variant="body1"><FormattedMessage id="header.demo" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
-                        <Styled.HeaderButton color="primary">
+                        <Styled.HeaderButton color="primary" onClick={() => handleBookmarkClick("downloads")}>
                             <Typography variant="body1"><FormattedMessage id="header.downloads" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
                     <Grid item>
-                        <Styled.HeaderButton color="primary">
+                        <Styled.HeaderButton color="primary" onClick={() => handleBookmarkClick("contact-us")}>
                             <Typography variant="body1"><FormattedMessage id="header.contact-us" /></Typography>
                         </Styled.HeaderButton>
                     </Grid>
