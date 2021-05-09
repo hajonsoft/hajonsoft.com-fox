@@ -75,25 +75,46 @@ const Countries = () => {
                 {hosWorld().filter(country => country.isAwake).sort((a, b) => {
                     return a.meanTime.format('HHmm') - b.meanTime.format('HHmm');
                 }).map(region =>
-                    <Grid item>
-                        <Tooltip title={regionTooltip(region)}>
-                            <img src={findFlagUrlByCountryName(region.country)} alt={region.country} style={{ width: '3rem', border: '1px solid #589aae', boxShadow: '10px 10px 5px #cfd8dc' }} />
-                        </Tooltip>
+                    <Grid item >
+                        <FlagItem region={region} variant="awake" />
                     </Grid>)}
                 <WbSunnyOutlinedIcon />
                 {hosWorld().filter(country => !country.isAwake).sort((a, b) => {
                     return a.meanTime.format('HHmm') - b.meanTime.format('HHmm');
                 }).map(region =>
                     <Grid item>
-                        <Tooltip title={regionTooltip(region)}>
-                            <img src={findFlagUrlByCountryName(region.country)} alt={region} style={{ width: '3rem', border: '1px solid #589aae', boxShadow: '10px 10px 10px #616161' }} />
-                        </Tooltip>
+                        <FlagItem region={region} variant="asleep" showName={false} />
                     </Grid>)}
             </Grid>
         </Container>
     )
 }
 
+
+const FlagItem = ({ region, variant = "awake", showName = true }) => {
+
+    const itemStyle = { width: '3rem', border: '1px solid #589aae' };
+    switch (variant) {
+        case "asleep":
+            itemStyle.boxShdow = '10px 10px 5px #616161';
+            break;
+        case "Awake":
+            itemStyle.boxShdow = '10px 10px 5px #cfd8dc';
+            break;
+        default:
+            break;
+    }
+    return (<Grid container direction="column" justify="center" alignItems="center">
+        <Grid item>
+            <Tooltip title={regionTooltip(region)}>
+                <img src={findFlagUrlByCountryName(region.country)} alt={region.country} style={itemStyle} />
+            </Tooltip>
+        </Grid>
+        {  showName && <Grid item>
+            <Typography variant="caption">{region.country}</Typography>
+        </Grid>}
+    </Grid>)
+}
 export default Countries
 
 
