@@ -15,16 +15,16 @@ const GetStarted = () => {
                 <Grid container justify="center" spacing={6}>
                     <Grid item container direction="column" justify="space-around" xs={6}>
                         <Grid item>
-                            <Typography variant="h4" gutterBottom><FormattedMessage id="get-started.get-started.more-than-software" /></Typography>
+                            <Typography variant="h4" gutterBottom><FormattedMessage id="get-started.more-than-software" /></Typography>
                         </Grid>
                         <Grid item>
-                            <Typography variant="h5" ><FormattedMessage id="get-started.get-started.we-are-team" /></Typography>
+                            <Typography variant="h5" ><FormattedMessage id="get-started.we-are-team" /></Typography>
                         </Grid>
                         <Grid item container justify="center" spacing={4}>
                             <Grid item>
                                 <Button variant="contained" color="primary" style={{ textTransform: 'none', backgroundColor: 'white', color: 'black', height: '3rem', width: '15rem' }}>
                                     <Typography variant="h6">
-                                        <FormattedMessage id="get-started.get-started" />
+                                        <FormattedMessage id="get-started" />
                                     </Typography>
                                 </Button>
                             </Grid>

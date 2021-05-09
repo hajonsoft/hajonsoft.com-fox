@@ -43,7 +43,14 @@ const PriceCard = ({ name, price, subHeader, inclusions, paymentTerm, background
             </CardContent>
 
             <CardActions>
-                <Button>{trans('buy-now')}</Button>
+                <Grid container justify="space-between">
+                    <Grid item>
+                        <Button>{trans('pricing.buy-now')}</Button>
+                    </Grid>
+                    <Grid item>
+                        <Button>{trans('pricing.learn-more')}</Button>
+                    </Grid>
+                </Grid>
             </CardActions>
         </Card>
     )
