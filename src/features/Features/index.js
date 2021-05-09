@@ -1,5 +1,5 @@
 import { Grid, Typography } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import passportReader from '../../images/3m-passport-reader.png';
 import bau from '../../images/bab-al-umrah.png';
@@ -20,21 +20,21 @@ const players = [
 const Features = () => {
     const [index, setIndex] = useState(-1);
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setIndex(prev => {
-                if (prev < players.length - 1) {
-                    return prev + 1;
-                } else {
-                    return -1
-                }
-            });
-        }, 5000);
-        return () => {
-            // timer.clearInterval();
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    // useEffect(() => {
+    //     const timer = setInterval(() => {
+    //         setIndex(prev => {
+    //             if (prev < players.length - 1) {
+    //                 return prev + 1;
+    //             } else {
+    //                 return -1
+    //             }
+    //         });
+    //     }, 5000);
+    //     return () => {
+    //         // timer.clearInterval();
+    //     }
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [])
     return (
         <div id="features" style={{ padding: '1rem', backgroundColor: '#f0f1f3' }}>
             <Grid container justify="center" spacing={4}>
@@ -46,11 +46,11 @@ const Features = () => {
                 </Grid>
                 {index === -1 &&
                     <Grid item xs={12} container justify="center" spacing={2} alignItems="center">
-                        {players.map(player =>
+                        {players.map((player, idx) =>
                             <Grid item>
                                 <Grid container justify="center" alignItems="space-around">
                                     <Grid item>
-                                        <img src={player.img} alt={<FormattedMessage id={player.title} />} width="64px" height="64px" />
+                                        <img src={player.img} alt={<FormattedMessage id={player.title} />} width="64px" height="64px" onClick={() => setIndex(idx)}/>
                                     </Grid>
                                     <Grid item xs={12}>
                                         <Typography align="center" variant="body1">
@@ -67,7 +67,7 @@ const Features = () => {
                         <Grid item xs={2}>
                             <Grid container justify="center" alignItems="space-around">
                                 <Grid item>
-                                    <img src={players[index].img} alt={<FormattedMessage id={players[index].title} />} width="64px" height="64px" />
+                                    <img src={players[index].img} alt={<FormattedMessage id={players[index].title} />} width="64px" height="64px" onClick={() => setIndex(-1)}/>
                                 </Grid>
                                 <Grid item xs={12}>
                                     <Typography align="center" variant="h6">
