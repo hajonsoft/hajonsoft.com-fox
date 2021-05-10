@@ -5,6 +5,8 @@ import moment from 'moment-timezone';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import lisbon from '../../images/lisbon.svg'
+
 const hosCountries = ['United States', 'Canada', 'United Kingdom', 'Denmark', 'Sweden', 'Norway', 'India', 'Pakistan', 'Australia',
     'South Africa', 'Niger', 'Mali', 'Egypt', 'Liberia', 'Côte d\'Ivoire',
     'Afghanistan', 'Azerbaijan', 'Bangladesh', 'Brunei', 'Cameroon', 'Djibouti', 'France', 'Germany',
@@ -62,7 +64,7 @@ const regionTooltip = (region) => {
 const Countries = () => {
 
     return (
-        <Container style={{ marginTop: '2rem' }}>
+        <Container style={{ marginTop: '2rem' , backgroundImage: `url(${lisbon})`}}>
             <Typography variant="body1" align="center" letterSpacing={20} gutterBottom>
                 <Box letterSpacing={5} fontSize={32}>
                     <FormattedMessage

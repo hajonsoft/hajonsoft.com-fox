@@ -6,10 +6,12 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { FormattedMessage } from 'react-intl';
 
+import footerBg from '../../images/footer_bg.svg'
+
 
 const Footer = () => {
     return (
-        <div>
+        <div style={{backgroundImage: `url(${footerBg})`}}>
             <Container>
                 <Grid container justify="center" spacing={2} alignItems="stretch">
                     <Grid item sm={12} md={3} lg container  justify="center" spacing={2}>
