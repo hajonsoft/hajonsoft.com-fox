@@ -30,8 +30,8 @@ const GetStarted = () => {
                             </Grid>
 
                             <Grid item>
-                                <Button variant="outlined" style={{ textTransform: 'none', color: 'white', border: '1px solid white', height: '3rem', width: '15rem' }} startIcon={<PlayCircleOutlineIcon fontSize="large"/>}>
-                                    <Typography variant="body1">
+                                <Button variant="outlined" style={{ textTransform: 'none', color: 'white', border: '1px solid white', height: '3rem', width: '15rem' }}  startIcon={<PlayCircleOutlineIcon fontSize="large"/>}>
+                                    <Typography variant="body1" align="center">
                                         <FormattedMessage id="get-started.see-platform" />
                                     </Typography>
                                 </Button>
