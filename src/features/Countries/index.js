@@ -119,11 +119,18 @@ const FlagItem = ({ region, variant = "awake", showName = true }) => {
                 </Tooltip>
             }
             {flagClicked &&
-                <div>{region?.meanTime.format("HH:mm a")}</div>
+                <div>{region?.meanTime.format("hh:mm a")}</div>
             }
         </Grid>
-        {  (showName  || flagClicked ) && <Grid item>
+        {  (showName && !flagClicked) && <Grid item>
             <Typography variant="caption">{region.country}</Typography>
+        </Grid>}
+        {  (flagClicked) && <Grid item>
+            <a href={`https://hajonsoft2020.firebaseapp.com/${region.country}/customers`} target="_blank" rel="noreferrer">
+                <Typography variant="caption">
+                    {region.country}
+                </Typography>
+            </a>
         </Grid>}
     </Grid>)
 }
