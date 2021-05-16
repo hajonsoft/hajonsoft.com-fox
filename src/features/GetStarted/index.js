@@ -13,7 +13,7 @@ const GetStarted = () => {
         <div style={{ background: 'linear-gradient(90deg, rgba(56,134,176,1) 0%, rgba(71,161,177,1) 100%)', marginTop: '1rem', color: 'white' }}>
             <Container>
                 <Grid container justify="center" spacing={6}>
-                    <Grid item container direction="column" justify="space-around" xs={6}>
+                    <Grid item container direction="column" justify="space-around" alignItems="center" md={6} sm={12}>
                         <Grid item>
                             <Typography variant="h4" gutterBottom><FormattedMessage id="get-started.more-than-software" /></Typography>
                         </Grid>

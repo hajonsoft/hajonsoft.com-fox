@@ -2,7 +2,7 @@ import { Box, Container, Grid, Tooltip, Typography } from '@material-ui/core';
 import WbSunnyOutlinedIcon from '@material-ui/icons/WbSunnyOutlined';
 import { countries, findFlagUrlByCountryName } from 'country-flags-svg';
 import moment from 'moment-timezone';
-import React from 'react';
+import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import lisbon from '../../images/lisbon.svg'
@@ -64,7 +64,7 @@ const regionTooltip = (region) => {
 const Countries = () => {
 
     return (
-        <Container style={{ marginTop: '2rem' , backgroundImage: `url(${lisbon})`}}>
+        <Container style={{ marginTop: '2rem', backgroundImage: `url(${lisbon})` }}>
             <Typography variant="body1" align="center" letterSpacing={20} gutterBottom>
                 <Box letterSpacing={5} fontSize={32}>
                     <FormattedMessage
@@ -94,6 +94,11 @@ const Countries = () => {
 
 
 const FlagItem = ({ region, variant = "awake", showName = true }) => {
+    const [flagClicked, setFlagClicked] = useState(false)
+
+    const handleFlagClick = () => {
+        setFlagClicked(true);
+    }
 
     const itemStyle = { width: '3rem', border: '1px solid #589aae' };
     switch (variant) {
@@ -108,11 +113,16 @@ const FlagItem = ({ region, variant = "awake", showName = true }) => {
     }
     return (<Grid container direction="column" justify="center" alignItems="center">
         <Grid item>
-            <Tooltip title={regionTooltip(region)}>
-                <img src={findFlagUrlByCountryName(region.country)} alt={region.country} style={itemStyle} />
-            </Tooltip>
+            {!flagClicked &&
+                <Tooltip title={regionTooltip(region)}>
+                    <img src={findFlagUrlByCountryName(region.country)} alt={region.country} style={itemStyle} onClick={handleFlagClick} />
+                </Tooltip>
+            }
+            {flagClicked &&
+                <div>{region?.meanTime.format("HH:mm a")}</div>
+            }
         </Grid>
-        {  showName && <Grid item>
+        {  (showName  || flagClicked ) && <Grid item>
             <Typography variant="caption">{region.country}</Typography>
         </Grid>}
     </Grid>)
