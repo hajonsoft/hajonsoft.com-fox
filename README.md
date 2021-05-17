@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This website is deployed to hajonsoft.com which is also called Owl. The repo is called hajonsoft.com-fox
+
+![image](https://user-images.githubusercontent.com/9623964/118429025-987a7580-b685-11eb-9c23-87ae253455ae.png)
+
 
 # Credits
 
