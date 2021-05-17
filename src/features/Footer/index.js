@@ -74,7 +74,7 @@ const Footer = () => {
             <div style={{ width: '100%', height: '4rem', backgroundColor: 'rgb(57,63,82)', marginTop: '1rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', color: 'white' }}>
                 <Grid container justify="space-between" spacing={2} alignItems="center">
                     <Grid item style={{marginLeft: '2rem'}}>
-                    2020 HAJonSoft
+                    © 2020 HAJonSoft Owl
                     <span style={{marginLeft: '2rem'}}>Privacy & Terms</span>
                     </Grid>
                     <Grid item>
