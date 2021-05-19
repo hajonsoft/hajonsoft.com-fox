@@ -69,7 +69,7 @@ const Header = ({ onLanguageChange, lang }) => {
                                 </Styled.HeaderButton>
                             </Grid>
                             <Grid item>
-                                <Styled.HeaderButton color="primary" onClick={() => handleBookmarkClick("contact-us")}>
+                                <Styled.HeaderButton color="primary" onClick={() => handleBookmarkClick("contact")}>
                                     <Typography variant="body1"><FormattedMessage id="header.contact-us" /></Typography>
                                 </Styled.HeaderButton>
                             </Grid>
