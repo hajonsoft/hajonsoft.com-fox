@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import Alert from "@material-ui/lab/Alert";
 import {
   TextField,
   Grid,
-  MenuItem,
   Typography,
   Button,
+  CircularProgress,
+  Snackbar,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useForm } from "react-hook-form";
@@ -34,19 +36,51 @@ const useStyles = makeStyles({
 
 const Contact = () => {
   const classes = useStyles();
+  const [loading, setLoading] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
-      alert(`This is the date we are sending to the server ${JSON.stringify(data)} `)
-  }
+    setLoading(true);
+    window.Pageclip.send(
+      "vTr2fTR8UlmJRkvbb2eKB2lKX1DZ6AOA",
+      "default",
+      data,
+      function (error, response) {
+        if (!!error) {
+          console.log(error);
+        }
 
+        if (!error && response) {
+          setShowAlert(true);
+          reset();
+        }
+
+        setLoading(false);
+      }
+    );
+  };
 
   return (
     <div id="contact" className={classes.root}>
+      <Snackbar
+        open={showAlert}
+        autoHideDuration={6000}
+        onClose={() => setShowAlert(false)}
+      >
+        <Alert
+          onClose={() => setShowAlert(false)}
+          variant="filled"
+          severity="success"
+        >
+          We've reserved your message. We'll get in touch soon
+        </Alert>
+      </Snackbar>
       <Typography variant="h3" className={classes.verticalMargin}>
         Ready to Contact Us?
       </Typography>
@@ -60,23 +94,17 @@ const Contact = () => {
           <Grid item sm={6} xs={12}>
             <TextField
               fullWidth
-              error={!!errors.firstName}
-              label="First Name"
+              error={!!errors.name}
+              label="Name"
               variant="outlined"
-              name="firstName"
-              helperText={!!errors.firstName && errors.firstName.message}
-              {...register("firstName", { required: { value: true, message: "First Name field cannot be empty"}  })}
-            />
-          </Grid>
-          <Grid item sm={6} xs={12}>
-            <TextField
-              fullWidth              
-              label="Last Name"
-              variant="outlined"
-              name="lastName"
-              helperText={!!errors.lastName && errors.lastName.message}
-              {...register("lastName", { required: { value: true, message: "Last Name field cannot be empty"}  })}
-              error={!!errors.lastName}
+              name="name"
+              helperText={!!errors.name && errors.name.message}
+              {...register("name", {
+                required: {
+                  value: true,
+                  message: "First Name field cannot be empty",
+                },
+              })}
             />
           </Grid>
           <Grid item sm={6} xs={12}>
@@ -89,34 +117,12 @@ const Contact = () => {
               variant="outlined"
               name="email"
               {...register("email", {
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: "invalid email address",
-                },
                 required: {
-                    value: true,
-                    message: "Email field cannot be empty"
-                } ,
+                  value: true,
+                  message: "Email field cannot be empty",
+                },
               })}
             />
-          </Grid>
-
-          <Grid item sm={6} xs={12}>
-            <TextField
-              label="State"
-              select
-              fullWidth
-              name="state"
-              {...register("state", { required: { value: true, message: "State field cannot be empty"}  })}
-              error={!!errors.state}
-              helperText={!!errors.state && errors.state.message}
-            >
-              <MenuItem value="">Select State</MenuItem>
-              <MenuItem value="1">State 1</MenuItem>
-              <MenuItem value="2">State 2</MenuItem>
-              <MenuItem value="3">State 3</MenuItem>
-              <MenuItem value="4">State 4</MenuItem>
-            </TextField>
           </Grid>
 
           <Grid item sm={6} xs={12}>
@@ -126,24 +132,32 @@ const Contact = () => {
               variant="outlined"
               name="phoneNumber"
               type="tel"
-              {...register("phoneNumber")}
+              {...register("phoneNumber", {
+                required: {
+                  value: true,
+                  message: "Phone number field cannot be empty",
+                },
+              })}
             />
           </Grid>
-
           <Grid item sm={6} xs={12}>
             <TextField
-              label="Role"
-              select
               fullWidth
-              name="role"
-              {...register("role")}
-            >
-              <MenuItem value="default">I am a...</MenuItem>
-              <MenuItem value="1">Role 1</MenuItem>
-              <MenuItem value="2">Role 2</MenuItem>
-              <MenuItem value="3">Role 3</MenuItem>
-              <MenuItem value="4">Role 4</MenuItem>
-            </TextField>
+              label="message"
+              name="message"
+              variant="outlined"
+              placeholder="Your Message"
+              error={!!errors.message}
+              helperText={!!errors.message && errors.message.message}
+              {...register("message", {
+                required: {
+                  value: true,
+                  message: "Message field cannot be empty",
+                },
+              })}
+              multiline
+              rows={5}
+            />
           </Grid>
 
           <Grid
@@ -159,8 +173,10 @@ const Contact = () => {
               size="large"
               color="primary"
               type="submit"
+              disabled={Object.keys(errors).length !== 0 || loading}
             >
-              Submit
+              {loading && <CircularProgress size={24} />}
+              {!loading && "Submit"}
             </Button>
           </Grid>
         </Grid>
