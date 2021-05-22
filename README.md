@@ -11,4 +11,6 @@ Flags https://www.npmjs.com/package/country-flags-svg
 
 Geometric patterns https://www.heropatterns.com/  download svg then backgroundImage=`url(${bg})`. change color, geometry in svg using style="background-color: green", fill and viewport. background gradients can be achieved with defs
 
+Babatunde https://babatunde50.github.io/portfolio
+
 
