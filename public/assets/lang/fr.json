@@ -65,5 +65,13 @@
 	"sign-up": "S'inscrire",
 	"umrah": "Omra",
 	"usd": "USD",
-	"web": "Web"
+	"web": "Web",
+	"contact.ready-to-contct-us": "Prêt à nous contacter?",
+	"contact.send-message": "Envoyer le message",
+	"contact-send-us-message-and-we-will-reply": "Envoyez-nous un message et nous vous répondrons dans les plus brefs délais",
+	"contact.name": "Nom",
+	"contact.email": "Email",
+	"contact.phone-number": "Numéro de téléphone",
+	"contact.message": "Message",
+	"contact.we-received-your-message": "Nous avons reçu votre message. Nous vous recontacterons bientôt!"
 }

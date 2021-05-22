@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Alert from "@material-ui/lab/Alert";
+import trans from '../../util/trans';
 import {
   TextField,
   Grid,
@@ -78,15 +79,15 @@ const Contact = () => {
           variant="filled"
           severity="success"
         >
-          We've reserved your message. We'll get in touch soon
+          {trans('contact.we-received-your-message')}
         </Alert>
       </Snackbar>
-      <Typography variant="h3" className={classes.verticalMargin}>
-        Ready to Contact Us?
+      <Typography variant="h5" className={classes.verticalMargin}>
+        {trans('contact.ready-to-contct-us')}
       </Typography>
 
       <Typography className={classes.verticalMargin}>
-        Send us a message and we'll reply you in a jiffy
+        {trans('contact-send-us-message-and-we-will-reply')}
       </Typography>
 
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -95,7 +96,8 @@ const Contact = () => {
             <TextField
               fullWidth
               error={!!errors.name}
-              label="Name"
+              label={trans('contact.name')}
+              required
               variant="outlined"
               name="name"
               helperText={!!errors.name && errors.name.message}
@@ -112,7 +114,8 @@ const Contact = () => {
               fullWidth
               error={!!errors.email}
               helperText={!!errors.email && errors.email.message}
-              label="Email"
+              label={trans('contact.email')}
+              required
               type="email"
               variant="outlined"
               name="email"
@@ -128,7 +131,7 @@ const Contact = () => {
           <Grid item sm={6} xs={12}>
             <TextField
               fullWidth
-              label="Phone Number"
+              label={trans('contact.phone-number')}
               variant="outlined"
               name="phoneNumber"
               type="tel"
@@ -143,7 +146,8 @@ const Contact = () => {
           <Grid item sm={6} xs={12}>
             <TextField
               fullWidth
-              label="message"
+              label={trans('contact.message')}
+              required
               name="message"
               variant="outlined"
               placeholder="Your Message"
@@ -176,7 +180,7 @@ const Contact = () => {
               disabled={Object.keys(errors).length !== 0 || loading}
             >
               {loading && <CircularProgress size={24} />}
-              {!loading && "Submit"}
+              {!loading && trans('contact.send-message')}
             </Button>
           </Grid>
         </Grid>
