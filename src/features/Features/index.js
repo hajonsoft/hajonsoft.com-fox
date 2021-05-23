@@ -7,8 +7,10 @@ import gma from '../../images/gabul-ya-haj.png';
 import mohu from '../../images/ministry-of-hajj-and-umrah.jpg';
 import twf from '../../images/tawaf.png';
 import wtu from '../../images/way-to-umrah.png';
+import sell from '../../images/sell.png';
 
 const players = [
+    { title: 'features.sell', img: sell, description: 'features.sell-description' },
     { title: 'features.quality-passport-reader', img: passportReader, description: 'features.quality-passport-reader-description' },
     { title: 'features.ehaj-integration', img: mohu, description: 'features.ehaj-integration-description' },
     { title: 'features.wtu-sender', img: wtu, description: 'features.wtu-sender-description' },
