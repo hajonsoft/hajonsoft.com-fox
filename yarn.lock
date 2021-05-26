@@ -9402,10 +9402,10 @@ react-error-overlay@^6.0.9:
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.9.tgz"
   integrity sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==
 
-react-hook-form@7.6.4:
-  version "7.6.4"
-  resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.6.4.tgz"
-  integrity sha512-eKLRWkZcUKGYKMnKvN/VwPVc8t3pjfs69UEp/DJNS2ccGk18UKFq/XE049W+ye144aUj+1++NgUjs2/yMNuBWw==
+react-hook-form@7.6.6:
+  version "7.6.6"
+  resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.6.6.tgz"
+  integrity sha512-vmvrp/foLeWV1+g0IADvXc5xoJj8UMBIlN8PqgmbCD70oGFcNkQPc2FGfqOoJr6oL0EHkCpLizXWDqYOz/mvjw==
 
 react-intl@5.18.1:
   version "5.18.1"
