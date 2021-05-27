@@ -7,19 +7,20 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import { FormattedMessage } from 'react-intl';
 
 import footerBg from '../../images/footer_bg.svg'
+import owl from '../../images/owl.svg'
 
 
 const Footer = () => {
     return (
-        <div style={{backgroundImage: `url(${footerBg})`}}>
+        <div style={{ backgroundImage: `url(${footerBg})` }}>
             <Container>
                 <Grid container justify="center" spacing={2} alignItems="stretch">
-                    <Grid item sm={12} md={3} lg container  justify="center" spacing={2}>
+                    <Grid item sm={12} md={3} lg container justify="center" spacing={2}>
                         <Grid item sm={12} md={12} lg={12}>
                             <img src={logo} alt="logo" width="128" />
                         </Grid>
                         <Grid item sm={12} md={12} lg={12}>
-                            <Typography  variant="body2">
+                            <Typography variant="body2">
                                 hajonsoft@gmail.com
                             </Typography>
                         </Grid>
@@ -73,9 +74,19 @@ const Footer = () => {
             </Container>
             <div style={{ width: '100%', height: '4rem', backgroundColor: 'rgb(57,63,82)', marginTop: '1rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', color: 'white' }}>
                 <Grid container justify="space-between" spacing={2} alignItems="center">
-                    <Grid item style={{marginLeft: '2rem'}}>
-                    © 2020 HAJonSoft Owl
-                    <span style={{marginLeft: '2rem'}}>Privacy & Terms</span>
+                    <Grid item style={{ marginLeft: '2rem' }}>
+                        <Grid container spacing={2} alignItems="center">
+                            <Grid item>
+                                © 2020 HAJonSoft Owl
+                            </Grid>
+                            <Grid item>
+                                <img src={owl} alt="hajonsoft owl" width="30" height="30"></img>
+                            </Grid>
+                            <Grid item>
+                                Privacy & Terms
+                            </Grid>
+                        </Grid>
+
                     </Grid>
                     <Grid item>
                     </Grid>
@@ -85,7 +96,7 @@ const Footer = () => {
                         <LinkedInIcon />
                         <TwitterIcon />
                     </Grid>
-                    <Grid item style={{marginRight: '1rem'}}><Button variant="contained" color="primary" ><FormattedMessage id="help" /></Button></Grid>
+                    <Grid item style={{ marginRight: '1rem' }}><Button variant="contained" color="primary" ><FormattedMessage id="help" /></Button></Grid>
                 </Grid>
             </div>
         </div>

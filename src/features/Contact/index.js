@@ -15,9 +15,7 @@ import { useForm } from "react-hook-form";
 const useStyles = makeStyles({
   root: {
     padding: "2rem",
-    background:
-      "linear-gradient(90deg, rgb(56, 134, 176) 0%, rgb(71, 161, 177) 100%)",
-    color: "white",
+    backgroundColor: '#F0F1F3',
     textAlign: "center",
     boxSizing: "border-box",
   },
@@ -25,7 +23,6 @@ const useStyles = makeStyles({
     margin: "1rem 0px",
   },
   inputContainer: {
-    background: "white",
     padding: "1rem",
     borderRadius: "4px",
     marginTop: "1rem",

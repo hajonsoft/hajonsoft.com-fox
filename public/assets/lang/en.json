@@ -71,9 +71,9 @@
   "contact.ready-to-contct-us": "Ready to Contact Us?",
   "contact.send-message": "Send Message",
   "contact-send-us-message-and-we-will-reply": "Send us a message and we'll reply you in a jiffy",
-  "contact.name": "\"Name\"",
-  "contact.email": "\"Email\"",
-  "contact.phone-number": "\"Phone Number\"",
-  "contact.message": "\"Message\"",
+  "contact.name": "Name",
+  "contact.email": "Email",
+  "contact.phone-number": "Phone Number",
+  "contact.message": "Message",
   "contact.we-received-your-message": "We received your message. We'll get in touch soon!"
 }
