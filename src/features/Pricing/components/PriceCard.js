@@ -1,10 +1,12 @@
 import { Button, Card, CardActions, CardContent, CardHeader, Divider, Grid, Typography } from '@material-ui/core'
 import CheckIcon from '@material-ui/icons/Check';
 import trans from '../../../util/trans'
-import React from 'react'
+import React, { useState } from 'react'
 import { FormattedNumber } from 'react-intl';
+import Zoom from '@material-ui/core/Zoom';
 
-const PriceCard = ({ name, price, subHeader, inclusions, paymentTerm, background }) => {
+const PriceCard = ({ name, price, subHeader, inclusions, paymentTerm, background, learnMore }) => {
+    const [learnMoreOn, setLearnMoreOn] = useState(false)
     return (
         <Card raised>
             <CardHeader style={{ backgroundColor: background }}
@@ -26,19 +28,33 @@ const PriceCard = ({ name, price, subHeader, inclusions, paymentTerm, background
                     </Grid>
                 </Grid>
                 <Divider />
-                <Typography variant="body1" gutterBottom style={{ marginTop: '1rem' }}>
-                    {trans('includes')}
-                </Typography>
-                {inclusions && inclusions.map(i => <Grid container spacing={2} alignItems="center" style={{ marginLeft: '2rem' }}>
-                    <Grid item>
-                        <CheckIcon style={{ color: '#85C24B' }}></CheckIcon>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="body2">
-                            {trans(i)}
+                {learnMoreOn &&
+                    <Zoom in={true} style={{height: '8rem'}}>
+                        <Typography>
+                            {learnMore}
                         </Typography>
-                    </Grid>
-                </Grid>)
+                    </Zoom>
+                }
+                {!learnMoreOn &&
+                    <Zoom in={true}>
+                        <div style={{height: '8rem'}}>
+                            <Typography variant="body1" gutterBottom style={{ paddingTop: '1rem' }}>
+                                {trans('includes')}
+                            </Typography>
+                            {inclusions && inclusions.map(i =>
+                                <Grid container spacing={2} alignItems="center" style={{ marginLeft: '2rem' }}>
+                                    <Grid item>
+                                        <CheckIcon style={{ color: '#85C24B' }}></CheckIcon>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="body2">
+                                            {trans(i)}
+                                        </Typography>
+                                    </Grid>
+                                </Grid>)
+                            }
+                        </div>
+                    </Zoom>
                 }
             </CardContent>
 
@@ -48,7 +64,7 @@ const PriceCard = ({ name, price, subHeader, inclusions, paymentTerm, background
                         <Button>{trans('pricing.buy-now')}</Button>
                     </Grid>
                     <Grid item>
-                        <Button>{trans('pricing.learn-more')}</Button>
+                        <Button onClick={() => setLearnMoreOn(prev => (!prev))}>{trans('pricing.learn-more')}</Button>
                     </Grid>
                 </Grid>
             </CardActions>
