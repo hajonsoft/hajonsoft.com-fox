@@ -5,6 +5,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { FormattedMessage } from 'react-intl';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 import footerBg from '../../images/footer_bg.svg'
 import owl from '../../images/owl.svg'
@@ -96,7 +97,10 @@ const Footer = () => {
                         <LinkedInIcon />
                         <TwitterIcon />
                     </Grid>
-                    <Grid item style={{ marginRight: '1rem' }}><Button variant="contained" color="primary" ><FormattedMessage id="help" /></Button></Grid>
+                    <Grid item style={{ marginRight: '1rem' }}>
+                        <Button variant="contained" color="primary" startIcon={<HelpOutlineIcon />} style={{color: 'white', textTransform: 'none', borderRadius: '16px'}}>
+                            <FormattedMessage id="help" />
+                        </Button></Grid>
                 </Grid>
             </div>
         </div>
