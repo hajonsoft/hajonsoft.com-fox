@@ -4,40 +4,40 @@ import PriceCard from './components/PriceCard'
 
 const priceCards = [
     {
-        name: 'basic',
+        name: 'pricing.basic',
         price: 200,
-        paymentTerm:"one-time",
-        subHeader: "basic-subheader",
+        paymentTerm:"pricing.one-time",
+        subHeader: "pricing.basic-subheader",
         inclusions: ['pricing.installation', 'pricing.video-training', 'pricing.one-support-hour'],
         background: "#57A3D0",
-        learnMore: 'basic-learn-more'
+        learnMore: 'pricing.basic-learn-more'
     },
     {
         name: 'pricing.season-support-umrah',
         price: 150,
-        paymentTerm:"per-umrah-season",
+        paymentTerm:"pricing.per-umrah-season",
         subHeader: "umrah",
         inclusions: ['pricing.season-support', 'pricing.100-visa-proxy', 'pricing.15-support-calls'],
         background: "#58D09C",
-        learnMore: 'season-support-umrah-learn-more'
+        learnMore: 'pricing.season-support-umrah-learn-more'
     },
     {
         name: 'pricing.season-support-haj',
         price: 400,
-        paymentTerm:"per-haj-season",
-        subHeader: "haj",
+        paymentTerm:"pricing.per-haj-season",
+        subHeader: "pricing.haj",
         inclusions: ['pricing.season-support', 'pricing.100-visa-proxy', 'pricing.15-support-calls'],
         background: "#58D068",
-        learnMore: 'season-support-haj-learn-more'
+        learnMore: 'pricing.season-support-haj-learn-more'
     },
     {
-        name: 'lifetime',
+        name: 'pricing.lifetime',
         price: 2800,
-        paymentTerm:"per-15-years",
-        subHeader: "haj-umrah",
+        paymentTerm:"pricing.per-15-years",
+        subHeader: "pricing.haj-umrah",
         inclusions: ['pricing.15-years-support', 'pricing.unlimited-visa-proxy', 'pricing.unlimited-support-calls'],
         background: "#E0E4E8",
-        learnMore: 'lifetime-learn-more'
+        learnMore: 'pricing.lifetime-learn-more'
     }
 ]
 
