@@ -22,6 +22,7 @@ const PriceCard = ({
   paymentTerm,
   background,
   learnMore,
+  paymentLink,
 }) => {
   const [learnMoreOn, setLearnMoreOn] = useState(false);
   return (
@@ -41,7 +42,7 @@ const PriceCard = ({
           </Grid>
           <Grid item>{trans(paymentTerm)}</Grid>
         </Grid>
-        <Divider style={{marginBottom: '1rem'}}/>
+        <Divider style={{ marginBottom: "1rem" }} />
         {learnMoreOn && (
           <Zoom in={true}>
             <div style={{ height: "8rem" }}>
@@ -51,11 +52,8 @@ const PriceCard = ({
         )}
         {!learnMoreOn && (
           <Zoom in={true}>
-            <div style={{ height: "8rem"  }}>
-              <Typography
-                variant="body1"
-                gutterBottom
-              >
+            <div style={{ height: "8rem" }}>
+              <Typography variant="body1" gutterBottom>
                 {trans("includes")}
               </Typography>
               {inclusions &&
@@ -82,7 +80,13 @@ const PriceCard = ({
       <CardActions>
         <Grid container justify="space-between">
           <Grid item>
-            <Button>{trans("pricing.buy-now")}</Button>
+            <Button
+              onClick={() => {
+                window.location.href = paymentLink;
+              }}
+            >
+              {trans("pricing.buy-now")}
+            </Button>
           </Grid>
           <Grid item>
             <Button onClick={() => setLearnMoreOn((prev) => !prev)}>

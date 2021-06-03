@@ -10,7 +10,8 @@ const priceCards = [
         subHeader: "pricing.basic-subheader",
         inclusions: ['pricing.installation', 'pricing.video-training', 'pricing.one-support-hour'],
         background: "#57A3D0",
-        learnMore: 'pricing.basic-learn-more'
+        learnMore: 'pricing.basic-learn-more',
+        paymentLink: "https://secure.2checkout.com/order/checkout.php?PRODS=35987823&QTY=1&CART=1&CARD=1"
     },
     {
         name: 'pricing.season-support-umrah',
@@ -19,7 +20,8 @@ const priceCards = [
         subHeader: "umrah",
         inclusions: ['pricing.season-support', 'pricing.100-visa-proxy', 'pricing.15-support-calls'],
         background: "#58D09C",
-        learnMore: 'pricing.season-support-umrah-learn-more'
+        learnMore: 'pricing.season-support-umrah-learn-more',
+        paymentLink: "https://secure.2checkout.com/order/checkout.php?PRODS=35987918&QTY=1&CART=1&CARD=1"
     },
     {
         name: 'pricing.season-support-haj',
@@ -28,7 +30,8 @@ const priceCards = [
         subHeader: "pricing.haj",
         inclusions: ['pricing.season-support', 'pricing.100-visa-proxy', 'pricing.15-support-calls'],
         background: "#58D068",
-        learnMore: 'pricing.season-support-haj-learn-more'
+        learnMore: 'pricing.season-support-haj-learn-more',
+        paymentLink: "https://secure.2checkout.com/order/checkout.php?PRODS=35987928&QTY=1&CART=1&CARD=1"
     },
     {
         name: 'pricing.lifetime',
@@ -37,7 +40,8 @@ const priceCards = [
         subHeader: "pricing.haj-umrah",
         inclusions: ['pricing.15-years-support', 'pricing.unlimited-visa-proxy', 'pricing.unlimited-support-calls'],
         background: "#E0E4E8",
-        learnMore: 'pricing.lifetime-learn-more'
+        learnMore: 'pricing.lifetime-learn-more',
+        paymentLink: "https://secure.2checkout.com/order/checkout.php?PRODS=35987945&QTY=1&CART=1&CARD=1"
     }
 ]
 
@@ -55,6 +59,7 @@ const Pricing = () => {
                         inclusions={priceCard.inclusions}
                         background={priceCard.background}
                         learnMore={priceCard.learnMore}
+                        paymentLink={priceCard.paymentLink}
                         />
                     </Grid>)
                 }
