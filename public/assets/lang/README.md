@@ -12,3 +12,8 @@ zsh trans
 ```
 
 If you can translate a file or review the translation manually, please watch this video
+
+https://share.vidyard.com/watch/cQjUiW7aBaXXpaUFwqajf8?
+
+Using babel Edit
+

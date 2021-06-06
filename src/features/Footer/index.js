@@ -9,6 +9,9 @@ import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 import footerBg from '../../images/footer_bg.svg'
 import owl from '../../images/owl.svg'
+import {colors} from '../../util/colors'
+
+const facebookUrl = 'https://www.facebook.com/Hajonsoft-108504544787000';
 
 
 const Footer = () => {
@@ -93,12 +96,14 @@ const Footer = () => {
                     </Grid>
                     <Grid item></Grid>
                     <Grid item>
-                        <FacebookIcon />
+                        <a href={facebookUrl} target="_blank" alt="facebook" rel="noreferrer">
+                            <FacebookIcon style={{color: colors.white}}/>
+                        </a>
                         <LinkedInIcon />
                         <TwitterIcon />
                     </Grid>
                     <Grid item style={{ marginRight: '1rem' }}>
-                        <Button variant="contained" color="primary" startIcon={<HelpOutlineIcon />} style={{color: 'white', textTransform: 'none', borderRadius: '16px'}}>
+                        <Button variant="contained" color="primary" startIcon={<HelpOutlineIcon />} style={{ color: 'white', textTransform: 'none', borderRadius: '16px' }}>
                             <FormattedMessage id="help" />
                         </Button></Grid>
                 </Grid>
