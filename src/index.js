@@ -19,3 +19,7 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+// merchant code - 251057205497
+// secret key - %m1u=LksqBgKRowr?p)v

@@ -1,4 +1,4 @@
-import { createMuiTheme, Grid, ThemeProvider, Button } from '@material-ui/core'
+import { createMuiTheme, Grid, ThemeProvider, Button, makeStyles } from '@material-ui/core'
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { useState } from 'react'
 import { IntlProvider } from 'react-intl'
@@ -49,10 +49,17 @@ onscroll = function () {
   }
 };
 
+const useStyles = makeStyles({
+  containerStyle: {
+    minHeight: "412px"
+  }
+});
+
 function App() {
 
   const [language, setLanguage] = useState(localStorage.getItem('langOverride') || navigatorLanguage)
   const [dir, setDir] = useState(localStorage.getItem('langOverride') === "ar" ? "rtl" : "ltr")
+  const classes = useStyles()
 
   const handleLanguageChange = (lang) => {
     if (lang === "ar" && dir !== "rtl") {
@@ -83,7 +90,7 @@ function App() {
             <Grid item>
               <Features />
             </Grid>
-            <Grid item>
+            <Grid item className={classes.containerStyle}>
               <Pricing />
             </Grid>
             <Grid item>
