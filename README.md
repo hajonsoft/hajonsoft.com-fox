@@ -14,6 +14,10 @@ To learn more about hajonsoft repos please watch this video https://share.vidyar
 For a code walkthrough please watch this video https://share.vidyard.com/watch/mR9jNoVg4kPVnbSZ4Fy9mP? 
 
 
+## TalentLMS
+
+onBoarding course https://hajonsoft.talentlms.com/shared/start/key:LZSIDNHR
+
 ## Credits
 
 Flags https://www.npmjs.com/package/country-flags-svg
