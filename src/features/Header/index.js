@@ -101,16 +101,6 @@ const Header = ({ onLanguageChange, lang }) => {
                 <Grid item>
                   <Styled.HeaderButton
                     color="primary"
-                    onClick={() => handleBookmarkClick("downloads")}
-                  >
-                    <Typography variant="body1">
-                      <FormattedMessage id="header.downloads" />
-                    </Typography>
-                  </Styled.HeaderButton>
-                </Grid>
-                <Grid item>
-                  <Styled.HeaderButton
-                    color="primary"
                     onClick={() => handleBookmarkClick("contact")}
                   >
                     <Typography variant="body1">
