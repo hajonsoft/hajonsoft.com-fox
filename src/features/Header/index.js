@@ -116,6 +116,31 @@ const Header = ({ onLanguageChange, lang }) => {
               <MenuItem value="fr">
                 <Typography variant="body1">Française</Typography>
               </MenuItem>
+              <MenuItem value="de">
+                <Typography variant="body1">Deutsch</Typography>
+              </MenuItem>
+              <MenuItem value="it">
+                <Typography variant="body1">	Italiano</Typography>
+              </MenuItem>
+              <MenuItem value="ja">
+                <Typography variant="body1">日本語 (にほんご)</Typography>
+              </MenuItem>
+              <MenuItem value="zh">
+                <Typography variant="body1">中文 (Zhōngwén), 汉语, 漢語</Typography>
+              </MenuItem>
+              <MenuItem value="th">
+                <Typography variant="body1">ไทย</Typography>
+              </MenuItem>
+              <MenuItem value="ms">
+                <Typography variant="body1">Bahasa Melayu</Typography>
+              </MenuItem>
+              <MenuItem value="ru">
+                <Typography variant="body1">русский</Typography>
+              </MenuItem>
+              <MenuItem value="hi">
+                <Typography variant="body1">हिन्दी, हिंदी</Typography>
+              </MenuItem>
+
             </Select>
           </Grid>
         </Grid>
