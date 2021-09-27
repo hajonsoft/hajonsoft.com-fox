@@ -45,7 +45,10 @@ const messages = {
   "th": messages_th,
   "zh": messages_zh,
 }
-const navigatorLanguage = navigator.language.split(/[-_]/)[0];
+let navigatorLanguage = navigator.language.split(/[-_]/)[0];
+if (!messages[navigatorLanguage]) {
+  navigatorLanguage = "en";
+}
 const theme = createMuiTheme({
   direction: "ltr",
 });
