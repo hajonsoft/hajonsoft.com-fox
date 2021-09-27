@@ -17,6 +17,15 @@ import messages_ar from './lang/ar.json'
 // import locale_fr from 'react-intl/locale-data/fr';
 import messages_en from './lang/en.json'
 import messages_fr from './lang/fr.json'
+import messages_de from './lang/de.json'
+import messages_hi from './lang/hi.json'
+import messages_it from './lang/it.json'
+import messages_ja from './lang/ja.json'
+import messages_ms from './lang/ms.json'
+import messages_ru from './lang/ru.json'
+import messages_th from './lang/th.json'
+import messages_zh from './lang/zh.json'
+
 
 
 
@@ -26,7 +35,15 @@ import messages_fr from './lang/fr.json'
 const messages = {
   "fr": messages_fr,
   "ar": messages_ar,
-  "en": messages_en
+  "en": messages_en,
+  "de": messages_de,
+  "hi": messages_hi,
+  "it": messages_it,
+  "ja": messages_ja,
+  "ms": messages_ms,
+  "ru": messages_ru,
+  "th": messages_th,
+  "zh": messages_zh,
 }
 const navigatorLanguage = navigator.language.split(/[-_]/)[0];
 const theme = createMuiTheme({
