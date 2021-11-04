@@ -44,10 +44,6 @@ const players = [
         url: "https://s3.eu-west-1.amazonaws.com/hajonsoft.com/downloads/CR100.zip",
         name: "CR100",
       },
-      {
-        url: "https://s3.eu-west-1.amazonaws.com/hajonsoft.com/downloads/CR100.zip",
-        name: "CR100",
-      },
     ],
   },
   {
