@@ -101,15 +101,13 @@ const Header = ({ onLanguageChange, lang }) => {
                 <Grid item>
                   <Styled.HeaderButton
                     color="primary"
-                    onClick={() => handleBookmarkClick("kea")}
+                    onClick={() =>
+                      (window.location.href =
+                        "https://hajonsoft-staging.web.app")
+                    }
                   >
                     <Typography variant="body1">
-                      <a
-                        href="https://hajonsoft-staging.web.app"
-                        style={{ textDecoration: "none" }}
-                      >
-                        <FormattedMessage id="header.kea" />
-                      </a>
+                      <FormattedMessage id="header.kea" />
                     </Typography>
                   </Styled.HeaderButton>
                 </Grid>
