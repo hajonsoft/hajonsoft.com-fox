@@ -98,6 +98,21 @@ const Header = ({ onLanguageChange, lang }) => {
                     </Typography>
                   </Styled.HeaderButton>
                 </Grid>
+                <Grid item>
+                  <Styled.HeaderButton
+                    color="primary"
+                    onClick={() => handleBookmarkClick("kea")}
+                  >
+                    <Typography variant="body1">
+                      <a
+                        href="https://hajonsoft-staging.web.app"
+                        style={{ textDecoration: "none" }}
+                      >
+                        <FormattedMessage id="header.kea" />
+                      </a>
+                    </Typography>
+                  </Styled.HeaderButton>
+                </Grid>
               </Grid>
             )}
           </Grid>
@@ -120,13 +135,15 @@ const Header = ({ onLanguageChange, lang }) => {
                 <Typography variant="body1">Deutsch</Typography>
               </MenuItem>
               <MenuItem value="it">
-                <Typography variant="body1">	Italiano</Typography>
+                <Typography variant="body1"> Italiano</Typography>
               </MenuItem>
               <MenuItem value="ja">
                 <Typography variant="body1">日本語 (にほんご)</Typography>
               </MenuItem>
               <MenuItem value="zh">
-                <Typography variant="body1">中文 (Zhōngwén), 汉语, 漢語</Typography>
+                <Typography variant="body1">
+                  中文 (Zhōngwén), 汉语, 漢語
+                </Typography>
               </MenuItem>
               <MenuItem value="th">
                 <Typography variant="body1">ไทย</Typography>
@@ -140,7 +157,6 @@ const Header = ({ onLanguageChange, lang }) => {
               <MenuItem value="hi">
                 <Typography variant="body1">हिन्दी, हिंदी</Typography>
               </MenuItem>
-
             </Select>
           </Grid>
         </Grid>
