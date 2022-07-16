@@ -103,7 +103,7 @@ const Header = ({ onLanguageChange, lang }) => {
                     color="primary"
                     onClick={() =>
                       (window.location.href =
-                        "https://hajonsoft-staging.web.app")
+                        "https://hajonsoft-kea.web.app")
                     }
                   >
                     <Typography variant="body1">
