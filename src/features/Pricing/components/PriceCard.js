@@ -62,13 +62,16 @@ const PriceCard = ({
                     container
                     spacing={2}
                     alignItems="center"
-                    style={{ marginLeft: "2rem" }}
+                    style={{ marginLeft: "0" }}
                   >
                     <Grid item>
                       <CheckIcon style={{ color: "#85C24B" }}></CheckIcon>
                     </Grid>
                     <Grid item>
-                      <Typography variant="body2">{trans(i)}</Typography>
+                      <Typography variant="body2">
+                        {console.log(i)}
+                        {typeof i === "string" ? trans(i) : trans(i[0], i[1])}
+                      </Typography>
                     </Grid>
                   </Grid>
                 ))}
@@ -78,19 +81,16 @@ const PriceCard = ({
       </CardContent>
 
       <CardActions>
-        <Grid container justify="space-between">
+        <Grid container justify="space-around">
           <Grid item>
             <Button
+              variant="contained"
+              color="primary"
               onClick={() => {
                 window.location.href = paymentLink;
               }}
             >
               {trans("pricing.buy-now")}
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button onClick={() => setLearnMoreOn((prev) => !prev)}>
-              {trans("pricing.learn-more")}
             </Button>
           </Grid>
         </Grid>
