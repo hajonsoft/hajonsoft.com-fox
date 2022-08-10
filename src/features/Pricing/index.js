@@ -9,9 +9,9 @@ const Pricing = () => {
   const priceCards = [
     {
       name: "pricing.plan-lifetime",
-      price: 2800,
+      price: null,
       paymentTerm: "pricing.one-time",
-      subHeader: "pricing.unlimited",
+      subHeader: "pricing.one-time-payment-volume-pricing",
       inclusions: [
         [
           "pricing.total-pax",
@@ -31,37 +31,36 @@ const Pricing = () => {
         ],
         "pricing.dedicated-server",
       ],
-      background: "#4ccdbe",
+      background: "#E0E4E8",
       learnMore: "pricing.lifetime-learn-more",
-      paymentLink: "https://buy.stripe.com/00g2bI2Ww98qcnK3cm",
     },
     {
       name: "pricing.plan-pro",
-      price: 2000,
+      price: 1850,
       paymentTerm: "pricing.per-season",
       subHeader: "pricing.up-to-10k-pax",
       inclusions: [
-        ["pricing.total-pax", { total: "10000" }],
+        ["pricing.total-pax", { total: "Unlimited" }],
         ["pricing.doc-scans", { total: "30000" }],
         ["pricing.premium-support", { total: "500" }],
       ],
-      background: "#E0E4E8",
+      background: "#4ccdbe",
       learnMore: "pricing.basic-learn-more",
-      paymentLink: "https://buy.stripe.com/bIY7w20Oo98qcnK3cl",
+      paymentLink: "https://buy.stripe.com/eVa8A61SsfwO3Re14h",
     },
     {
       name: "pricing.plan-basic",
-      price: 600,
+      price: 950,
       paymentTerm: "pricing.per-season",
       subHeader: "pricing.up-to-1k-pax",
       inclusions: [
-        ["pricing.total-pax", { total: "1000" }],
-        ["pricing.doc-scans", { total: "2000" }],
+        ["pricing.total-pax", { total: "Unlimited" }],
+        ["pricing.doc-scans", { total: "10000" }],
         ["pricing.premium-support", { total: "100" }],
       ],
       background: "#E0E4E8",
       learnMore: "pricing.season-support-umrah-learn-more",
-      paymentLink: "https://buy.stripe.com/aEU8A62WwckC9by6ow",
+      paymentLink: "https://buy.stripe.com/8wMdUqeFe0BUdrO14g",
     },
     {
       name: "pricing.plan-free",
@@ -69,7 +68,7 @@ const Pricing = () => {
       paymentTerm: "pricing.per-season",
       subHeader: "pricing.up-to-100-pax",
       inclusions: [
-        ["pricing.total-pax", { total: "100" }],
+        ["pricing.total-pax", { total: "Unlimited" }],
         ["pricing.doc-scans", { total: "100" }],
       ],
       background: "#E0E4E8",

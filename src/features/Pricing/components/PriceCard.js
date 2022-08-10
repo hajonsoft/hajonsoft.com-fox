@@ -32,15 +32,25 @@ const PriceCard = ({
         subheader={trans(subHeader)}
       />
       <CardContent>
-        <Grid container spacing={1} justify="center" alignItems="flex-end">
-          <Grid item>{trans("usd")}</Grid>
-          <Grid item>
-            <Typography variant="h4" align="center" gutterBottom>
-              <FormattedNumber value={price}></FormattedNumber>
-            </Typography>
+        {price === null ? (
+          <Grid container spacing={1} justify="center" alignItems="flex-end">
+            <Grid item>
+              <Typography variant="h4" align="center" gutterBottom>
+                Request a quote
+              </Typography>
+            </Grid>
           </Grid>
-          <Grid item>{trans(paymentTerm)}</Grid>
-        </Grid>
+        ) : (
+          <Grid container spacing={1} justify="center" alignItems="flex-end">
+            <Grid item>{trans("usd")}</Grid>
+            <Grid item>
+              <Typography variant="h4" align="center" gutterBottom>
+                <FormattedNumber value={price}></FormattedNumber>
+              </Typography>
+            </Grid>
+            <Grid item>{trans(paymentTerm)}</Grid>
+          </Grid>
+        )}
         <Divider style={{ marginBottom: "1rem" }} />
         <Zoom in={true}>
           <div style={{ height: "8rem" }}>
@@ -73,15 +83,33 @@ const PriceCard = ({
       <CardActions>
         <Grid container justify="space-around">
           <Grid item>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => {
-                window.location.href = paymentLink;
-              }}
-            >
-              {trans("pricing.buy-now")}
-            </Button>
+            {price === null ? (
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => {
+                  const element = document.getElementById("contact");
+                  if (element) {
+                    element.scrollIntoView({
+                      block: "start",
+                      behavior: "smooth",
+                    });
+                  }
+                }}
+              >
+                {trans("header.contact-us")}
+              </Button>
+            ) : (
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => {
+                  window.location.href = paymentLink;
+                }}
+              >
+                {trans("pricing.buy-now")}
+              </Button>
+            )}
           </Grid>
         </Grid>
       </CardActions>
