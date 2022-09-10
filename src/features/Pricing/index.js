@@ -77,7 +77,7 @@ const Pricing = () => {
     },
   ];
   return (
-    <Container id="pricing">
+    <Container id="pricing" style={{marginTop: "-5rem"}} >
       <Grid container justify="space-between" spacing={2}>
         {priceCards.map((priceCard) => (
           <Grid item sm={12} md={3} lg>

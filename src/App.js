@@ -12,6 +12,7 @@ import Header from './features/Header'
 import Pricing from './features/Pricing'
 import Why from './features/Why'
 import messages_ar from './lang/ar.json'
+import KeaDemo from './features/Kea';
 // import locale_ar from 'react-intl/locale-data/ar';
 // import locale_en from 'react-intl/locale-data/en';
 // import locale_fr from 'react-intl/locale-data/fr';
@@ -109,6 +110,9 @@ function App() {
             </Grid>
             <Grid item>
               <Features />
+            </Grid>
+            <Grid item>
+              <KeaDemo />
             </Grid>
             <Grid item className={classes.containerStyle}>
               <Pricing />
