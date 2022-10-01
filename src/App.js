@@ -112,7 +112,7 @@ function App() {
               <Features />
             </Grid>
             <Grid item>
-              <KeaDemo />
+              <KeaDemo lang={language}/>
             </Grid>
             <Grid item className={classes.containerStyle}>
               <Pricing />

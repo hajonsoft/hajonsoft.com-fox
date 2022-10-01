@@ -97,5 +97,9 @@
   "web": "Aigle",
   "footer.Hawk": "faucon",
   "footer.Eagle": "Aigle",
-  "footer.Nest": "Nid"
+  "footer.Nest": "Nid",
+  "introduction-to-hajonsoft-kea": "Présentation de HAJonSoft Kea",
+  "pricing.one-time-payment-volume-pricing": "Paiement unique. \nTarification en volume.",
+  "pricing.per-season": "/ saison",
+  "pricing.plan-basic": "De base"
 }
