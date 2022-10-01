@@ -92,12 +92,14 @@
   "pricing.plan-basic": "Basic",
   "pricing.plan-pro": "Pro",
   "pricing.plan-lifetime": "Lifetime",
-
   "sign-up": "Sign up",
   "umrah": "Umrah",
   "usd": "USD",
   "web": "Eagle",
   "footer.Hawk": "Hawk",
   "footer.Eagle": "Eagle",
-  "footer.Nest": "Nest"
+  "footer.Nest": "Nest",
+  "introduction-to-hajonsoft-kea": "Introduction to HAJonSoft Kea",
+  "prix.par-saison": "",
+  "tarification.plan-basic": ""
 }
