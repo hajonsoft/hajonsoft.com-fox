@@ -5,8 +5,9 @@ import GetStartedMain from "./components/getStartedMain";
 const GetStarted = () => {
   const handleStart = () => {
     analytics.logEvent("get-started");
-    window.location.href = 'https://hajonsoft.s3.ap-south-1.amazonaws.com/release/HAJonSoft-Windows-1.2.10-Setup.exe'; 
-    // window.location.href = 'https://hajonsoft.talentlms.com/catalog/info/id:125,cms_featured_course:1'; 
+    window.location.href =
+      "https://hajonsoft.s3.ap-south-1.amazonaws.com/release/HAJonSoft-Windows-1.4.4-Setup.exe";
+    // window.location.href = 'https://hajonsoft.talentlms.com/catalog/info/id:125,cms_featured_course:1';
   };
 
   return (
