@@ -21,27 +21,27 @@ const players = [
     description: "features.quality-passport-reader-description",
     downloads: [
       {
-        url: "https://s3.eu-west-1.amazonaws.com/hajonsoft.com/downloads/AT9000.zip",
+        url: "https://firebasestorage.googleapis.com/v0/b/breno-tours.appspot.com/o/scanner-software%2FAT9000.zip?alt=media&token=a3f5feda-b7ef-44b7-b3a2-be09530c3355",
         name: "3M AT9000 Mk2",
       },
       {
-        url: "https://s3.eu-west-1.amazonaws.com/hajonsoft.com/downloads/ComboSmart2.zip",
+        url: "https://firebasestorage.googleapis.com/v0/b/breno-tours.appspot.com/o/scanner-software%2FComboSmart2.zip?alt=media&token=03e85505-600a-40a2-8d97-813d6c98f04a",
         name: "ARH Combo Smart",
       },
       {
-        url: "https://s3.eu-west-1.amazonaws.com/hajonsoft.com/downloads/Gemalto.zip",
+        url: "https://firebasestorage.googleapis.com/v0/b/breno-tours.appspot.com/o/scanner-software%2FGemalto.zip?alt=media&token=61c1fdc5-9076-440f-a852-c2e3dde787a5",
         name: "Gemalto 32 bit",
       },
       {
-        url: "https://s3.eu-west-1.amazonaws.com/hajonsoft.com/downloads/Gemalto64.zip",
+        url: "https://firebasestorage.googleapis.com/v0/b/breno-tours.appspot.com/o/scanner-software%2FGemalto64.zip?alt=media&token=ee83bdcd-a25b-4c17-993a-eea92dd5067a",
         name: "Gemalto 64 bit",
       },
       {
-        url: "https://s3.eu-west-1.amazonaws.com/hajonsoft.com/downloads/OCR640.zip",
+        url: "https://firebasestorage.googleapis.com/v0/b/breno-tours.appspot.com/o/scanner-software%2FOCR640.zip?alt=media&token=82c4ff45-f2ad-41f7-97bb-9acc8cc1a0ae",
         name: "OCR640",
       },
       {
-        url: "https://s3.eu-west-1.amazonaws.com/hajonsoft.com/downloads/CR100.zip",
+        url: "https://firebasestorage.googleapis.com/v0/b/breno-tours.appspot.com/o/scanner-software%2FCR100.zip?alt=media&token=860eaca3-f86c-4d81-a6cb-0df4232a8d56",
         name: "CR100",
       },
     ],
@@ -75,22 +75,6 @@ const players = [
 
 const Features = () => {
   const [index, setIndex] = useState(-1);
-
-  // useEffect(() => {
-  //     const timer = setInterval(() => {
-  //         setIndex(prev => {
-  //             if (prev < players.length - 1) {
-  //                 return prev + 1;
-  //             } else {
-  //                 return -1
-  //             }
-  //         });
-  //     }, 5000);
-  //     return () => {
-  //         // timer.clearInterval();
-  //     }
-  //     // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [])
   return (
     <div id="features" style={{ padding: "1rem", backgroundColor: "#f0f1f3" }}>
       <Grid container justify="center" spacing={4}>
