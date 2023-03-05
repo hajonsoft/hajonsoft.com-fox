@@ -129,6 +129,9 @@ const Header = ({ onLanguageChange, lang }) => {
               <MenuItem value="fr">
                 <Typography variant="body1">Française</Typography>
               </MenuItem>
+              <MenuItem value="tr">
+                <Typography variant="body1">Türkçe</Typography>
+              </MenuItem>
               <MenuItem value="de">
                 <Typography variant="body1">Deutsch</Typography>
               </MenuItem>

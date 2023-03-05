@@ -26,6 +26,7 @@ import messages_ms from './lang/ms.json'
 import messages_ru from './lang/ru.json'
 import messages_th from './lang/th.json'
 import messages_zh from './lang/zh.json'
+import messages_tr from './lang/tr.json'
 
 
 
@@ -45,6 +46,7 @@ const messages = {
   "ru": messages_ru,
   "th": messages_th,
   "zh": messages_zh,
+  "tr": messages_tr,
 }
 let navigatorLanguage = navigator.language.split(/[-_]/)[0];
 if (!messages[navigatorLanguage]) {
