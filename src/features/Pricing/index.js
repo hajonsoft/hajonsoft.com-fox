@@ -41,7 +41,7 @@ const Pricing = () => {
       subHeader: "pricing.up-to-10k-pax",
       inclusions: [
         ["pricing.total-pax", { total: "Unlimited" }],
-        ["pricing.doc-scans", { total: "30000" }],
+        ["pricing.doc-scans", { total: "10000" }],
         ["pricing.premium-support", { total: "500" }],
       ],
       background: "#4ccdbe",
@@ -55,7 +55,7 @@ const Pricing = () => {
       subHeader: "pricing.up-to-1k-pax",
       inclusions: [
         ["pricing.total-pax", { total: "Unlimited" }],
-        ["pricing.doc-scans", { total: "10000" }],
+        ["pricing.doc-scans", { total: "1000" }],
         ["pricing.premium-support", { total: "100" }],
       ],
       background: "#E0E4E8",
