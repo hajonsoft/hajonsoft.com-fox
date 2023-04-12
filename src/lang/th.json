@@ -83,9 +83,6 @@
   "pricing.premium-support": "{total} รองรับแบบพรีเมียม",
   "pricing.technical-support": "การสนับสนุนทางเทคนิค",
   "pricing.dedicated-server": "เซิร์ฟเวอร์เฉพาะ",
-  "pricing.up-to-10k-pax": "ผู้โดยสารสูงสุด 10,000 คน",
-  "pricing.up-to-1k-pax": "ผู้โดยสารสูงสุด 1,000 คน",
-  "pricing.up-to-100-pax": "ผู้โดยสารสูงสุด 100 คน",
   "pricing.per-season": "/ season",
   "pricing.plan-free": "ฟรี",
   "pricing.plan-basic": "พื้นฐาน",
@@ -101,5 +98,8 @@
   "introduction-to-hajonsoft-kea": "",
   "pricing.one-time-payment-volume-pricing": "",
   "prix.par-saison": "",
-  "tarification.plan-basic": ""
+  "tarification.plan-basic": "",
+  "pricing.up-to-100-pax": "มากถึง 100 สแกน",
+  "pricing.up-to-10k-pax": "สแกนได้มากถึง 30,000 ครั้ง",
+  "pricing.up-to-1k-pax": "สแกนได้มากถึง 10,000 ครั้ง"
 }

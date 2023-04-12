@@ -83,9 +83,6 @@
   "pricing.premium-support": "{total} Assistance premium",
   "pricing.technical-support": "Assistance technique",
   "pricing.dedicated-server": "Serveur dédié",
-  "pricing.up-to-10k-pax": "Jusqu'à 10 000 passagers",
-  "pricing.up-to-1k-pax": "Jusqu'à 1 000 passagers",
-  "pricing.up-to-100-pax": "Jusqu'à 100 passagers",
   "prix.par-saison": "/ saison",
   "pricing.plan-free": "Gratuit",
   "tarification.plan-basic": "De base ",
@@ -101,5 +98,8 @@
   "introduction-to-hajonsoft-kea": "Présentation de HAJonSoft Kea",
   "pricing.one-time-payment-volume-pricing": "Paiement unique. \nTarification en volume.",
   "pricing.per-season": "/ saison",
-  "pricing.plan-basic": "De base"
+  "pricing.plan-basic": "De base",
+  "pricing.up-to-100-pax": "Jusqu'à 100 numérisations",
+  "pricing.up-to-10k-pax": "Jusqu'à 30 000 numérisations",
+  "pricing.up-to-1k-pax": "Jusqu'à 10 000 numérisations"
 }

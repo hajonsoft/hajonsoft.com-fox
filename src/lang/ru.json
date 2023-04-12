@@ -83,9 +83,6 @@
   "pricing.premium-support": "{total} Премиум-поддержка",
   "pricing.technical-support": "Техническая поддержка",
   "pricing.dedicated-server": "Выделенный сервер",
-  "pricing.up-to-10k-pax": "До 10 000 пассажиров",
-  "pricing.up-to-1k-pax": "До 1000 пассажиров",
-  "pricing.up-to-100-pax": "До 100 пассажиров",
   "pricing.per-season": "/сезон",
   "pricing.plan-free": "Бесплатно",
   "pricing.plan-basic": "Базовый",
@@ -101,5 +98,8 @@
   "introduction-to-hajonsoft-kea": "",
   "pricing.one-time-payment-volume-pricing": "",
   "prix.par-saison": "",
-  "tarification.plan-basic": ""
+  "tarification.plan-basic": "",
+  "pricing.up-to-100-pax": "До 100 сканирований",
+  "pricing.up-to-10k-pax": "До 30 000 сканирований",
+  "pricing.up-to-1k-pax": "До 10 000 сканирований"
 }
