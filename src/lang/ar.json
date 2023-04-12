@@ -98,5 +98,8 @@
   "introduction-to-hajonsoft-kea": "مقدمة إلى حج أونسوفت كيا",
   "pricing.one-time-payment-volume-pricing": "دفعة لمرة واحدة. \nتسعير الحجم.",
   "prix.par-saison": "",
-  "tarification.plan-basic": ""
+  "tarification.plan-basic": "",
+  "pricing.up-to-100-pax": "ما يصل إلى 100 مسح ضوئي",
+  "pricing.up-to-10k-pax": "ما يصل إلى 30000 عملية مسح ضوئي",
+  "pricing.up-to-1k-pax": "ما يصل إلى 10000 عملية مسح ضوئي"
 }
