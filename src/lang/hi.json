@@ -83,9 +83,6 @@
   "pricing.premium-support": "{total} प्रीमियम समर्थन",
   "pricing.technical-support": "तकनीकी सहायता",
   "pricing.dedicated-server": "समर्पित सर्वर",
-  "pricing.up-to-10k-pax": "10,000 यात्रियों तक",
-  "pricing.up-to-1k-pax": "1,000 यात्रियों तक",
-  "pricing.up-to-100-pax": "100 यात्रियों तक",
   "pricing.per-season": "/ सीज़न",
   "pricing.plan-free": "फ्री",
   "pricing.plan-basic": "बेसिक",
@@ -101,5 +98,8 @@
   "introduction-to-hajonsoft-kea": "",
   "pricing.one-time-payment-volume-pricing": "",
   "prix.par-saison": "",
-  "tarification.plan-basic": ""
+  "tarification.plan-basic": "",
+  "pricing.up-to-100-pax": "100 तक स्कैन करें",
+  "pricing.up-to-10k-pax": "30,000 तक स्कैन",
+  "pricing.up-to-1k-pax": "10,000 तक स्कैन"
 }
