@@ -83,9 +83,6 @@
   "pricing.premium-support": "{total} الدعم المتميز",
   "pricing.technical-support": "الدعم الفني",
   "pricing.dedicated-server": "خادم مخصص",
-  "pricing.up-to-10k-pax": "حتى 10000 راكب",
-  "pricing.up-to-1k-pax": "حتى 1000 راكب",
-  "pricing.up-to-100-pax": "حتى 100 راكب",
   "pricing.per-season": "الموسم / ",
   "pricing.plan-free": "مجاني",
   "pricing.plan-basic": "أساسي",
@@ -101,5 +98,8 @@
   "introduction-to-hajonsoft-kea": "مقدمة إلى حج أونسوفت كيا",
   "pricing.one-time-payment-volume-pricing": "دفعة لمرة واحدة. \nتسعير الحجم.",
   "prix.par-saison": "",
-  "tarification.plan-basic": ""
+  "tarification.plan-basic": "",
+  "pricing.up-to-100-pax": "ما يصل إلى 100 مسح ضوئي",
+  "pricing.up-to-10k-pax": "ما يصل إلى 30000 عملية مسح ضوئي",
+  "pricing.up-to-1k-pax": "ما يصل إلى 10000 عملية مسح ضوئي"
 }

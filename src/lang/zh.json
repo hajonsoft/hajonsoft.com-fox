@@ -83,9 +83,6 @@
   "pricing.premium-support": "{total} 高级支持",
   "pricing.technical-support": "技术支持",
   "pricing.dedicated-server": "专用服务器",
-  "pricing.up-to-10k-pax": "最多 10,000 名乘客",
-  "pricing.up-to-1k-pax": "最多 1,000 名乘客",
-  "pricing.up-to-100-pax": "最多 100 名乘客",
   "pricing.per-season": "/season",
   "pricing.plan-free": "免费",
   "pricing.plan-basic": "基本",
@@ -101,5 +98,8 @@
   "introduction-to-hajonsoft-kea": "",
   "pricing.one-time-payment-volume-pricing": "",
   "prix.par-saison": "",
-  "tarification.plan-basic": ""
+  "tarification.plan-basic": "",
+  "pricing.up-to-100-pax": "最多 100 次扫描",
+  "pricing.up-to-10k-pax": "最多 30,000 次扫描",
+  "pricing.up-to-1k-pax": "最多 10,000 次扫描"
 }

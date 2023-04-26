@@ -22,9 +22,6 @@ import KeaDemo from "./features/Kea";
 
 import ConferenceMeeting from "./conference/Meeting";
 import { Routes, Route } from "react-router-dom";
-// import locale_ar from 'react-intl/locale-data/ar';
-// import locale_en from 'react-intl/locale-data/en';
-// import locale_fr from 'react-intl/locale-data/fr';
 import messages_en from "./lang/en.json";
 import messages_fr from "./lang/fr.json";
 import messages_de from "./lang/de.json";
