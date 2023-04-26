@@ -6,20 +6,9 @@ import {
 import "@livekit/components-styles";
 import { useNavigate } from "react-router";
 
-function generateUniqueId(length) {
-  const chars =
-    "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  let id = "";
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * chars.length);
-    id += chars[randomIndex];
-  }
-  return id;
-}
-
 function Meeting() {
   const roomId = "hajonsoft";
-  const username = generateUniqueId(15);
+  const username = new Date().valueOf();
   const navigate = useNavigate();
 
   const token = useToken(
@@ -40,7 +29,7 @@ function Meeting() {
         serverUrl="wss://hajonsoft-n39g59x4.livekit.cloud"
         connect={true}
         video={false}
-        audio={false}
+        audio={true}
         onDisconnected={() => navigate("/")}
       >
         <VideoConference />
