@@ -6,7 +6,7 @@ const GetStarted = () => {
   const handleStart = () => {
     analytics.logEvent("get-started");
     window.location.href =
-      "https://hajonsoft.s3.ap-south-1.amazonaws.com/release/HAJonSoft-Windows-1.4.29-Setup.exe";
+      "https://hajonsoft.s3.ap-south-1.amazonaws.com/release/HAJonSoft-Windows-1.5.0-Setup.exe";
     // window.location.href = 'https://hajonsoft.talentlms.com/catalog/info/id:125,cms_featured_course:1';
   };
 
