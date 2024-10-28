@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import passportReader from "../../images/3m-passport-reader.png";

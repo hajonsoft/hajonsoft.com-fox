@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Alert from "@material-ui/lab/Alert";
+import Alert from '@mui/material/Alert';
 import trans from '../../util/trans';
 import {
   TextField,
@@ -8,8 +8,8 @@ import {
   Button,
   CircularProgress,
   Snackbar,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+} from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles({

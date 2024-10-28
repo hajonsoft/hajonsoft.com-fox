@@ -1,4 +1,4 @@
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid } from "@mui/material";
 import React from "react";
 import { useIntl } from "react-intl";
 import PriceCard from "./components/PriceCard";

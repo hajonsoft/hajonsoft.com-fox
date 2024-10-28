@@ -5,7 +5,7 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
-} from "@material-ui/core";
+} from "@mui/material";
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import getStartedImage from "../../../images/get-started.png";

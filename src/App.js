@@ -1,11 +1,6 @@
-import {
-  createMuiTheme,
-  Grid,
-  ThemeProvider,
-  Button,
-  makeStyles,
-} from "@material-ui/core";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { Button, createMuiTheme, Grid2, ThemeProvider } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { useState } from "react";
 import { IntlProvider } from "react-intl";
 import Contact from "./features/Contact";
@@ -15,24 +10,24 @@ import Features from "./features/Features";
 import Footer from "./features/Footer";
 import GetStarted from "./features/GetStarted";
 import Header from "./features/Header";
+import KeaDemo from "./features/Kea";
 import Pricing from "./features/Pricing";
 import Why from "./features/Why";
 import messages_ar from "./lang/ar.json";
-import KeaDemo from "./features/Kea";
 
+import { Route, Routes } from "react-router-dom";
 import ConferenceMeeting from "./conference/Meeting";
-import { Routes, Route } from "react-router-dom";
+import messages_de from "./lang/de.json";
 import messages_en from "./lang/en.json";
 import messages_fr from "./lang/fr.json";
-import messages_de from "./lang/de.json";
 import messages_hi from "./lang/hi.json";
 import messages_it from "./lang/it.json";
 import messages_ja from "./lang/ja.json";
 import messages_ms from "./lang/ms.json";
 import messages_ru from "./lang/ru.json";
 import messages_th from "./lang/th.json";
-import messages_zh from "./lang/zh.json";
 import messages_tr from "./lang/tr.json";
+import messages_zh from "./lang/zh.json";
 
 // addLocaleData([...locale_en, ...locale_ar, ...locale_fr]);
 
@@ -112,35 +107,35 @@ function App() {
             <Route
               path="/"
               element={
-                <Grid container spacing={2} direction="column">
-                  <Grid item>
+                <Grid2 container spacing={2} direction="column">
+                  <Grid2 item>
                     <GetStarted />
-                  </Grid>
-                  <Grid item>
+                  </Grid2>
+                  <Grid2 item>
                     <Countries />
-                  </Grid>
-                  <Grid item>
+                  </Grid2>
+                  <Grid2 item>
                     <Features />
-                  </Grid>
-                  <Grid item>
+                  </Grid2>
+                  <Grid2 item>
                     <KeaDemo lang={language} />
-                  </Grid>
-                  <Grid item className={classes.containerStyle}>
+                  </Grid2>
+                  <Grid2 item className={classes.containerStyle}>
                     <Pricing />
-                  </Grid>
-                  <Grid item>
+                  </Grid2>
+                  <Grid2 item>
                     <Demo />
-                  </Grid>
-                  <Grid item>
+                  </Grid2>
+                  <Grid2 item>
                     <Contact />
-                  </Grid>
-                  <Grid item>
+                  </Grid2>
+                  <Grid2 item>
                     <Why />
-                  </Grid>
-                  <Grid item>
+                  </Grid2>
+                  <Grid2 item>
                     <Footer />
-                  </Grid>
-                </Grid>
+                  </Grid2>
+                </Grid2>
               }
             ></Route>
             <Route path="/conference" element={<ConferenceMeeting />}></Route>

@@ -1,11 +1,11 @@
-import { Button, Container, Grid, Link, Typography } from "@material-ui/core";
+import { Button, Container, Grid, Link, Typography } from "@mui/material";
 import React from "react";
 import logo from "../../images/logo.png";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import TwitterIcon from "@material-ui/icons/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import { FormattedMessage } from "react-intl";
-import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { useNavigate } from "react-router-dom";
 
 import footerBg from "../../images/footer_bg.svg";

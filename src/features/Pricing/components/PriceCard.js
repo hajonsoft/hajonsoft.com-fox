@@ -7,12 +7,12 @@ import {
   Divider,
   Grid,
   Typography,
-} from "@material-ui/core";
-import CheckIcon from "@material-ui/icons/Check";
+} from "@mui/material";
+import CheckIcon from "@mui/icons-material/Check";
 import trans from "../../../util/trans";
 import React from "react";
 import { FormattedNumber } from "react-intl";
-import Zoom from "@material-ui/core/Zoom";
+import Zoom from "@mui/material/Zoom";
 
 const PriceCard = ({
   name,

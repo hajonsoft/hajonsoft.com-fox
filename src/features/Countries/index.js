@@ -1,5 +1,5 @@
-import { Box, Container, Grid, Tooltip, Typography } from '@material-ui/core';
-import WbSunnyOutlinedIcon from '@material-ui/icons/WbSunnyOutlined';
+import { Box, Container, Grid, Tooltip, Typography } from '@mui/material';
+import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import { countries, findFlagUrlByCountryName } from 'country-flags-svg';
 import moment from 'moment-timezone';
 import React, { useState } from 'react';

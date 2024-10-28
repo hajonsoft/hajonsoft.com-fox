@@ -1,12 +1,12 @@
 import {
   AppBar,
-  Grid,
+  Grid2,
   Select,
   Toolbar,
   Typography,
   useMediaQuery,
-} from "@material-ui/core";
-import MenuItem from "@material-ui/core/MenuItem";
+} from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
 import React, { useState } from "react";
 import { FormattedMessage } from "react-intl";
 
@@ -31,34 +31,42 @@ const Header = ({ onLanguageChange, lang }) => {
       element.scrollIntoView({ block: "start", behavior: "smooth" });
     }
   };
+
   return (
-    <AppBar id="home" position="static" color="inherit">
+    <AppBar id="home" position="static" color="inherit" sx={{
+      marginBottom: "2rem",
+    }}>
       <Styled.TopBar>
-        <Grid
+        <Grid2
           container
           spacing={2}
-          justify="flex-end"
-          style={{ marginRight: "6rem" }}
+          justifyContent="flex-end"
+          sx={{ marginRight: "6rem" }}
         >
-          <Grid item>
+          <Grid2 item>
             <Typography variant="body2">hajonsoft@gmail.com</Typography>
-          </Grid>
-          <Grid item>
+          </Grid2>
+          <Grid2 item>
             <Typography variant="body2">
-              <FormattedMessage id="header.telephone"></FormattedMessage>
+              <FormattedMessage id="header.telephone" />
             </Typography>
-          </Grid>
-        </Grid>
+          </Grid2>
+        </Grid2>
       </Styled.TopBar>
       <Toolbar>
-        <Grid container justify="space-between">
-          <Grid item>
+        <Grid2 container justifyContent="space-between" alignItems="center" width={"100%"}>
+          <Grid2 item>
             <img src={logo} alt="logo" width="64" />
-          </Grid>
-          <Grid item>
+          </Grid2>
+          <Grid2 item>
             {!isMobile && (
-              <Grid container justify="center" alignItems="center" spacing={2}>
-                <Grid item>
+              <Grid2
+                container
+                justifyContent="center"
+                alignItems="center"
+                spacing={2}
+              >
+                <Grid2 item>
                   <Styled.HeaderButton
                     color="primary"
                     onClick={() => handleBookmarkClick("home")}
@@ -67,8 +75,8 @@ const Header = ({ onLanguageChange, lang }) => {
                       <FormattedMessage id="header.home" />
                     </Typography>
                   </Styled.HeaderButton>
-                </Grid>
-                <Grid item>
+                </Grid2>
+                <Grid2 item>
                   <Styled.HeaderButton
                     color="primary"
                     onClick={() => handleBookmarkClick("features")}
@@ -77,8 +85,8 @@ const Header = ({ onLanguageChange, lang }) => {
                       <FormattedMessage id="header.features" />
                     </Typography>
                   </Styled.HeaderButton>
-                </Grid>
-                <Grid item>
+                </Grid2>
+                <Grid2 item>
                   <Styled.HeaderButton
                     color="primary"
                     onClick={() => handleBookmarkClick("pricing")}
@@ -87,8 +95,8 @@ const Header = ({ onLanguageChange, lang }) => {
                       <FormattedMessage id="header.pricing" />
                     </Typography>
                   </Styled.HeaderButton>
-                </Grid>
-                <Grid item>
+                </Grid2>
+                <Grid2 item>
                   <Styled.HeaderButton
                     color="primary"
                     onClick={() => handleBookmarkClick("contact")}
@@ -97,24 +105,23 @@ const Header = ({ onLanguageChange, lang }) => {
                       <FormattedMessage id="header.contact-us" />
                     </Typography>
                   </Styled.HeaderButton>
-                </Grid>
-                <Grid item>
+                </Grid2>
+                <Grid2 item>
                   <Styled.HeaderButton
                     color="primary"
                     onClick={() =>
-                      (window.location.href =
-                        "https://hajonsoft-kea.web.app")
+                      (window.location.href = "https://hajonsoft-kea.web.app")
                     }
                   >
                     <Typography variant="body1">
                       <FormattedMessage id="header.kea" />
                     </Typography>
                   </Styled.HeaderButton>
-                </Grid>
-              </Grid>
+                </Grid2>
+              </Grid2>
             )}
-          </Grid>
-          <Grid item>
+          </Grid2>
+          <Grid2 item>
             <Select
               value={language}
               onChange={handleLanguageChange}
@@ -159,8 +166,8 @@ const Header = ({ onLanguageChange, lang }) => {
                 <Typography variant="body1">हिन्दी, हिंदी</Typography>
               </MenuItem>
             </Select>
-          </Grid>
-        </Grid>
+          </Grid2>
+        </Grid2>
       </Toolbar>
     </AppBar>
   );
