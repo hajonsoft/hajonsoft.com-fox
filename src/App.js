@@ -53,7 +53,7 @@ const theme = createMuiTheme({
   direction: "ltr",
 });
 
-const handleScrolltopClick = () => {
+const handleScrollTopClick = () => {
   const element = document.getElementById("home");
   if (element) {
     element.scrollIntoView({ block: "start", behavior: "smooth" });
@@ -151,7 +151,7 @@ function App() {
           padding: "1rem",
           visibility: "hidden",
         }}
-        onClick={handleScrolltopClick}
+        onClick={handleScrollTopClick}
       >
         <Button>
           <ArrowUpwardIcon fontSize="large" color="#69A2CC" />

@@ -1,22 +1,19 @@
-import { Button, Container, Grid, Link, Typography } from "@mui/material";
-import React from "react";
-import logo from "../../images/logo.png";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import { Button, Container, Grid, Link, Typography } from "@mui/material";
 import { FormattedMessage } from "react-intl";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import { useNavigate } from "react-router-dom";
+import logo from "../../images/logo.png";
 
+import moment from "moment-timezone";
 import footerBg from "../../images/footer_bg.svg";
 import owl from "../../images/owl.svg";
 import { colors } from "../../util/colors";
-import moment from "moment-timezone";
 
 const facebookUrl = "https://www.facebook.com/Hajonsoft-108504544787000";
 
 const Footer = () => {
-  const navigate = useNavigate();
   return (
     <div style={{ backgroundImage: `url(${footerBg})` }}>
       <Container>
@@ -205,7 +202,9 @@ const Footer = () => {
           </Grid>
           <Grid item style={{ marginRight: "1rem" }}>
             <Button
-              onClick={() => navigate("/conference")}
+              onClick={() =>
+                (window.location.href = "https://meet.google.com/eap-zdrm-abh")
+              }
               variant="contained"
               color="primary"
               startIcon={<HelpOutlineIcon />}
@@ -215,7 +214,7 @@ const Footer = () => {
                 borderRadius: "16px",
               }}
             >
-              <FormattedMessage id="help" />
+              Meet Now
             </Button>
           </Grid>
         </Grid>

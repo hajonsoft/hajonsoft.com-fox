@@ -5,19 +5,22 @@ import GetStartedMain from "./components/getStartedMain";
 const GetStarted = () => {
   const handleStart = () => {
     analytics.logEvent("get-started");
-    window.location.href =
-      "https://hajonsoft.s3.ap-south-1.amazonaws.com/release/HAJonSoft-Windows-1.5.0-Setup.exe";
-    // window.location.href = 'https://hajonsoft.talentlms.com/catalog/info/id:125,cms_featured_course:1';
+    window.location.href = "https://hajonsoft-kea.web.app/";
   };
 
   return (
     <div
       style={{
-        background:
-          "linear-gradient(90deg, rgba(56,134,176,1) 0%, rgba(71,161,177,1) 100%)",
+        background: "linear-gradient(90deg, #4B0082 0%, #6A0DAD 100%)", // Royal Purple
         color: "white",
-        height: "21rem",
-        marginTop: "1rem",
+        height: "24rem",
+        marginTop: "2rem",
+        padding: "2rem",
+        borderRadius: "1rem",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.25)",
       }}
     >
       <GetStartedMain onStart={handleStart} />

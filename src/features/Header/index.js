@@ -1,18 +1,20 @@
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import {
   AppBar,
-  Grid2,
+  Box,
+  Grid,
+  IconButton,
+  MenuItem,
   Select,
   Toolbar,
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
-import React, { useState } from "react";
+import { useState } from "react";
 import { FormattedMessage } from "react-intl";
-
+import { analytics } from "../../analytics";
 import logo from "../../images/logo.png";
 import Styled from "./components/styled-components";
-import { analytics } from "../../analytics";
 
 const Header = ({ onLanguageChange, lang }) => {
   const [language, setLanguage] = useState(lang);
@@ -33,82 +35,81 @@ const Header = ({ onLanguageChange, lang }) => {
   };
 
   return (
-    <AppBar id="home" position="static" color="inherit" sx={{
-      marginBottom: "2rem",
-    }}>
+    <AppBar
+      id="home"
+      position="static"
+      sx={{
+        marginBottom: "2rem",
+        background: "linear-gradient(90deg, #6a0dad, #8e44ad)", // Royal purple
+        color: "#fff",
+      }}
+    >
       <Styled.TopBar>
-        <Grid2
+        <Grid
           container
           spacing={2}
           justifyContent="flex-end"
-          sx={{ marginRight: "6rem" }}
+          alignItems="center"
+          sx={{ paddingRight: "2rem", paddingTop: "0.25rem" }}
         >
-          <Grid2 item>
+          <Grid item>
             <Typography variant="body2">hajonsoft@gmail.com</Typography>
-          </Grid2>
-          <Grid2 item>
-            <Typography variant="body2">
-              <FormattedMessage id="header.telephone" />
-            </Typography>
-          </Grid2>
-        </Grid2>
-      </Styled.TopBar>
-      <Toolbar>
-        <Grid2 container justifyContent="space-between" alignItems="center" width={"100%"}>
-          <Grid2 item>
-            <img src={logo} alt="logo" width="64" />
-          </Grid2>
-          <Grid2 item>
-            {!isMobile && (
-              <Grid2
-                container
-                justifyContent="center"
-                alignItems="center"
-                spacing={2}
+          </Grid>
+          <Grid item>
+            <Box display="flex" alignItems="center">
+              <Typography variant="body2" sx={{ marginRight: "0.5rem" }}>
+                +1-555-123-4567
+              </Typography>
+              <IconButton
+                color="inherit"
+                size="small"
+                href="https://wa.me/15551234567"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Grid2 item>
+                <WhatsAppIcon />
+              </IconButton>
+            </Box>
+          </Grid>
+        </Grid>
+      </Styled.TopBar>
+
+      <Toolbar>
+        <Grid container justifyContent="space-between" alignItems="center">
+          <Grid
+            item
+            style={{
+              backgroundColor: "white",
+              borderRadius: "50%",
+              padding: "0.5rem",
+            }}
+          >
+            <img src={logo} alt="logo" width="64" />
+          </Grid>
+
+          <Grid item>
+            {!isMobile && (
+              <Grid container spacing={2} alignItems="center">
+                {[
+                  ["home", "header.home"],
+                  ["features", "header.features"],
+                  ["pricing", "header.pricing"],
+                  ["contact", "header.contact-us"],
+                ].map(([id, label]) => (
+                  <Grid item key={id}>
+                    <Styled.HeaderButton
+                      color="inherit"
+                      onClick={() => handleBookmarkClick(id)}
+                    >
+                      <Typography variant="body1">
+                        <FormattedMessage id={label} />
+                      </Typography>
+                    </Styled.HeaderButton>
+                  </Grid>
+                ))}
+                <Grid item>
                   <Styled.HeaderButton
-                    color="primary"
-                    onClick={() => handleBookmarkClick("home")}
-                  >
-                    <Typography variant="body1">
-                      <FormattedMessage id="header.home" />
-                    </Typography>
-                  </Styled.HeaderButton>
-                </Grid2>
-                <Grid2 item>
-                  <Styled.HeaderButton
-                    color="primary"
-                    onClick={() => handleBookmarkClick("features")}
-                  >
-                    <Typography variant="body1">
-                      <FormattedMessage id="header.features" />
-                    </Typography>
-                  </Styled.HeaderButton>
-                </Grid2>
-                <Grid2 item>
-                  <Styled.HeaderButton
-                    color="primary"
-                    onClick={() => handleBookmarkClick("pricing")}
-                  >
-                    <Typography variant="body1">
-                      <FormattedMessage id="header.pricing" />
-                    </Typography>
-                  </Styled.HeaderButton>
-                </Grid2>
-                <Grid2 item>
-                  <Styled.HeaderButton
-                    color="primary"
-                    onClick={() => handleBookmarkClick("contact")}
-                  >
-                    <Typography variant="body1">
-                      <FormattedMessage id="header.contact-us" />
-                    </Typography>
-                  </Styled.HeaderButton>
-                </Grid2>
-                <Grid2 item>
-                  <Styled.HeaderButton
-                    color="primary"
+                    color="inherit"
                     onClick={() =>
                       (window.location.href = "https://hajonsoft-kea.web.app")
                     }
@@ -117,57 +118,39 @@ const Header = ({ onLanguageChange, lang }) => {
                       <FormattedMessage id="header.kea" />
                     </Typography>
                   </Styled.HeaderButton>
-                </Grid2>
-              </Grid2>
+                </Grid>
+              </Grid>
             )}
-          </Grid2>
-          <Grid2 item>
+          </Grid>
+
+          <Grid item>
             <Select
               value={language}
               onChange={handleLanguageChange}
               variant="standard"
+              sx={{ color: "white", borderBottom: "1px solid white" }}
             >
-              <MenuItem value="en">
-                <Typography variant="body1">English</Typography>
-              </MenuItem>
-              <MenuItem value="ar">
-                <Typography variant="body1">اللغه العربيه</Typography>
-              </MenuItem>
-              <MenuItem value="fr">
-                <Typography variant="body1">Française</Typography>
-              </MenuItem>
-              <MenuItem value="tr">
-                <Typography variant="body1">Türkçe</Typography>
-              </MenuItem>
-              <MenuItem value="de">
-                <Typography variant="body1">Deutsch</Typography>
-              </MenuItem>
-              <MenuItem value="it">
-                <Typography variant="body1"> Italiano</Typography>
-              </MenuItem>
-              <MenuItem value="ja">
-                <Typography variant="body1">日本語 (にほんご)</Typography>
-              </MenuItem>
-              <MenuItem value="zh">
-                <Typography variant="body1">
-                  中文 (Zhōngwén), 汉语, 漢語
-                </Typography>
-              </MenuItem>
-              <MenuItem value="th">
-                <Typography variant="body1">ไทย</Typography>
-              </MenuItem>
-              <MenuItem value="ms">
-                <Typography variant="body1">Bahasa Melayu</Typography>
-              </MenuItem>
-              <MenuItem value="ru">
-                <Typography variant="body1">русский</Typography>
-              </MenuItem>
-              <MenuItem value="hi">
-                <Typography variant="body1">हिन्दी, हिंदी</Typography>
-              </MenuItem>
+              {[
+                ["en", "English"],
+                ["ar", "اللغه العربيه"],
+                ["fr", "Française"],
+                ["tr", "Türkçe"],
+                ["de", "Deutsch"],
+                ["it", "Italiano"],
+                ["ja", "日本語 (にほんご)"],
+                ["zh", "中文 (Zhōngwén)"],
+                ["th", "ไทย"],
+                ["ms", "Bahasa Melayu"],
+                ["ru", "русский"],
+                ["hi", "हिन्दी"],
+              ].map(([val, label]) => (
+                <MenuItem key={val} value={val}>
+                  <Typography variant="body1">{label}</Typography>
+                </MenuItem>
+              ))}
             </Select>
-          </Grid2>
-        </Grid2>
+          </Grid>
+        </Grid>
       </Toolbar>
     </AppBar>
   );
