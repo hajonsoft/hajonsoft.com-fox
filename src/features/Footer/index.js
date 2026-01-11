@@ -1,17 +1,11 @@
-import FacebookIcon from "@mui/icons-material/Facebook";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import { Button, Container, Grid, Link, Typography } from "@mui/material";
+import { Button, Container, Grid, Typography } from "@mui/material";
 import { FormattedMessage } from "react-intl";
 import logo from "../../images/logo.png";
 
 import moment from "moment-timezone";
 import footerBg from "../../images/footer_bg.svg";
 import owl from "../../images/owl.svg";
-import { colors } from "../../util/colors";
-
-const facebookUrl = "https://www.facebook.com/Hajonsoft-108504544787000";
 
 const Footer = () => {
   return (
