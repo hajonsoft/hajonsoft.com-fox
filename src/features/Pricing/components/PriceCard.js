@@ -36,7 +36,7 @@ const PriceCard = ({
           <Grid container spacing={1} justify="center" alignItems="flex-end">
             <Grid item>
               <Typography variant="h4" align="center" gutterBottom>
-                Request a quote
+                Get a quote
               </Typography>
             </Grid>
           </Grid>

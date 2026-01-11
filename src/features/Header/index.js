@@ -58,12 +58,12 @@ const Header = ({ onLanguageChange, lang }) => {
           <Grid item>
             <Box display="flex" alignItems="center">
               <Typography variant="body2" sx={{ marginRight: "0.5rem" }}>
-                +1-555-123-4567
+                +1-949-522-1879
               </Typography>
               <IconButton
                 color="inherit"
                 size="small"
-                href="https://wa.me/15551234567"
+                href="https://wa.me/19495221879"
                 target="_blank"
                 rel="noopener noreferrer"
               >

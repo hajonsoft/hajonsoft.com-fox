@@ -39,127 +39,19 @@ const Footer = () => {
           <Grid
             item
             sm={12}
-            md={2}
+            md={7}
             lg
             container
-            spacing={1}
+            spacing={2}
             alignContent="flex-start"
           >
             <Grid item xs={12}>
-              <Typography variant="button">
-                <FormattedMessage id="footer.company" />
+              <Typography variant="h6" gutterBottom>
+                Global Visa Processing Automation
               </Typography>
-              <div
-                style={{ border: "2px solid rgb(57,63,82)", width: "90%" }}
-              ></div>
-            </Grid>
-            <Grid item xs={12}>
-              <FormattedMessage id="footer.about-us" />
-            </Grid>
-            <Grid item xs={12}>
-              <FormattedMessage id="header.contact-us" />
-            </Grid>
-            <Grid item xs={12}>
-              <FormattedMessage id="find" />
-            </Grid>
-          </Grid>
-          <Grid
-            item
-            sm={12}
-            md={2}
-            lg
-            container
-            spacing={1}
-            alignContent="flex-start"
-          >
-            <Grid item xs={12}>
-              <Typography variant="button">
-                <FormattedMessage id="footer.resources" />
+              <Typography variant="body2" color="textSecondary">
+                HAJonSoft provides intelligent automation solutions for travel agencies and visa processing centers worldwide. Our platform streamlines visa applications for Saudi Arabia, Schengen countries, USA, UK, UAE, and more through advanced passport reading technology and seamless browser automation.
               </Typography>
-              <div
-                style={{ border: "2px solid rgb(57,63,82)", width: "90%" }}
-              ></div>
-            </Grid>
-            <Grid item xs={12}>
-              <FormattedMessage id="header.demo" />
-            </Grid>
-            <Grid item xs={12}>
-              <FormattedMessage id="footer.common-questions" />
-            </Grid>
-            <Grid item xs={12}>
-              <FormattedMessage id="footer.insights" />
-            </Grid>
-          </Grid>
-          <Grid
-            item
-            sm={12}
-            md={2}
-            lg
-            container
-            spacing={1}
-            alignContent="flex-start"
-          >
-            <Grid item xs={12}>
-              <Typography variant="button">
-                <FormattedMessage id="footer.our-product" />
-              </Typography>
-              <div
-                style={{ border: "2px solid rgb(57,63,82)", width: "90%" }}
-              ></div>
-            </Grid>
-            <Grid item xs={12}>
-              <Link
-                href="https://github.com/hajonsoft/hajonsoft-hawk"
-                target="_blank"
-                variant="caption"
-              >
-                <FormattedMessage id="footer.Hawk" />
-              </Link>
-            </Grid>
-            <Grid item xs={12}>
-              <Link
-                href="https://github.com/hajonsoft/hajonsoft-eagle"
-                target="_blank"
-                variant="caption"
-              >
-                <FormattedMessage id="footer.Eagle" />
-              </Link>
-            </Grid>
-            <Grid item xs={12}>
-              <Link
-                href="https://github.com/hajonsoft/hajonsoft-tiger"
-                target="_blank"
-                variant="caption"
-              >
-                <FormattedMessage id="footer.Nest" />
-              </Link>
-            </Grid>
-          </Grid>
-          <Grid
-            item
-            sm={12}
-            md={2}
-            lg
-            container
-            spacing={1}
-            alignContent="flex-start"
-          >
-            <Grid item xs={12}>
-              <Typography variant="button">
-                <FormattedMessage id="get-the-app" />
-              </Typography>
-              <div
-                style={{ border: "2px solid rgb(57,63,82)", width: "90%" }}
-              ></div>
-            </Grid>
-            <Grid item xs={12}>
-              <FormattedMessage id="coming-soon" />
-            </Grid>
-            <Grid item xs={12}>
-              <FormattedMessage id="app-store" />
-            </Grid>
-            <Grid item xs={12}>
-              <FormattedMessage id="google-play" />
             </Grid>
           </Grid>
         </Grid>
@@ -188,18 +80,6 @@ const Footer = () => {
           </Grid>
           <Grid item></Grid>
           <Grid item></Grid>
-          <Grid item>
-            <a
-              href={facebookUrl}
-              target="_blank"
-              alt="facebook"
-              rel="noreferrer"
-            >
-              <FacebookIcon style={{ color: colors.white }} />
-            </a>
-            <LinkedInIcon />
-            <TwitterIcon />
-          </Grid>
           <Grid item style={{ marginRight: "1rem" }}>
             <Button
               onClick={() =>

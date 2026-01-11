@@ -16,7 +16,6 @@ const GetStarted = () => {
         height: "24rem",
         marginTop: "2rem",
         padding: "2rem",
-        borderRadius: "1rem",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
