@@ -1,6 +1,5 @@
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Button, createMuiTheme, Grid2, ThemeProvider } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import { useState } from "react";
 import { IntlProvider } from "react-intl";
 import Contact from "./features/Contact";
@@ -11,7 +10,6 @@ import Footer from "./features/Footer";
 import GetStarted from "./features/GetStarted";
 import Header from "./features/Header";
 import KeaDemo from "./features/Kea";
-import Pricing from "./features/Pricing";
 import Why from "./features/Why";
 import messages_ar from "./lang/ar.json";
 
@@ -69,12 +67,6 @@ onscroll = function () {
   }
 };
 
-const useStyles = makeStyles({
-  containerStyle: {
-    minHeight: "412px",
-  },
-});
-
 function App() {
   const [language, setLanguage] = useState(
     localStorage.getItem("langOverride") || navigatorLanguage
@@ -82,7 +74,6 @@ function App() {
   const [dir, setDir] = useState(
     localStorage.getItem("langOverride") === "ar" ? "rtl" : "ltr"
   );
-  const classes = useStyles();
 
   const handleLanguageChange = (lang) => {
     if (lang === "ar" && dir !== "rtl") {
@@ -120,9 +111,9 @@ function App() {
                   <Grid2 item>
                     <KeaDemo lang={language} />
                   </Grid2>
-                  <Grid2 item className={classes.containerStyle}>
+                  {/* <Grid2 item className={classes.containerStyle}>
                     <Pricing />
-                  </Grid2>
+                  </Grid2> */}
                   <Grid2 item>
                     <Demo />
                   </Grid2>
