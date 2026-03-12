@@ -65,7 +65,7 @@ const Footer = () => {
         <Grid container justify="space-between" spacing={1} alignItems="center">
           <Grid item style={{ marginLeft: "2rem" }}>
             <Grid container spacing={1} alignItems="center">
-              <Grid item>© 2020 HAJonSoft Owl</Grid>
+              <Grid item>© {new Date().getFullYear()} HAJonSoft</Grid>
               <Grid item>
                 <img src={owl} alt="hajonsoft owl" width="30" height="30"></img>
               </Grid>

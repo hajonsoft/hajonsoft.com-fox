@@ -70,7 +70,6 @@ const PriceCard = ({
                   </Grid>
                   <Grid item>
                     <Typography variant="body2">
-                      {console.log(i)}
                       {typeof i === "string" ? trans(i) : trans(i[0], i[1])}
                     </Typography>
                   </Grid>
