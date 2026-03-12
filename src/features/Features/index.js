@@ -68,22 +68,22 @@ const players = [
     description: "features.ehaj-integration-description",
   },
   {
-    title: "Masar Umrah",
+    title: "features.masar-umrah",
     icon: svgIcons.masarUmrah,
     description: "features.wtu-sender-description",
   },
   {
-    title: "Masar Hajj",
+    title: "features.masar-hajj",
     icon: svgIcons.masarHajj,
     description: "features.bau-sender-description",
   },
   {
-    title: "Visit Visa",
+    title: "features.visit-visa",
     icon: svgIcons.visitVisa,
     description: "features.gma-sender-description",
   },
   {
-    title: "Much More",
+    title: "features.much-more",
     icon: svgIcons.additional,
     description: "features.twf-sender-description",
   },
