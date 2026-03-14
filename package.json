@@ -18,8 +18,8 @@
     "livekit-client": "^1.8.0",
     "moment-timezone": "0.5.33",
     "pageclip": "1.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.1",
     "react-intl": "^6.4.1",
     "react-router": "^6.10.0",
@@ -31,6 +31,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy:ftp": "bash ./deploy-ftp.sh",
+    "deploy:build:ftp": "npm run build && npm run deploy:ftp",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
