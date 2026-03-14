@@ -31,8 +31,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy:ftp": "bash ./deploy-ftp.sh",
-    "deploy:build:ftp": "npm run build && npm run deploy:ftp",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
