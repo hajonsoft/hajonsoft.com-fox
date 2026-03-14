@@ -114,7 +114,7 @@ const regionTooltip = (region) => (
 
 const Countries = () => {
   const world = hosWorld();
-  const [sectionRef, sectionInView] = useInView();
+  const [sectionRef, sectionInView] = useInView({ once: false, threshold: 0.18 });
 
   const awake = world
     .filter((country) => country.isAwake)

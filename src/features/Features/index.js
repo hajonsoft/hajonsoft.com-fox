@@ -5,41 +5,73 @@ import useInView from "../../util/useInView";
 
 const svgIcons = {
   dove: (
-    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 12l10 10L22 2" stroke="#2D5BFF" strokeWidth="2" fill="none"/>
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Online Sales">
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#E9F5EF" />
+      <path d="M17 22h31l-2 12H22l-2-12z" fill="#1F7A5A" />
+      <path d="M24 22c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#145A43" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="28" cy="44" r="3.5" fill="#145A43" />
+      <circle cx="42" cy="44" r="3.5" fill="#145A43" />
+      <path d="M32 30v-7" stroke="#F5FBF8" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M28.5 33.5L32 30l3.5 3.5" stroke="#F5FBF8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   passportReader: (
-    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="3" y="5" width="18" height="14" rx="2" fill="#4C6FFF" />
-      <path d="M7 9h10v6H7z" fill="white" />
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Passport Scanning">
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EAF0FF" />
+      <rect x="14" y="17" width="26" height="30" rx="4" fill="#2B4E9A" />
+      <path d="M21 24h12" stroke="#DDE7FF" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="27" cy="32" r="5" stroke="#DDE7FF" strokeWidth="2" />
+      <path d="M22.5 32h9" stroke="#DDE7FF" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M27 27.5v9" stroke="#DDE7FF" strokeWidth="1.8" strokeLinecap="round" />
+      <rect x="41" y="20" width="9" height="24" rx="3" fill="#6D8FE0" />
+      <path d="M44.5 24v16M47 24v16" stroke="#F8FAFF" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   ),
   ministry: (
-    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="10" stroke="#2D5BFF" strokeWidth="2" fill="#E5ECFF"/>
-      <path d="M8 12h8M12 8v8" stroke="#2D5BFF" strokeWidth="2" />
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eHaj Integration">
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EEF3E7" />
+      <path d="M18 43h28" stroke="#486B2C" strokeWidth="3" strokeLinecap="round" />
+      <path d="M24 43V31h16v12" fill="#6D9443" />
+      <path d="M22 31h20L32 22 22 31z" fill="#486B2C" />
+      <circle cx="48" cy="39" r="8" fill="#2A7B4B" />
+      <path d="M44.5 39.5l2.3 2.3 4.7-5.2" stroke="#F4FBF6" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   masarUmrah: (
-    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 12l7-7 4 4 7-7" stroke="#4C6FFF" strokeWidth="2" fill="none"/>
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Masar Umrah">
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EEF8F8" />
+      <circle cx="19" cy="45" r="4.5" fill="#1E7D7A" />
+      <circle cx="32" cy="30" r="4.5" fill="#249B94" />
+      <circle cx="46" cy="20" r="4.5" fill="#1E7D7A" />
+      <path d="M22.5 42L28 35.8c1.5-1.7 4-1.9 5.7-.5l3.6 2.9c1.8 1.5 4.5 1.2 6-.6L49 30" stroke="#166563" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   masarHajj: (
-    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2L2 12h20L12 2z" fill="#2D5BFF" />
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Masar Hajj">
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#F7F1E8" />
+      <rect x="22" y="23" width="20" height="20" rx="2" fill="#1C232B" />
+      <rect x="22" y="23" width="20" height="5" fill="#D7B46A" />
+      <path d="M17 46h30" stroke="#A17A37" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="32" cy="16" r="3" fill="#A17A37" />
     </svg>
   ),
   visitVisa: (
-    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="4" y="4" width="16" height="16" rx="2" fill="#4C6FFF" />
-      <circle cx="12" cy="12" r="4" fill="white" />
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Visit Visa">
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#F0F4FF" />
+      <rect x="14" y="15" width="36" height="34" rx="5" fill="#3C5AA6" />
+      <circle cx="26" cy="29" r="5" fill="#E7EEFF" />
+      <path d="M35 26h9M35 31h11M19 39h26" stroke="#E7EEFF" strokeWidth="2.2" strokeLinecap="round" />
+      <path d="M48 14v11" stroke="#6B86CC" strokeWidth="3" strokeLinecap="round" />
     </svg>
   ),
   additional: (
-    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M5 12h14M12 5v14" stroke="#2D5BFF" strokeWidth="2"/>
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Additional Features">
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EEF2F6" />
+      <circle cx="21" cy="32" r="5" fill="#3A6B8C" />
+      <circle cx="32" cy="21" r="5" fill="#2F5A77" />
+      <circle cx="43" cy="32" r="5" fill="#3A6B8C" />
+      <circle cx="32" cy="43" r="5" fill="#2F5A77" />
+      <path d="M24.5 29.5l5-5M39.5 29.5l-5-5M24.5 34.5l5 5M39.5 34.5l-5 5" stroke="#22455C" strokeWidth="2" strokeLinecap="round" />
     </svg>
   ),
 };

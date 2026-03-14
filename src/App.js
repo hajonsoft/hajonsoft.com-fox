@@ -1,6 +1,5 @@
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import { Button, createTheme, createMuiTheme, Grid2, ThemeProvider } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { Button, createTheme, Grid2, ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import { IntlProvider } from "react-intl";
 import Contact from "./features/Contact";
@@ -11,7 +10,6 @@ import Footer from "./features/Footer";
 import GetStarted from "./features/GetStarted";
 import Header from "./features/Header";
 import KeaDemo from "./features/Kea";
-import Pricing from "./features/Pricing";
 import Ticker from "./features/Ticker";
 import Why from "./features/Why";
 import messages_ar from "./lang/ar.json";
@@ -115,9 +113,6 @@ function App() {
                   <Grid2 item>
                     <KeaDemo lang={language} />
                   </Grid2>
-                  {/* <Grid2 item className={classes.containerStyle}>
-                    <Pricing />
-                  </Grid2> */}
                   <Grid2 item>
                     <Demo />
                   </Grid2>
