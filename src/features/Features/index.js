@@ -1,6 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { FormattedMessage } from "react-intl";
+import useInView from "../../util/useInView";
 
 const svgIcons = {
   dove: (
@@ -91,8 +92,20 @@ const players = [
 
 const Features = () => {
   const [index, setIndex] = useState(-1);
+  const [sectionRef, sectionInView] = useInView();
+
   return (
-    <div id="features" style={{ padding: "1rem", backgroundColor: "#f0f1f3" }}>
+    <div
+      id="features"
+      ref={sectionRef}
+      style={{
+        padding: "1rem",
+        backgroundColor: "#f0f1f3",
+        opacity: sectionInView ? 1 : 0,
+        transform: sectionInView ? "translateY(0)" : "translateY(28px)",
+        transition: "opacity 0.6s ease, transform 0.6s ease",
+      }}
+    >
       <Grid container justifyContent="center" spacing={4}>
         <Grid item xs={12}>
           <Typography variant="h6" align="center">
@@ -114,9 +127,25 @@ const Features = () => {
             alignItems="center"
           >
             {players.map((player, idx) => (
-              <Grid item key={idx}>
+              <Grid
+                item
+                key={idx}
+                className="anim-hover-lift"
+                style={{
+                  cursor: "pointer",
+                  padding: "0.75rem",
+                  borderRadius: "8px",
+                  // Staggered entrance when section is in view
+                  opacity: sectionInView ? 1 : 0,
+                  animation: sectionInView
+                    ? `fadeInUp 0.6s cubic-bezier(0.22,1,0.36,1) ${Math.min(idx * 0.1, 0.6)}s both`
+                    : "none",
+                }}
+              >
                 <Grid container justifyContent="center" alignItems="center">
-                  <Grid item onClick={() => setIndex(idx)}>{player.icon}</Grid>
+                  <Grid item onClick={() => setIndex(idx)}>
+                    {player.icon}
+                  </Grid>
                   <Grid item xs={12}>
                     <Typography align="center" variant="body1">
                       <FormattedMessage id={player.title} />
