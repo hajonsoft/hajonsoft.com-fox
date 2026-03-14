@@ -11,3 +11,100 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* =====================================================
+   Business-Oriented Sales Page Animations
+   ===================================================== */
+
+/* Fade in upward — used for hero text blocks and feature cards */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade in from the left — hero headline */
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Fade in from the right — hero image */
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Continuous floating — keeps hero image alive */
+@keyframes float {
+  0%,  100% { transform: translateY(0px); }
+  50%        { transform: translateY(-14px); }
+}
+
+/* Combine initial fade-in-right with persistent float */
+@keyframes floatIn {
+  0%   { opacity: 0; transform: translateX(48px) translateY(0); }
+  30%  { opacity: 1; transform: translateX(0)    translateY(0); }
+  65%  { transform: translateX(0) translateY(-14px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+
+/* Flag wave entrance — used for each flag chip */
+@keyframes waveFlag {
+  0%   { opacity: 0; transform: scale(0.4) rotateY(90deg); }
+  60%  { transform: scale(1.08) rotateY(-6deg); }
+  100% { opacity: 1; transform: scale(1) rotateY(0deg); }
+}
+
+/* Awake-flag green glow pulse */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 200, 120, 0.4); }
+  50%       { box-shadow: 0 0 16px rgba(0, 200, 120, 0.9), 0 0 28px rgba(0, 200, 120, 0.4); }
+}
+
+/* Slide up — pricing cards */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(64px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Card hover lift helper (applied as CSS class) */
+.anim-hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.anim-hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* Hero text entry */
+.anim-fade-in-left {
+  animation: fadeInLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Hero sub-text — slightly delayed */
+.anim-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Hero image — float in then keep floating */
+.anim-float-in {
+  animation: floatIn 4s ease-in-out infinite;
+}
+
+/* Scroll-visible base state */
+.scroll-hidden {
+  opacity: 0;
+  transform: translateY(32px);
+}
+.scroll-visible {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Pricing card scroll entrance */
+.price-card-hidden {
+  opacity: 0;
+  transform: translateY(56px);
+}
+.price-card-visible {
+  animation: slideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}

@@ -7,6 +7,7 @@ import { FormattedMessage } from "react-intl";
 
 import defaultFlag from "../../images/default-flag.png"; // ← Add a generic placeholder image
 import lisbon from "../../images/lisbon.svg";
+import useInView from "../../util/useInView";
 
 const hosCountries = [
   "United States",
@@ -113,6 +114,7 @@ const regionTooltip = (region) => (
 
 const Countries = () => {
   const world = hosWorld();
+  const [sectionRef, sectionInView] = useInView();
 
   const awake = world
     .filter((country) => country.isAwake)
@@ -124,6 +126,7 @@ const Countries = () => {
 
   return (
     <Container
+      ref={sectionRef}
       sx={{
         marginTop: 4,
         padding: 4,
@@ -131,6 +134,9 @@ const Countries = () => {
         backgroundSize: "cover",
         borderRadius: 4,
         boxShadow: 3,
+        opacity: sectionInView ? 1 : 0,
+        transform: sectionInView ? "translateY(0)" : "translateY(32px)",
+        transition: "opacity 0.7s ease, transform 0.7s ease",
       }}
     >
       <Typography align="center" gutterBottom>
@@ -142,10 +148,33 @@ const Countries = () => {
         </Box>
       </Typography>
 
+      {/* Sub-headline describing global software reach */}
+      <Typography
+        align="center"
+        variant="body2"
+        sx={{
+          mb: 3,
+          opacity: 0.75,
+          fontStyle: "italic",
+          letterSpacing: 1,
+        }}
+      >
+        <FormattedMessage
+          id="countries.global-reach"
+          defaultMessage="Serving clients across {count} countries — our software speaks every language of business."
+          values={{ count: hosCountries.length }}
+        />
+      </Typography>
+
       <Grid container spacing={2} alignItems="center" justifyContent="center">
-        {awake.map((region) => (
+        {awake.map((region, idx) => (
           <Grid item key={`awake-${region.country}`}>
-            <FlagItem region={region} variant="awake" />
+            <FlagItem
+              region={region}
+              variant="awake"
+              animIndex={idx}
+              sectionVisible={sectionInView}
+            />
           </Grid>
         ))}
 
@@ -153,9 +182,15 @@ const Countries = () => {
           <WbSunnyOutlinedIcon />
         </Grid>
 
-        {asleep.map((region) => (
+        {asleep.map((region, idx) => (
           <Grid item key={`asleep-${region.country}`}>
-            <FlagItem region={region} variant="asleep" showName={false} />
+            <FlagItem
+              region={region}
+              variant="asleep"
+              showName={false}
+              animIndex={awake.length + 1 + idx}
+              sectionVisible={sectionInView}
+            />
           </Grid>
         ))}
       </Grid>
@@ -163,21 +198,42 @@ const Countries = () => {
   );
 };
 
-const FlagItem = ({ region, variant = "awake", showName = true }) => {
+const FlagItem = ({
+  region,
+  variant = "awake",
+  showName = true,
+  animIndex = 0,
+  sectionVisible = false,
+}) => {
   const [flagClicked, setFlagClicked] = useState(false);
   const [flagError, setFlagError] = useState(false);
 
   const handleFlagClick = () => setFlagClicked(true);
   const handleImageError = () => setFlagError(true);
 
+  // Stagger each flag entrance — delay capped at 2 s for the last flags
+  const delay = `${Math.min(animIndex * 0.06, 2)}s`;
+
   const itemStyle = {
     width: "3rem",
     border: "1px solid #589aae",
     borderRadius: "4px",
-    boxShadow:
-      variant === "awake" ? "0 0 8px #cfd8dc" : "0 0 8px rgba(97, 97, 97, 0.5)",
-    transition: "transform 0.2s",
     cursor: "pointer",
+    // Entrance animation
+    opacity: sectionVisible ? 1 : 0,
+    animation: sectionVisible
+      ? `waveFlag 0.55s cubic-bezier(0.22,1,0.36,1) ${delay} both`
+      : "none",
+    // Awake flags glow continuously after entrance
+    ...(variant === "awake" && sectionVisible
+      ? {
+          boxShadow: "0 0 8px rgba(0,200,120,0.6)",
+          animation: `waveFlag 0.55s cubic-bezier(0.22,1,0.36,1) ${delay} both, glowPulse 2.4s ease-in-out ${delay} infinite`,
+        }
+      : variant === "asleep"
+      ? { filter: "grayscale(40%) opacity(0.65)" }
+      : {}),
+    transition: "transform 0.2s ease",
   };
 
   return (

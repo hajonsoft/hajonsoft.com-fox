@@ -2,6 +2,7 @@ import { Container, Grid } from "@mui/material";
 import React from "react";
 import { useIntl } from "react-intl";
 import PriceCard from "./components/PriceCard";
+import useInView from "../../util/useInView";
 
 const Pricing = () => {
   const intl = useIntl();
@@ -76,11 +77,25 @@ const Pricing = () => {
       paymentLink: "https://hajonsoft-kea.web.app/login",
     },
   ];
+  const [sectionRef, sectionInView] = useInView();
+
   return (
-    <Container id="pricing" style={{marginTop: "-5rem"}} >
+    <Container id="pricing" ref={sectionRef} style={{ marginTop: "-5rem" }}>
       <Grid container justify="space-between" spacing={2}>
-        {priceCards.map((priceCard) => (
-          <Grid item sm={12} md={3} lg>
+        {priceCards.map((priceCard, idx) => (
+          <Grid
+            item
+            sm={12}
+            md={3}
+            lg
+            key={priceCard.name}
+            style={{
+              opacity: sectionInView ? 1 : 0,
+              animation: sectionInView
+                ? `slideUp 0.65s cubic-bezier(0.22,1,0.36,1) ${idx * 0.12}s both`
+                : "none",
+            }}
+          >
             <PriceCard
               name={priceCard.name}
               price={priceCard.price}
