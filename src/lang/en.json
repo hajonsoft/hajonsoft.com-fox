@@ -20,6 +20,13 @@
   "features.quality-passport-reader-description": "Scan and extract passport details quickly and accurately. We support 3M, Gemalto, ARH ComboSmart, and Suprema readers. Scanning takes just a second, capturing essential fields while intelligently generating others like issue date, birthplace, Arabic name, profession, and previous nationality. Select your reader below to download the correct drivers and tools.",
   "features.sell": "Online Sales",
   "features.sell-description": "Sell your travel packages 24/7 through Dove — a customizable online storefront hosted on your domain. Dove lets travelers reserve packages and securely submit passport details and personal photos with ease.",
+  "features.masar-umrah": "Masar Umrah",
+  "features.masar-hajj": "Masar Hajj",
+  "features.visit-visa": "Visit Visa",
+  "features.much-more": "Much More",
+  "features.wtu-sender-description": "Automate Umrah visa submissions through the Masar platform. Our system handles passport data entry, photo uploads, and form submissions — saving your team hours of repetitive manual work every season.",
+  "features.gma-sender-description": "Process Saudi visit visa applications efficiently through automated form filling and document submission. Ideal for agencies handling business, family, or tourist visas at scale.",
+  "features.twf-sender-description": "HAJonSoft supports additional service providers and visa types. Contact us to learn about our growing list of automated integrations for global travel services.",
 
   "find": "Visa by Proxy",
   "footer.about-us": "About Us",

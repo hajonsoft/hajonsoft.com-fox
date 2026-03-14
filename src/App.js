@@ -1,5 +1,6 @@
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import { Button, createMuiTheme, Grid2, ThemeProvider } from "@mui/material";
+import { Button, createTheme, createMuiTheme, Grid2, ThemeProvider } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { useState } from "react";
 import { IntlProvider } from "react-intl";
 import Contact from "./features/Contact";
@@ -10,6 +11,8 @@ import Footer from "./features/Footer";
 import GetStarted from "./features/GetStarted";
 import Header from "./features/Header";
 import KeaDemo from "./features/Kea";
+import Pricing from "./features/Pricing";
+import Ticker from "./features/Ticker";
 import Why from "./features/Why";
 import messages_ar from "./lang/ar.json";
 
@@ -47,7 +50,7 @@ let navigatorLanguage = navigator.language.split(/[-_]/)[0];
 if (!messages[navigatorLanguage]) {
   navigatorLanguage = "en";
 }
-const theme = createMuiTheme({
+const theme = createTheme({
   direction: "ltr",
 });
 
@@ -94,6 +97,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <IntlProvider messages={messages[language]} locale={language}>
           <Header onLanguageChange={handleLanguageChange} lang={language} />
+          <Ticker />
           <Routes>
             <Route
               path="/"
@@ -118,10 +122,10 @@ function App() {
                     <Demo />
                   </Grid2>
                   <Grid2 item>
-                    <Contact />
+                    <Why />
                   </Grid2>
                   <Grid2 item>
-                    <Why />
+                    <Contact />
                   </Grid2>
                   <Grid2 item>
                     <Footer />

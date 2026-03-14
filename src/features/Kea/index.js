@@ -53,7 +53,6 @@ const KeaDemo = ({lang}) => {
         </Box>
         <script src="https://player.vimeo.com/api/player.js"></script>
       </Box>
-      <video></video>
     </>
   );
 };

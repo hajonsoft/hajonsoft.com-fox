@@ -12,7 +12,6 @@ import CheckIcon from "@mui/icons-material/Check";
 import trans from "../../../util/trans";
 import React from "react";
 import { FormattedNumber } from "react-intl";
-import Zoom from "@mui/material/Zoom";
 
 const PriceCard = ({
   name,
@@ -25,13 +24,17 @@ const PriceCard = ({
   paymentLink,
 }) => {
   return (
-    <Card raised>
+    <Card
+      raised
+      className="anim-hover-lift"
+      sx={{ height: "100%", display: "flex", flexDirection: "column" }}
+    >
       <CardHeader
         style={{ backgroundColor: background }}
         title={trans(name)}
         subheader={trans(subHeader)}
       />
-      <CardContent>
+      <CardContent sx={{ flexGrow: 1 }}>
         {price === null ? (
           <Grid container spacing={1} justify="center" alignItems="flex-end">
             <Grid item>
@@ -52,32 +55,32 @@ const PriceCard = ({
           </Grid>
         )}
         <Divider style={{ marginBottom: "1rem" }} />
-        <Zoom in={true}>
-          <div style={{ height: "8rem" }}>
-            <Typography variant="body1" gutterBottom>
-              {trans("includes")}
-            </Typography>
-            {inclusions &&
-              inclusions.map((i) => (
-                <Grid
-                  container
-                  spacing={2}
-                  alignItems="center"
-                  style={{ marginLeft: "0" }}
-                >
-                  <Grid item>
-                    <CheckIcon style={{ color: "#85C24B" }}></CheckIcon>
-                  </Grid>
-                  <Grid item>
-                    <Typography variant="body2">
-                      {console.log(i)}
-                      {typeof i === "string" ? trans(i) : trans(i[0], i[1])}
-                    </Typography>
-                  </Grid>
+        <div style={{ height: "8rem" }}>
+          <Typography variant="body1" gutterBottom>
+            {trans("includes")}
+          </Typography>
+          {inclusions &&
+            inclusions.map((inclusion, itemIdx) => (
+              <Grid
+                key={itemIdx}
+                container
+                spacing={2}
+                alignItems="center"
+                style={{ marginLeft: "0" }}
+              >
+                <Grid item>
+                  <CheckIcon style={{ color: "#85C24B" }}></CheckIcon>
                 </Grid>
-              ))}
-          </div>
-        </Zoom>
+                <Grid item>
+                  <Typography variant="body2">
+                    {typeof inclusion === "string"
+                      ? trans(inclusion)
+                      : trans(inclusion[0], inclusion[1])}
+                  </Typography>
+                </Grid>
+              </Grid>
+            ))}
+        </div>
       </CardContent>
 
       <CardActions>
