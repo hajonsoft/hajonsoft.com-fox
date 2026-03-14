@@ -124,5 +124,7 @@
   "web": "Adler",
   "footer.Hawk": "Habicht",
   "footer.Eagle": "Adler",
-  "footer.Nest": "Nest"
+  "footer.Nest": "Nest",
+  "prix.par-saison": "",
+  "tarification.plan-basic": ""
 }

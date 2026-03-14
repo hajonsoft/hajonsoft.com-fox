@@ -3,35 +3,38 @@ import SpeedIcon from "@mui/icons-material/Speed";
 import SecurityIcon from "@mui/icons-material/Security";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import PublicIcon from "@mui/icons-material/Public";
-
-const reasons = [
-  {
-    icon: <SpeedIcon sx={{ fontSize: 48, color: "#6A0DAD" }} />,
-    title: "Fast & Reliable",
-    description:
-      "Process visa applications in seconds with automated passport reading and browser-based submission.",
-  },
-  {
-    icon: <SecurityIcon sx={{ fontSize: 48, color: "#6A0DAD" }} />,
-    title: "Secure & Accurate",
-    description:
-      "Eliminate human errors with intelligent form filling and automatic photo resizing to meet official requirements.",
-  },
-  {
-    icon: <SupportAgentIcon sx={{ fontSize: 48, color: "#6A0DAD" }} />,
-    title: "Dedicated Support",
-    description:
-      "Our team of industry experts provides hands-on support through meetings, video calls, and remote assistance.",
-  },
-  {
-    icon: <PublicIcon sx={{ fontSize: 48, color: "#6A0DAD" }} />,
-    title: "Global Coverage",
-    description:
-      "Serve clients across 40+ countries with multi-language support and timezone-aware operations.",
-  },
-];
+import { useMemo } from "react";
+import { useIntl } from "react-intl";
 
 const Why = () => {
+  const intl = useIntl();
+
+  const reasons = useMemo(
+    () => [
+      {
+        icon: <SpeedIcon sx={{ fontSize: 48, color: "#6A0DAD" }} />,
+        title: intl.formatMessage({ id: "why.reason1.title" }),
+        description: intl.formatMessage({ id: "why.reason1.description" }),
+      },
+      {
+        icon: <SecurityIcon sx={{ fontSize: 48, color: "#6A0DAD" }} />,
+        title: intl.formatMessage({ id: "why.reason2.title" }),
+        description: intl.formatMessage({ id: "why.reason2.description" }),
+      },
+      {
+        icon: <SupportAgentIcon sx={{ fontSize: 48, color: "#6A0DAD" }} />,
+        title: intl.formatMessage({ id: "why.reason3.title" }),
+        description: intl.formatMessage({ id: "why.reason3.description" }),
+      },
+      {
+        icon: <PublicIcon sx={{ fontSize: 48, color: "#6A0DAD" }} />,
+        title: intl.formatMessage({ id: "why.reason4.title" }),
+        description: intl.formatMessage({ id: "why.reason4.description" }),
+      },
+    ],
+    [intl]
+  );
+
   return (
     <Box
       id="why"
@@ -43,7 +46,7 @@ const Why = () => {
     >
       <Container maxWidth="lg">
         <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
-          Why Choose HAJonSoft?
+          {intl.formatMessage({ id: "why.title" })}
         </Typography>
         <Typography
           variant="body1"
@@ -51,8 +54,7 @@ const Why = () => {
           color="text.secondary"
           sx={{ mb: 5, maxWidth: 600, mx: "auto" }}
         >
-          Trusted by travel agencies worldwide to streamline their visa
-          processing workflows.
+          {intl.formatMessage({ id: "why.subtitle" })}
         </Typography>
         <Grid container spacing={4} justifyContent="center">
           {reasons.map((reason, idx) => (
@@ -86,4 +88,3 @@ const Why = () => {
 };
 
 export default Why;
-

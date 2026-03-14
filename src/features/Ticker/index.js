@@ -1,15 +1,13 @@
 import { Box, Typography, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useIntl } from "react-intl";
 import firebase from "firebase/app";
 import "firebase/firestore";
 
-const defaultTickers = [
-  "Welcome to HAJonSoft — Intelligent Visa Processing Automation",
-];
-
 const Ticker = () => {
-  const [tickers, setTickers] = useState(defaultTickers);
+  const intl = useIntl();
+  const [tickers, setTickers] = useState([]);
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -36,7 +34,13 @@ const Ticker = () => {
     }
   }, []);
 
-  if (!visible || tickers.length === 0) return null;
+  const defaultTicker = intl.formatMessage({ id: "ticker.default" });
+  const displayTickers = useMemo(
+    () => (tickers.length > 0 ? tickers : [defaultTicker]),
+    [tickers, defaultTicker]
+  );
+
+  if (!visible || displayTickers.length === 0) return null;
 
   return (
     <Box
@@ -62,7 +66,7 @@ const Ticker = () => {
           },
         }}
       >
-        {tickers.map((text, i) => (
+        {displayTickers.map((text, i) => (
           <Typography
             key={i}
             component="span"

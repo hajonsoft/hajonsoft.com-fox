@@ -1,6 +1,6 @@
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { Button, Container, Grid, Typography } from "@mui/material";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import logo from "../../images/logo.png";
 
 import moment from "moment-timezone";
@@ -8,6 +8,8 @@ import footerBg from "../../images/footer_bg.svg";
 import owl from "../../images/owl.svg";
 
 const Footer = () => {
+  const intl = useIntl();
+
   return (
     <div style={{ backgroundImage: `url(${footerBg})` }}>
       <Container>
@@ -41,10 +43,10 @@ const Footer = () => {
           >
             <Grid item xs={12}>
               <Typography variant="h6" gutterBottom>
-                Global Visa Processing Automation
+                <FormattedMessage id="footer.tagline" />
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                HAJonSoft provides intelligent automation solutions for travel agencies and visa processing centers worldwide. Our platform streamlines visa applications for Saudi Arabia, Schengen countries, USA, UK, UAE, and more through advanced passport reading technology and seamless browser automation.
+                <FormattedMessage id="footer.description" />
               </Typography>
             </Grid>
           </Grid>
@@ -69,7 +71,9 @@ const Footer = () => {
               <Grid item>
                 <img src={owl} alt="hajonsoft owl" width="30" height="30"></img>
               </Grid>
-              <Grid item>Privacy & Terms</Grid>
+              <Grid item>
+                <FormattedMessage id="footer.privacy-terms" />
+              </Grid>
             </Grid>
           </Grid>
           <Grid item></Grid>
@@ -88,7 +92,7 @@ const Footer = () => {
                 borderRadius: "16px",
               }}
             >
-              Meet Now
+              {intl.formatMessage({ id: "footer.meet-now" })}
             </Button>
           </Grid>
         </Grid>

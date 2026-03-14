@@ -11,7 +11,7 @@ import {
 import CheckIcon from "@mui/icons-material/Check";
 import trans from "../../../util/trans";
 import React from "react";
-import { FormattedNumber } from "react-intl";
+import { FormattedNumber, useIntl } from "react-intl";
 
 const PriceCard = ({
   name,
@@ -23,6 +23,8 @@ const PriceCard = ({
   learnMore,
   paymentLink,
 }) => {
+  const intl = useIntl();
+
   return (
     <Card
       raised
@@ -39,7 +41,7 @@ const PriceCard = ({
           <Grid container spacing={1} justify="center" alignItems="flex-end">
             <Grid item>
               <Typography variant="h4" align="center" gutterBottom>
-                Get a quote
+                {intl.formatMessage({ id: "pricing.get-a-quote" })}
               </Typography>
             </Grid>
           </Grid>

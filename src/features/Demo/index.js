@@ -1,8 +1,11 @@
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import { useIntl } from "react-intl";
 
 const Demo = () => {
+  const intl = useIntl();
+
   return (
     <Box
       sx={{
@@ -16,16 +19,14 @@ const Demo = () => {
         <Grid container spacing={3} alignItems="center" justifyContent="center">
           <Grid item xs={12}>
             <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
-              See HAJonSoft in Action
+              {intl.formatMessage({ id: "demo.title" })}
             </Typography>
             <Typography
               variant="body1"
               align="center"
               sx={{ mb: 4, color: "rgba(255,255,255,0.85)" }}
             >
-              Watch how our platform scans passports, fills visa forms
-              automatically, and submits applications — all in one seamless
-              workflow.
+              {intl.formatMessage({ id: "demo.description" })}
             </Typography>
           </Grid>
           <Grid item>
@@ -46,7 +47,7 @@ const Demo = () => {
                 "&:hover": { backgroundColor: "#f0f0f0" },
               }}
             >
-              Watch Demo
+              {intl.formatMessage({ id: "demo.watch-demo" })}
             </Button>
           </Grid>
           <Grid item>
@@ -67,7 +68,7 @@ const Demo = () => {
                 "&:hover": { borderColor: "#ccc", color: "#ccc" },
               }}
             >
-              Try It Free
+              {intl.formatMessage({ id: "demo.try-free" })}
             </Button>
           </Grid>
         </Grid>
@@ -77,4 +78,3 @@ const Demo = () => {
 };
 
 export default Demo;
-
