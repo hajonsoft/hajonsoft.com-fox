@@ -1,5 +1,6 @@
 import React from "react";
 import { analytics } from "../../analytics";
+import { sitePalette } from "../../util/siteTheme";
 import GetStartedMain from "./components/getStartedMain";
 
 const GetStarted = () => {
@@ -11,15 +12,19 @@ const GetStarted = () => {
   return (
     <div
       style={{
-        background: "linear-gradient(90deg, #4B0082 0%, #6A0DAD 100%)", // Royal Purple
-        color: "white",
-        height: "24rem",
-        marginTop: "2rem",
-        padding: "2rem",
+        background: sitePalette.heroGradient,
+        color: sitePalette.text,
+        minHeight: "24rem",
+        marginTop: 0,
+        marginInline: "0.75rem",
+        padding: "2.2rem 1.2rem",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.25)",
+        borderRadius: "32px",
+        border: `1px solid ${sitePalette.border}`,
+        boxShadow: sitePalette.shadow,
+        overflow: "hidden",
       }}
     >
       <GetStartedMain onStart={handleStart} />

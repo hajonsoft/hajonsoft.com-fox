@@ -7,6 +7,7 @@ import { FormattedMessage } from "react-intl";
 
 import defaultFlag from "../../images/default-flag.png"; // ← Add a generic placeholder image
 import lisbon from "../../images/lisbon.svg";
+import { sitePalette } from "../../util/siteTheme";
 import useInView from "../../util/useInView";
 
 const hosCountries = [
@@ -130,16 +131,17 @@ const Countries = () => {
       sx={{
         marginTop: 4,
         padding: 4,
-        backgroundImage: `url(${lisbon})`,
+        backgroundImage: `linear-gradient(180deg, rgba(244, 250, 246, 0.96), rgba(230, 242, 234, 0.92)), url(${lisbon})`,
         backgroundSize: "cover",
-        borderRadius: 4,
-        boxShadow: 3,
+        borderRadius: 6,
+        border: `1px solid ${sitePalette.border}`,
+        boxShadow: sitePalette.shadow,
         opacity: sectionInView ? 1 : 0,
         transform: sectionInView ? "translateY(0)" : "translateY(32px)",
         transition: "opacity 0.7s ease, transform 0.7s ease",
       }}
     >
-      <Typography align="center" gutterBottom>
+      <Typography align="center" gutterBottom component="div">
         <Box letterSpacing={5} fontSize={32}>
           <FormattedMessage
             id="countries.in-countries"
@@ -154,9 +156,8 @@ const Countries = () => {
         variant="body2"
         sx={{
           mb: 3,
-          opacity: 0.75,
-          fontStyle: "italic",
-          letterSpacing: 1,
+          color: sitePalette.textMuted,
+          letterSpacing: 0.5,
         }}
       >
         <FormattedMessage
@@ -216,7 +217,7 @@ const FlagItem = ({
 
   const itemStyle = {
     width: "3rem",
-    border: "1px solid #589aae",
+    border: `1px solid ${sitePalette.primarySoft}`,
     borderRadius: "4px",
     cursor: "pointer",
     // Entrance animation
@@ -227,7 +228,7 @@ const FlagItem = ({
     // Awake flags glow continuously after entrance
     ...(variant === "awake" && sectionVisible
       ? {
-          boxShadow: "0 0 8px rgba(0,200,120,0.6)",
+          boxShadow: "0 0 8px rgba(47, 125, 87, 0.24)",
           animation: `waveFlag 0.55s cubic-bezier(0.22,1,0.36,1) ${delay} both, glowPulse 2.4s ease-in-out ${delay} infinite`,
         }
       : variant === "asleep"
@@ -279,7 +280,7 @@ const FlagItem = ({
             target="_blank"
             rel="noreferrer"
           >
-            <Typography variant="caption" sx={{ color: "#1976d2" }}>
+            <Typography variant="caption" sx={{ color: sitePalette.primary, fontWeight: 700 }}>
               {region.country}
             </Typography>
           </a>

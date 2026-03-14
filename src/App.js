@@ -1,6 +1,6 @@
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Button, createTheme, Grid2, ThemeProvider } from "@mui/material";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { IntlProvider } from "react-intl";
 import Contact from "./features/Contact";
 import Countries from "./features/Countries";
@@ -27,6 +27,7 @@ import messages_ru from "./lang/ru.json";
 import messages_th from "./lang/th.json";
 import messages_tr from "./lang/tr.json";
 import messages_zh from "./lang/zh.json";
+import { sitePalette } from "./util/siteTheme";
 
 // addLocaleData([...locale_en, ...locale_ar, ...locale_fr]);
 
@@ -48,10 +49,6 @@ let navigatorLanguage = navigator.language.split(/[-_]/)[0];
 if (!messages[navigatorLanguage]) {
   navigatorLanguage = "en";
 }
-const theme = createTheme({
-  direction: "ltr",
-});
-
 const handleScrollTopClick = () => {
   const element = document.getElementById("home");
   if (element) {
@@ -61,10 +58,16 @@ const handleScrollTopClick = () => {
 
 onscroll = function () {
   var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const backToTopButton = document.getElementById("back-to-top");
+
+  if (!backToTopButton) {
+    return;
+  }
+
   if (scrollTop > 300) {
-    document.getElementById("back-to-top").style.visibility = "visible";
+    backToTopButton.style.visibility = "visible";
   } else {
-    document.getElementById("back-to-top").style.visibility = "hidden";
+    backToTopButton.style.visibility = "hidden";
   }
 };
 
@@ -74,6 +77,76 @@ function App() {
   );
   const [dir, setDir] = useState(
     localStorage.getItem("langOverride") === "ar" ? "rtl" : "ltr"
+  );
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        direction: dir,
+        palette: {
+          primary: {
+            main: sitePalette.primary,
+            dark: sitePalette.primaryHover,
+            light: sitePalette.primarySoft,
+            contrastText: sitePalette.textOnDark,
+          },
+          secondary: {
+            main: sitePalette.darkSoft,
+            contrastText: sitePalette.textOnDark,
+          },
+          text: {
+            primary: sitePalette.text,
+            secondary: sitePalette.textMuted,
+          },
+          background: {
+            default: sitePalette.surface,
+            paper: sitePalette.white,
+          },
+        },
+        typography: {
+          fontFamily: '"Manrope", "Noto Sans Arabic", "Segoe UI", sans-serif',
+          h3: {
+            fontWeight: 800,
+            lineHeight: 1.15,
+          },
+          h4: {
+            fontWeight: 800,
+            lineHeight: 1.2,
+          },
+          h5: {
+            fontWeight: 700,
+          },
+          h6: {
+            fontWeight: 700,
+          },
+          button: {
+            textTransform: "none",
+            fontWeight: 700,
+          },
+        },
+        shape: {
+          borderRadius: 18,
+        },
+        components: {
+          MuiButton: {
+            styleOverrides: {
+              root: {
+                borderRadius: 999,
+                paddingInline: "1.4rem",
+              },
+            },
+          },
+          MuiOutlinedInput: {
+            styleOverrides: {
+              root: {
+                backgroundColor: "rgba(255, 255, 255, 0.92)",
+                borderRadius: 18,
+              },
+            },
+          },
+        },
+      }),
+    [dir]
   );
 
   const handleLanguageChange = (lang) => {
@@ -89,6 +162,7 @@ function App() {
   };
 
   document.dir = dir;
+  document.documentElement.lang = language;
 
   return (
     <div>
@@ -100,7 +174,7 @@ function App() {
             <Route
               path="/"
               element={
-                <Grid2 container spacing={2} direction="column">
+                <Grid2 container spacing={0} direction="column">
                   <Grid2 item>
                     <GetStarted />
                   </Grid2>
@@ -137,14 +211,27 @@ function App() {
         style={{
           position: "fixed",
           bottom: "6rem",
-          right: 0,
+          right: "1rem",
           padding: "1rem",
           visibility: "hidden",
+          zIndex: 20,
         }}
         onClick={handleScrollTopClick}
       >
-        <Button>
-          <ArrowUpwardIcon fontSize="large" color="#69A2CC" />
+        <Button
+          variant="contained"
+          sx={{
+            minWidth: 0,
+            width: 56,
+            height: 56,
+            background: sitePalette.darkGradient,
+            boxShadow: sitePalette.shadow,
+            "&:hover": {
+              background: sitePalette.darkGradient,
+            },
+          }}
+        >
+          <ArrowUpwardIcon fontSize="large" sx={{ color: sitePalette.textOnDark }} />
         </Button>
       </div>
     </div>

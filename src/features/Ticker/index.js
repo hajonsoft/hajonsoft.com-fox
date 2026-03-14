@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useIntl } from "react-intl";
 import firebase from "firebase/app";
 import "firebase/firestore";
+import { sitePalette } from "../../util/siteTheme";
 
 const Ticker = () => {
   const intl = useIntl();
@@ -45,14 +46,15 @@ const Ticker = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#1a1a2e",
-        color: "#fff",
+        background: sitePalette.darkGradient,
+        color: sitePalette.textOnDark,
         overflow: "hidden",
         whiteSpace: "nowrap",
         position: "relative",
         height: "2.5rem",
         display: "flex",
         alignItems: "center",
+        boxShadow: "inset 0 -1px 0 rgba(255,255,255,0.08)",
       }}
     >
       <Box
@@ -89,7 +91,7 @@ const Ticker = () => {
           position: "absolute",
           right: 8,
           color: "rgba(255,255,255,0.7)",
-          "&:hover": { color: "#fff" },
+          "&:hover": { color: sitePalette.textOnDark },
         }}
         aria-label="close ticker"
       >

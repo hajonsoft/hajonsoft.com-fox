@@ -12,6 +12,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import trans from "../../../util/trans";
 import React from "react";
 import { FormattedNumber, useIntl } from "react-intl";
+import { sitePalette } from "../../../util/siteTheme";
 
 const PriceCard = ({
   name,
@@ -29,10 +30,17 @@ const PriceCard = ({
     <Card
       raised
       className="anim-hover-lift"
-      sx={{ height: "100%", display: "flex", flexDirection: "column" }}
+      sx={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        borderRadius: 4,
+        border: `1px solid ${sitePalette.border}`,
+        boxShadow: sitePalette.shadow,
+      }}
     >
       <CardHeader
-        style={{ backgroundColor: background }}
+        style={{ backgroundColor: background || sitePalette.surfaceStrong, color: sitePalette.text }}
         title={trans(name)}
         subheader={trans(subHeader)}
       />
@@ -71,7 +79,7 @@ const PriceCard = ({
                 style={{ marginLeft: "0" }}
               >
                 <Grid item>
-                  <CheckIcon style={{ color: "#85C24B" }}></CheckIcon>
+                  <CheckIcon style={{ color: sitePalette.primary }}></CheckIcon>
                 </Grid>
                 <Grid item>
                   <Typography variant="body2">
@@ -102,7 +110,7 @@ const PriceCard = ({
                   }
                 }}
               >
-                {trans("header.contact-us")}
+                {trans("header.demo")}
               </Button>
             ) : (
               <Button

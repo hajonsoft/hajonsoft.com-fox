@@ -11,6 +11,7 @@ import React from "react";
 import { FormattedMessage } from "react-intl";
 import { useIntl } from "react-intl";
 import getStartedImage from "../../../images/get-started.png";
+import { sitePalette } from "../../../util/siteTheme";
 
 const GetStartedMain = ({ onStart }) => {
   const theme = useTheme();
@@ -32,14 +33,14 @@ const GetStartedMain = ({ onStart }) => {
             className="anim-fade-in-left"
             style={{ animationDuration: "0.9s" }}
           >
-            <Typography variant="h3" fontWeight="bold" gutterBottom>
+            <Typography variant="h3" fontWeight="bold" gutterBottom sx={{ maxWidth: 760 }}>
               <FormattedMessage id="get-started.more-than-software" />
             </Typography>
             <Typography
               variant="h5"
-              color="rgba(255,255,255,0.85)"
+              color={sitePalette.textMuted}
               className="anim-fade-in-up"
-              style={{ animationDelay: "0.3s", animationDuration: "0.8s" }}
+              style={{ animationDelay: "0.3s", animationDuration: "0.8s", maxWidth: "60rem" }}
             >
               <FormattedMessage id="get-started.we-are-team" />
             </Typography>
@@ -49,24 +50,24 @@ const GetStartedMain = ({ onStart }) => {
             mt={4}
             display="flex"
             gap={2}
+            flexWrap="wrap"
             className="anim-fade-in-up"
             style={{ animationDelay: "0.55s", animationDuration: "0.8s" }}
           >
             <Button
               onClick={onStart}
+              variant="contained"
               sx={{
-                backgroundColor: "#00B37A",
-                color: "white",
-                textTransform: "none",
+                backgroundColor: sitePalette.primary,
+                color: sitePalette.textOnDark,
                 fontSize: "1.1rem",
                 fontWeight: 600,
                 px: 4,
                 py: 1.5,
-                borderRadius: "999px",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+                boxShadow: sitePalette.shadow,
                 transition: "transform 0.2s ease, background-color 0.2s ease",
                 "&:hover": {
-                  backgroundColor: "#029F6A",
+                  backgroundColor: sitePalette.primaryHover,
                   transform: "translateY(-2px)",
                 },
               }}
@@ -78,19 +79,20 @@ const GetStartedMain = ({ onStart }) => {
               onClick={() =>
                 window.open("https://meet.google.com/eap-zdrm-abh", "_blank")
               }
+              variant="outlined"
               sx={{
-                backgroundColor: "#4285F4",
-                color: "white",
-                textTransform: "none",
+                borderColor: sitePalette.darkSoft,
+                color: sitePalette.darkSoft,
                 fontSize: "1.1rem",
                 fontWeight: 600,
                 px: 4,
                 py: 1.5,
-                borderRadius: "999px",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+                backgroundColor: "rgba(255,255,255,0.55)",
                 transition: "transform 0.2s ease, background-color 0.2s ease",
                 "&:hover": {
-                  backgroundColor: "#357ae8",
+                  borderColor: sitePalette.primary,
+                  backgroundColor: "rgba(255,255,255,0.86)",
+                  color: sitePalette.primary,
                   transform: "translateY(-2px)",
                 },
               }}
@@ -108,7 +110,7 @@ const GetStartedMain = ({ onStart }) => {
                 src={getStartedImage}
                 alt="Hajonsoft software"
                 className="anim-float-in"
-                style={{ width: "100%", maxWidth: "360px" }}
+                style={{ width: "100%", maxWidth: "340px", filter: "drop-shadow(0 18px 30px rgba(15, 38, 29, 0.18))" }}
               />
             </Box>
           </Grid>

@@ -1,29 +1,43 @@
-import { Grid, Typography } from "@mui/material";
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  IconButton,
+  Link,
+  Popover,
+  Stack,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import { FormattedMessage } from "react-intl";
+import { sitePalette } from "../../util/siteTheme";
 import useInView from "../../util/useInView";
 
 const svgIcons = {
   dove: (
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Online Sales">
       <rect x="6" y="6" width="52" height="52" rx="14" fill="#E9F5EF" />
-      <path d="M17 22h31l-2 12H22l-2-12z" fill="#1F7A5A" />
-      <path d="M24 22c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#145A43" strokeWidth="3" strokeLinecap="round" />
-      <circle cx="28" cy="44" r="3.5" fill="#145A43" />
-      <circle cx="42" cy="44" r="3.5" fill="#145A43" />
+      <path d="M17 22h31l-2 12H22l-2-12z" fill="#2F7D57" />
+      <path d="M24 22c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#173A2C" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="28" cy="44" r="3.5" fill="#173A2C" />
+      <circle cx="42" cy="44" r="3.5" fill="#173A2C" />
       <path d="M32 30v-7" stroke="#F5FBF8" strokeWidth="2.5" strokeLinecap="round" />
       <path d="M28.5 33.5L32 30l3.5 3.5" stroke="#F5FBF8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   passportReader: (
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Passport Scanning">
-      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EAF0FF" />
-      <rect x="14" y="17" width="26" height="30" rx="4" fill="#2B4E9A" />
-      <path d="M21 24h12" stroke="#DDE7FF" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="27" cy="32" r="5" stroke="#DDE7FF" strokeWidth="2" />
-      <path d="M22.5 32h9" stroke="#DDE7FF" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M27 27.5v9" stroke="#DDE7FF" strokeWidth="1.8" strokeLinecap="round" />
-      <rect x="41" y="20" width="9" height="24" rx="3" fill="#6D8FE0" />
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EEF6F1" />
+      <rect x="14" y="17" width="26" height="30" rx="4" fill="#24513C" />
+      <path d="M21 24h12" stroke="#DFF1E6" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="27" cy="32" r="5" stroke="#DFF1E6" strokeWidth="2" />
+      <path d="M22.5 32h9" stroke="#DFF1E6" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M27 27.5v9" stroke="#DFF1E6" strokeWidth="1.8" strokeLinecap="round" />
+      <rect x="41" y="20" width="9" height="24" rx="3" fill="#7AAF8D" />
       <path d="M44.5 24v16M47 24v16" stroke="#F8FAFF" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   ),
@@ -48,40 +62,35 @@ const svgIcons = {
   ),
   masarHajj: (
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Masar Hajj">
-      <rect x="6" y="6" width="52" height="52" rx="14" fill="#F7F1E8" />
-      <rect x="22" y="23" width="20" height="20" rx="2" fill="#1C232B" />
-      <rect x="22" y="23" width="20" height="5" fill="#D7B46A" />
-      <path d="M17 46h30" stroke="#A17A37" strokeWidth="3" strokeLinecap="round" />
-      <circle cx="32" cy="16" r="3" fill="#A17A37" />
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#F3F7EE" />
+      <rect x="22" y="23" width="20" height="20" rx="2" fill="#173A2C" />
+      <rect x="22" y="23" width="20" height="5" fill="#9FC784" />
+      <path d="M17 46h30" stroke="#678F54" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="32" cy="16" r="3" fill="#678F54" />
     </svg>
   ),
   visitVisa: (
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Visit Visa">
-      <rect x="6" y="6" width="52" height="52" rx="14" fill="#F0F4FF" />
-      <rect x="14" y="15" width="36" height="34" rx="5" fill="#3C5AA6" />
-      <circle cx="26" cy="29" r="5" fill="#E7EEFF" />
-      <path d="M35 26h9M35 31h11M19 39h26" stroke="#E7EEFF" strokeWidth="2.2" strokeLinecap="round" />
-      <path d="M48 14v11" stroke="#6B86CC" strokeWidth="3" strokeLinecap="round" />
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EEF6F1" />
+      <rect x="14" y="15" width="36" height="34" rx="5" fill="#2A6D4C" />
+      <circle cx="26" cy="29" r="5" fill="#E8F4EC" />
+      <path d="M35 26h9M35 31h11M19 39h26" stroke="#E8F4EC" strokeWidth="2.2" strokeLinecap="round" />
+      <path d="M48 14v11" stroke="#7AAF8D" strokeWidth="3" strokeLinecap="round" />
     </svg>
   ),
   additional: (
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Additional Features">
-      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EEF2F6" />
-      <circle cx="21" cy="32" r="5" fill="#3A6B8C" />
-      <circle cx="32" cy="21" r="5" fill="#2F5A77" />
-      <circle cx="43" cy="32" r="5" fill="#3A6B8C" />
-      <circle cx="32" cy="43" r="5" fill="#2F5A77" />
-      <path d="M24.5 29.5l5-5M39.5 29.5l-5-5M24.5 34.5l5 5M39.5 34.5l-5 5" stroke="#22455C" strokeWidth="2" strokeLinecap="round" />
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EEF5F0" />
+      <circle cx="21" cy="32" r="5" fill="#4E8B69" />
+      <circle cx="32" cy="21" r="5" fill="#2A6D4C" />
+      <circle cx="43" cy="32" r="5" fill="#4E8B69" />
+      <circle cx="32" cy="43" r="5" fill="#2A6D4C" />
+      <path d="M24.5 29.5l5-5M39.5 29.5l-5-5M24.5 34.5l5 5M39.5 34.5l-5 5" stroke="#173A2C" strokeWidth="2" strokeLinecap="round" />
     </svg>
   ),
 };
 
 const players = [
-  {
-    title: "features.sell",
-    icon: svgIcons.dove,
-    description: "features.sell-description",
-  },
   {
     title: "features.quality-passport-reader",
     icon: svgIcons.passportReader,
@@ -106,11 +115,6 @@ const players = [
     description: "features.wtu-sender-description",
   },
   {
-    title: "features.masar-hajj",
-    icon: svgIcons.masarHajj,
-    description: "features.bau-sender-description",
-  },
-  {
     title: "features.visit-visa",
     icon: svgIcons.visitVisa,
     description: "features.gma-sender-description",
@@ -123,98 +127,206 @@ const players = [
 ];
 
 const Features = () => {
-  const [index, setIndex] = useState(-1);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
   const [sectionRef, sectionInView] = useInView();
+  const activePlayer = selectedIndex >= 0 ? players[selectedIndex] : null;
+  const popoverOpen = Boolean(anchorEl) && activePlayer !== null;
+
+  const handleOpenDetails = (event, idx) => {
+    event.preventDefault();
+
+    if (popoverOpen && selectedIndex === idx) {
+      setAnchorEl(null);
+      setSelectedIndex(-1);
+      return;
+    }
+
+    setAnchorEl(event.currentTarget);
+    setSelectedIndex(idx);
+  };
+
+  const handleCloseDetails = () => {
+    setAnchorEl(null);
+    setSelectedIndex(-1);
+  };
 
   return (
-    <div
+    <Box
       id="features"
       ref={sectionRef}
-      style={{
-        padding: "1rem",
-        backgroundColor: "#f0f1f3",
+      sx={{
+        padding: { xs: "1rem 0", md: "2rem 0" },
+        background: sitePalette.softGradient,
         opacity: sectionInView ? 1 : 0,
         transform: sectionInView ? "translateY(0)" : "translateY(28px)",
         transition: "opacity 0.6s ease, transform 0.6s ease",
       }}
     >
-      <Grid container justifyContent="center" spacing={4}>
-        <Grid item xs={12}>
-          <Typography variant="h6" align="center">
+      <Container maxWidth="lg">
+        <Stack spacing={2} sx={{ mb: 4, px: { xs: 2, md: 0 } }}>
+          <Typography variant="h4" align="center">
             <FormattedMessage id="features.manage-effortlessly" />
           </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="body1" align="center">
+          <Typography
+            variant="body1"
+            align="center"
+            sx={{ color: sitePalette.textMuted, maxWidth: 920, mx: "auto" }}
+          >
             <FormattedMessage id="features.complete-software" />
           </Typography>
-        </Grid>
-        {index === -1 && (
-          <Grid
-            item
-            xs={12}
-            container
-            justifyContent="center"
-            spacing={2}
-            alignItems="center"
-          >
-            {players.map((player, idx) => (
-              <Grid
-                item
-                key={idx}
-                className="anim-hover-lift"
-                style={{
-                  cursor: "pointer",
-                  padding: "0.75rem",
-                  borderRadius: "8px",
-                  // Staggered entrance when section is in view
-                  opacity: sectionInView ? 1 : 0,
-                  animation: sectionInView
-                    ? `fadeInUp 0.6s cubic-bezier(0.22,1,0.36,1) ${Math.min(idx * 0.1, 0.6)}s both`
-                    : "none",
-                }}
-              >
-                <Grid container justifyContent="center" alignItems="center">
-                  <Grid item onClick={() => setIndex(idx)}>
-                    {player.icon}
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Typography align="center" variant="body1">
+        </Stack>
+
+        <Grid container spacing={3} alignItems="stretch" justifyContent="center">
+          {players.map((player, idx) => {
+            const isActive = selectedIndex === idx && popoverOpen;
+
+            return (
+              <Grid item xs={12} sm={6} md={4} key={player.title}>
+                <Box
+                  className="anim-hover-lift"
+                  sx={{
+                    cursor: "default",
+                    padding: 3,
+                    borderRadius: 4,
+                    backgroundColor: isActive ? "rgba(255,255,255,0.98)" : "rgba(255,255,255,0.85)",
+                    border: `1px solid ${isActive ? sitePalette.primarySoft : sitePalette.border}`,
+                    boxShadow: isActive ? sitePalette.shadow : "0 10px 24px rgba(15, 38, 29, 0.08)",
+                    opacity: sectionInView ? 1 : 0,
+                    animation: sectionInView
+                      ? `fadeInUp 0.6s cubic-bezier(0.22,1,0.36,1) ${Math.min(idx * 0.1, 0.6)}s both`
+                      : "none",
+                  }}
+                >
+                  <Stack spacing={2}>
+                    <Box>{player.icon}</Box>
+                    <Typography variant="h6">
                       <FormattedMessage id={player.title} />
                     </Typography>
-                  </Grid>
-                </Grid>
+                    <Box
+                      component="p"
+                      sx={{
+                        margin: 0,
+                        fontSize: "0.95rem",
+                        color: sitePalette.textMuted,
+                        lineHeight: 1.65,
+                      }}
+                    >
+                      <FormattedMessage id={player.description} />
+                      {" "}
+                      <Link
+                        component="button"
+                        underline="hover"
+                        onClick={(event) => handleOpenDetails(event, idx)}
+                        sx={{
+                          fontSize: "0.95rem",
+                          fontWeight: 700,
+                          color: isActive ? sitePalette.primaryHover : sitePalette.primary,
+                          cursor: "pointer",
+                          textAlign: "left",
+                          alignSelf: "flex-start",
+                          "&:hover": {
+                            color: sitePalette.primaryHover,
+                          },
+                        }}
+                      >
+                        <FormattedMessage id="pricing.learn-more" />
+                      </Link>
+                    </Box>
+                  </Stack>
+                </Box>
               </Grid>
-            ))}
-          </Grid>
-        )}
-        {index !== -1 && (
-          <Grid item xs={12} container alignItems="center">
-            <Grid item xs={2} onClick={() => setIndex(-1)}>
-              {players[index].icon}
-              <Typography align="center" variant="h6">
-                <FormattedMessage id={players[index].title} />
+            );
+          })}
+        </Grid>
+
+        <Popover
+          open={popoverOpen}
+          anchorEl={anchorEl}
+          onClose={handleCloseDetails}
+          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+          transformOrigin={{ vertical: "top", horizontal: "left" }}
+          slotProps={{
+            paper: {
+              sx: {
+                width: { xs: "min(94vw, 420px)", sm: 460 },
+                maxHeight: { xs: "74vh", sm: "70vh" },
+                overflowY: "auto",
+                borderRadius: 4,
+                border: `1px solid ${sitePalette.primarySoft}`,
+                boxShadow: sitePalette.shadow,
+                background: "linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(244,250,246,0.98) 100%)",
+              },
+            },
+          }}
+        >
+          {activePlayer && (
+            <Stack spacing={2} sx={{ p: 3 }}>
+              <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 2 }}>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+                  {activePlayer.icon}
+                  <Typography variant="h6">
+                    <FormattedMessage id={activePlayer.title} />
+                  </Typography>
+                </Box>
+                <IconButton size="small" onClick={handleCloseDetails}>
+                  <CloseRoundedIcon fontSize="small" />
+                </IconButton>
+              </Box>
+
+              <Typography variant="body2" sx={{ color: sitePalette.text, lineHeight: 1.75 }}>
+                <FormattedMessage id={activePlayer.description} />
               </Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <Typography variant="body1">
-                <FormattedMessage id={players[index].description} />
-              </Typography>
-              {players[index].downloads &&
-                players[index].downloads.map((download, i) => (
-                  <a
-                    key={i}
-                    style={{ display: "block", marginTop: "1rem" }}
-                    href={download.url}
-                  >
-                    {download.name}
-                  </a>
-                ))}
-            </Grid>
-          </Grid>
-        )}
-      </Grid>
-    </div>
+
+              {activePlayer.downloads && (
+                <Stack spacing={1.5}>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>
+                    <FormattedMessage id="header.downloads" />
+                  </Typography>
+                  {activePlayer.downloads.map((download) => (
+                    <Button
+                      key={download.name}
+                      component="a"
+                      href={download.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      variant="outlined"
+                      endIcon={<OpenInNewRoundedIcon />}
+                      sx={{
+                        justifyContent: "space-between",
+                        borderColor: sitePalette.border,
+                        color: sitePalette.darkSoft,
+                        backgroundColor: "rgba(255,255,255,0.75)",
+                        "&:hover": {
+                          borderColor: sitePalette.primary,
+                          backgroundColor: "rgba(47, 125, 87, 0.05)",
+                        },
+                      }}
+                    >
+                      {download.name}
+                    </Button>
+                  ))}
+                </Stack>
+              )}
+
+              <Button
+                startIcon={<ArrowBackRoundedIcon />}
+                variant="text"
+                onClick={handleCloseDetails}
+                sx={{
+                  justifyContent: "flex-start",
+                  px: 0,
+                  color: sitePalette.primary,
+                  "&:hover": { backgroundColor: "transparent", color: sitePalette.primaryHover },
+                }}
+              >
+                <FormattedMessage id="header.features" />
+              </Button>
+            </Stack>
+          )}
+        </Popover>
+      </Container>
+    </Box>
   );
 };
 

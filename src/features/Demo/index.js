@@ -2,6 +2,7 @@ import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import { useIntl } from "react-intl";
+import { sitePalette } from "../../util/siteTheme";
 
 const Demo = () => {
   const intl = useIntl();
@@ -11,8 +12,8 @@ const Demo = () => {
       sx={{
         py: 6,
         px: 2,
-        background: "linear-gradient(135deg, #4B0082 0%, #8e44ad 100%)",
-        color: "#fff",
+        background: sitePalette.darkGradient,
+        color: sitePalette.textOnDark,
       }}
     >
       <Container maxWidth="md">
@@ -24,7 +25,7 @@ const Demo = () => {
             <Typography
               variant="body1"
               align="center"
-              sx={{ mb: 4, color: "rgba(255,255,255,0.85)" }}
+              sx={{ mb: 4, color: "rgba(245, 251, 247, 0.82)" }}
             >
               {intl.formatMessage({ id: "demo.description" })}
             </Typography>
@@ -39,12 +40,10 @@ const Demo = () => {
               }
               sx={{
                 backgroundColor: "#fff",
-                color: "#4B0082",
+                color: sitePalette.darkSoft,
                 fontWeight: 600,
-                textTransform: "none",
-                borderRadius: "999px",
                 px: 4,
-                "&:hover": { backgroundColor: "#f0f0f0" },
+                "&:hover": { backgroundColor: "#eef7f1" },
               }}
             >
               {intl.formatMessage({ id: "demo.watch-demo" })}
@@ -59,13 +58,11 @@ const Demo = () => {
                 window.open("https://hajonsoft-kea.web.app/", "_blank")
               }
               sx={{
-                borderColor: "#fff",
-                color: "#fff",
+                borderColor: "rgba(255,255,255,0.72)",
+                color: sitePalette.textOnDark,
                 fontWeight: 600,
-                textTransform: "none",
-                borderRadius: "999px",
                 px: 4,
-                "&:hover": { borderColor: "#ccc", color: "#ccc" },
+                "&:hover": { borderColor: "#fff", backgroundColor: "rgba(255,255,255,0.08)" },
               }}
             >
               {intl.formatMessage({ id: "demo.try-free" })}

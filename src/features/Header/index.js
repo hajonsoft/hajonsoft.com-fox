@@ -14,6 +14,7 @@ import { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { analytics } from "../../analytics";
 import logo from "../../images/logo.png";
+import { sitePalette } from "../../util/siteTheme";
 import Styled from "./components/styled-components";
 
 const Header = ({ onLanguageChange, lang }) => {
@@ -39,9 +40,10 @@ const Header = ({ onLanguageChange, lang }) => {
       id="home"
       position="static"
       sx={{
-        marginBottom: "2rem",
-        background: "linear-gradient(90deg, #6a0dad, #8e44ad)", // Royal purple
-        color: "#fff",
+        marginBottom: 0,
+        background: sitePalette.darkGradient,
+        color: sitePalette.textOnDark,
+        boxShadow: sitePalette.shadow,
       }}
     >
       <Styled.TopBar>
@@ -50,7 +52,7 @@ const Header = ({ onLanguageChange, lang }) => {
           spacing={2}
           justifyContent="flex-end"
           alignItems="center"
-          sx={{ paddingRight: "2rem", paddingTop: "0.25rem" }}
+          sx={{ paddingRight: "2rem", paddingTop: "0.35rem", paddingBottom: "0.35rem" }}
         >
           <Grid item>
             <Typography variant="body2">hajonsoft@gmail.com</Typography>
@@ -75,16 +77,17 @@ const Header = ({ onLanguageChange, lang }) => {
       </Styled.TopBar>
 
       <Toolbar>
-        <Grid container justifyContent="space-between" alignItems="center">
+        <Grid container justifyContent="space-between" alignItems="center" sx={{ width: "100%" }}>
           <Grid
             item
             style={{
-              backgroundColor: "white",
+              backgroundColor: "rgba(255,255,255,0.96)",
               borderRadius: "50%",
               padding: "0.5rem",
+              border: `1px solid ${sitePalette.border}`,
             }}
           >
-            <img src={logo} alt="logo" width="64" />
+            <img src={logo} alt="logo" width="64" style={{ filter: sitePalette.logoFilter }} />
           </Grid>
 
           <Grid item>
@@ -94,7 +97,7 @@ const Header = ({ onLanguageChange, lang }) => {
                   ["home", "header.home"],
                   ["features", "header.features"],
                   // ["pricing", "header.pricing"],
-                  ["contact", "header.contact-us"],
+                  ["contact", "header.demo"],
                 ].map(([id, label]) => (
                   <Grid item key={id}>
                     <Styled.HeaderButton
@@ -128,7 +131,17 @@ const Header = ({ onLanguageChange, lang }) => {
               value={language}
               onChange={handleLanguageChange}
               variant="standard"
-              sx={{ color: "white", borderBottom: "1px solid white" }}
+              sx={{
+                color: sitePalette.textOnDark,
+                borderBottom: `1px solid rgba(255,255,255,0.4)`,
+                minWidth: 120,
+                "&:before, &:after": {
+                  borderBottomColor: "rgba(255,255,255,0.4)",
+                },
+                ".MuiSvgIcon-root": {
+                  color: sitePalette.textOnDark,
+                },
+              }}
             >
               {[
                 ["en", "English"],

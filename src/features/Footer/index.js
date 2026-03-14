@@ -1,33 +1,49 @@
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import { Button, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { FormattedMessage, useIntl } from "react-intl";
 import logo from "../../images/logo.png";
 
 import moment from "moment-timezone";
-import footerBg from "../../images/footer_bg.svg";
 import owl from "../../images/owl.svg";
+import { sitePalette } from "../../util/siteTheme";
 
 const Footer = () => {
   const intl = useIntl();
 
   return (
-    <div style={{ backgroundImage: `url(${footerBg})` }}>
+    <Box
+      sx={{
+        background: sitePalette.darkGradient,
+        color: sitePalette.textOnDark,
+        marginTop: 4,
+        paddingTop: 6,
+      }}
+    >
       <Container>
-        <Grid container alignItems="stretch">
+        <Grid container alignItems="stretch" spacing={3}>
           <Grid item sm={12} md={3} lg container>
             <Grid item sm={12} md={12} lg={12}>
-              <img src={logo} alt="logo" width="128" />
+              <Box
+                sx={{
+                  display: "inline-flex",
+                  backgroundColor: "rgba(255,255,255,0.95)",
+                  borderRadius: "50%",
+                  padding: "0.85rem",
+                }}
+              >
+                <img src={logo} alt="logo" width="96" style={{ filter: sitePalette.logoFilter }} />
+              </Box>
             </Grid>
             <Grid item sm={12} md={12} lg={12}>
-              <Typography variant="caption">hajonsoft@gmail.com</Typography>
+              <Typography variant="body2">hajonsoft@gmail.com</Typography>
             </Grid>
             <Grid item sm={12} md={12} lg={12}>
-              <Typography variant="caption" align="center">
+              <Typography variant="body2" align="center" sx={{ color: "rgba(245, 251, 247, 0.72)" }}>
                 {moment.tz.guess()}
               </Typography>
             </Grid>
             <Grid item sm={12} md={12} lg={12}>
-              <Typography variant="caption">
+              <Typography variant="body2">
                 <FormattedMessage id="header.telephone" />
               </Typography>
             </Grid>
@@ -45,7 +61,7 @@ const Footer = () => {
               <Typography variant="h6" gutterBottom>
                 <FormattedMessage id="footer.tagline" />
               </Typography>
-              <Typography variant="body2" color="textSecondary">
+              <Typography variant="body1" sx={{ color: "rgba(245, 251, 247, 0.76)", maxWidth: 680 }}>
                 <FormattedMessage id="footer.description" />
               </Typography>
             </Grid>
@@ -55,13 +71,13 @@ const Footer = () => {
       <div
         style={{
           width: "100%",
-          height: "4rem",
-          backgroundColor: "rgb(57,63,82)",
-          marginTop: "1rem",
-          marginBottom: "1rem",
+          minHeight: "4.5rem",
+          backgroundColor: "rgba(6, 18, 14, 0.42)",
+          marginTop: "2rem",
           display: "flex",
           alignItems: "center",
           color: "white",
+          borderTop: "1px solid rgba(255,255,255,0.08)",
         }}
       >
         <Grid container justify="space-between" spacing={1} alignItems="center">
@@ -84,12 +100,11 @@ const Footer = () => {
                 (window.location.href = "https://meet.google.com/eap-zdrm-abh")
               }
               variant="contained"
-              color="primary"
               startIcon={<HelpOutlineIcon />}
               style={{
                 color: "white",
-                textTransform: "none",
                 borderRadius: "16px",
+                backgroundColor: sitePalette.primary,
               }}
             >
               {intl.formatMessage({ id: "footer.meet-now" })}
@@ -97,7 +112,7 @@ const Footer = () => {
           </Grid>
         </Grid>
       </div>
-    </div>
+    </Box>
   );
 };
 
