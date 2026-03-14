@@ -9,11 +9,13 @@ import {
 } from "@mui/material";
 import React from "react";
 import { FormattedMessage } from "react-intl";
+import { useIntl } from "react-intl";
 import getStartedImage from "../../../images/get-started.png";
 
 const GetStartedMain = ({ onStart }) => {
   const theme = useTheme();
   const aboveSmall = useMediaQuery(theme.breakpoints.up("sm"));
+  const intl = useIntl();
 
   return (
     <Container maxWidth="lg">
@@ -93,7 +95,7 @@ const GetStartedMain = ({ onStart }) => {
                 },
               }}
             >
-              Meet Now
+              {intl.formatMessage({ id: "getstarted.meet-now" })}
             </Button>
           </Box>
         </Grid>
