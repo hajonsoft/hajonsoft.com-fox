@@ -1,6 +1,7 @@
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { FormattedMessage, useIntl } from "react-intl";
+import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
 
 import moment from "moment-timezone";
@@ -88,7 +89,21 @@ const Footer = () => {
                 <img src={owl} alt="hajonsoft owl" width="30" height="30"></img>
               </Grid>
               <Grid item>
-                <FormattedMessage id="footer.privacy-terms" />
+                <Link
+                  to="/privacy-policy"
+                  style={{ color: "inherit", textDecoration: "underline" }}
+                >
+                  Privacy Policy
+                </Link>
+              </Grid>
+              <Grid item>·</Grid>
+              <Grid item>
+                <Link
+                  to="/terms-of-service"
+                  style={{ color: "inherit", textDecoration: "underline" }}
+                >
+                  Terms of Service
+                </Link>
               </Grid>
             </Grid>
           </Grid>
