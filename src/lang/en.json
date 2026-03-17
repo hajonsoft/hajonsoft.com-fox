@@ -26,7 +26,7 @@
   "features.much-more": "Nusuk & Custom AI Agents",
   "features.wtu-sender-description": "Our Umrah AI Agent automates visa submissions through the Masar platform, sending traveller information directly to Saudi Arabia visa sites. It handles passport data entry, photo uploads, and form submissions — saving your team hours of repetitive manual work every season.",
   "features.gma-sender-description": "Our Visit Visa AI Agent processes Saudi Arabia visit visa applications through automated form filling and document submission. It sends traveller information directly to the Saudi visa portal — ideal for agencies handling business, family, or tourist visas at scale.",
-  "features.twf-sender-description": "Nusuk AI Agent is our Business-to-Customer Hajj solution. It automatically sends traveller information to Saudi Arabia's Nusuk platform, fully automating Hajj registration for travel agencies. We can also custom-build new agents, including Rawda and other workflow-specific agents, and we continuously monitor Saudi Arabia systems to adapt our agents quickly.",
+  "features.twf-sender-description": "Nusuk AI Agent automates Hajj registration for travel agencies by sending traveller data directly to Saudi Arabia's Nusuk platform. We also build custom agents like Rawda and continuously monitor Saudi systems to keep agents current.",
   "find": "Visa by Proxy",
   "footer.about-us": "About Us",
   "footer.common-questions": "Join the Community",
