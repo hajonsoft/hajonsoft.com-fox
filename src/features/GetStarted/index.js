@@ -15,7 +15,7 @@ const GetStarted = () => {
         background: sitePalette.heroGradient,
         color: sitePalette.text,
         minHeight: "24rem",
-        marginTop: 0,
+        marginTop: "1.5rem",
         marginInline: "0.75rem",
         padding: "2.2rem 1.2rem",
         display: "flex",
