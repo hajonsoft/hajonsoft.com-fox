@@ -89,8 +89,20 @@ const Footer = () => {
                 <img src={owl} alt="hajonsoft owl" width="30" height="30"></img>
               </Grid>
               <Grid item>
-                <Link to="/privacy-policy" style={{ color: "inherit", textDecoration: "underline" }}>
-                  <FormattedMessage id="footer.privacy-terms" />
+                <Link
+                  to="/privacy-policy"
+                  style={{ color: "inherit", textDecoration: "underline" }}
+                >
+                  Privacy Policy
+                </Link>
+              </Grid>
+              <Grid item>·</Grid>
+              <Grid item>
+                <Link
+                  to="/terms-of-service"
+                  style={{ color: "inherit", textDecoration: "underline" }}
+                >
+                  Terms of Service
                 </Link>
               </Grid>
             </Grid>

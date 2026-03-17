@@ -16,7 +16,8 @@ import messages_ar from "./lang/ar.json";
 
 import { Route, Routes } from "react-router-dom";
 import ConferenceMeeting from "./conference/Meeting";
-import Privacy from "./features/Privacy";
+import PrivacyPolicy from "./features/PrivacyPolicy";
+import TermsOfService from "./features/TermsOfService";
 import messages_de from "./lang/de.json";
 import messages_en from "./lang/en.json";
 import messages_fr from "./lang/fr.json";
@@ -204,7 +205,8 @@ function App() {
               }
             ></Route>
             <Route path="/conference" element={<ConferenceMeeting />}></Route>
-            <Route path="/privacy-policy" element={<Privacy />}></Route>
+            <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
+            <Route path="/terms-of-service" element={<TermsOfService />}></Route>
           </Routes>
         </IntlProvider>
       </ThemeProvider>
