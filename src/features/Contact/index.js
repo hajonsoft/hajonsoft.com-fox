@@ -132,11 +132,12 @@ const Contact = () => {
                     <Box
                       key={messageId}
                       sx={{
+                        m: "16px",
                         ml: { xs: 0, sm: idx === 1 ? "auto" : 0 },
                         maxWidth: { xs: "100%", sm: idx === 1 ? 250 : 320 },
                         width: "100%",
-                        px: 2,
-                        py: 1.5,
+                        px: 4,
+                        py: 2,
                         borderRadius: 4,
                         backgroundColor: "rgba(255,255,255,0.12)",
                         backdropFilter: "blur(8px)",

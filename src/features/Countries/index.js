@@ -254,6 +254,8 @@ const FlagItem = ({
                   : findFlagUrlByCountryName(region.country)
               }
               alt={region.country}
+              loading="lazy"
+              decoding="async"
               style={itemStyle}
               onClick={handleFlagClick}
               onError={handleImageError}

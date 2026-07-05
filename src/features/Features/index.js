@@ -206,7 +206,7 @@ const Features = () => {
                     <Box
                       component="p"
                       sx={{
-                        margin: 0,
+                        margin: "16px",
                         fontSize: "0.95rem",
                         color: sitePalette.textMuted,
                         lineHeight: 1.65,

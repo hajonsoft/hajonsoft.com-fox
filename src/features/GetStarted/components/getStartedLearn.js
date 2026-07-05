@@ -24,7 +24,13 @@ const GetStartedLearn = () => {
                     </ul>
                 </Grid>
                 <Grid item>
-                    <img src={hajonsoftLMS} alt="hajonsoft university" width="300px" />
+                    <img
+                      src={hajonsoftLMS}
+                      alt="hajonsoft university"
+                      width="300px"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <Typography variant="body1" align="center">
                         Click here to begin
                     </Typography>

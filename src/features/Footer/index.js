@@ -31,7 +31,13 @@ const Footer = () => {
                   padding: "0.85rem",
                 }}
               >
-                <img src={logo} alt="logo" width="96" style={{ filter: sitePalette.logoFilter }} />
+                <img
+                  src={logo}
+                  alt="logo"
+                  width="96"
+                  loading="eager"
+                  style={{ filter: sitePalette.logoFilter }}
+                />
               </Box>
             </Grid>
             <Grid item sm={12} md={12} lg={12}>

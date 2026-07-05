@@ -24,7 +24,13 @@ const GetStartedSee = ({ onStart, onSee }) => {
                     </ul>
                 </Grid2>
                 <Grid2 item>
-                    <img src={seePlatform} alt="hajonsoft university" width="300px" />
+                    <img
+                      src={seePlatform}
+                      alt="hajonsoft university"
+                      width="300px"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <Typography variant="body1" align="center">
                         Click here to begin
                     </Typography>
