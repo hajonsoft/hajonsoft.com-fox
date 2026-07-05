@@ -1,5 +1,4 @@
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
-import SupportAgentRoundedIcon from "@mui/icons-material/SupportAgentRounded";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import { FormattedMessage, useIntl } from "react-intl";
@@ -86,25 +85,6 @@ const Contact = () => {
                     }}
                   >
                     {intl.formatMessage({ id: "demo.watch-demo" })}
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    startIcon={<SupportAgentRoundedIcon />}
-                    onClick={() =>
-                      window.open("https://meet.google.com/eap-zdrm-abh", "_blank")
-                    }
-                    sx={{
-                      borderColor: sitePalette.darkSoft,
-                      color: sitePalette.darkSoft,
-                      backgroundColor: "rgba(255,255,255,0.58)",
-                      "&:hover": {
-                        borderColor: sitePalette.primary,
-                        backgroundColor: "rgba(255,255,255,0.85)",
-                        color: sitePalette.primary,
-                      },
-                    }}
-                  >
-                    {intl.formatMessage({ id: "footer.meet-now" })}
                   </Button>
                 </Stack>
               </Stack>

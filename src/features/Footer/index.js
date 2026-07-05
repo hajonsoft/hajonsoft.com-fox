@@ -1,16 +1,15 @@
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
 
-import moment from "moment-timezone";
 import owl from "../../images/owl.svg";
 import { sitePalette } from "../../util/siteTheme";
 
-const Footer = () => {
-  const intl = useIntl();
+const WEBMAIL_URL = "https://giow1026.siteground.us/webmail/log-in";
+const USER_TIMEZONE = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
 
+const Footer = () => {
   return (
     <Box
       sx={{
@@ -39,8 +38,27 @@ const Footer = () => {
               <Typography variant="body2">hajonsoft@gmail.com</Typography>
             </Grid>
             <Grid item sm={12} md={12} lg={12}>
+              <Button
+                href={WEBMAIL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outlined"
+                size="small"
+                sx={{
+                  color: sitePalette.textOnDark,
+                  borderColor: "rgba(255,255,255,0.55)",
+                  "&:hover": {
+                    borderColor: sitePalette.textOnDark,
+                    backgroundColor: "rgba(255,255,255,0.08)",
+                  },
+                }}
+              >
+                Webmail Login
+              </Button>
+            </Grid>
+            <Grid item sm={12} md={12} lg={12}>
               <Typography variant="body2" align="center" sx={{ color: "rgba(245, 251, 247, 0.72)" }}>
-                {moment.tz.guess()}
+                {USER_TIMEZONE}
               </Typography>
             </Grid>
             <Grid item sm={12} md={12} lg={12}>
@@ -109,22 +127,7 @@ const Footer = () => {
           </Grid>
           <Grid item></Grid>
           <Grid item></Grid>
-          <Grid item style={{ marginRight: "1rem" }}>
-            <Button
-              onClick={() =>
-                (window.location.href = "https://meet.google.com/eap-zdrm-abh")
-              }
-              variant="contained"
-              startIcon={<HelpOutlineIcon />}
-              style={{
-                color: "white",
-                borderRadius: "16px",
-                backgroundColor: sitePalette.primary,
-              }}
-            >
-              {intl.formatMessage({ id: "footer.meet-now" })}
-            </Button>
-          </Grid>
+          <Grid item style={{ marginRight: "1rem" }}></Grid>
         </Grid>
       </div>
     </Box>

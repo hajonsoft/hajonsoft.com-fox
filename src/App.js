@@ -1,23 +1,12 @@
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Button, createTheme, Grid2, ThemeProvider } from "@mui/material";
-import { useMemo, useState } from "react";
+import { Suspense, lazy, useEffect, useMemo, useState } from "react";
 import { IntlProvider } from "react-intl";
-import Contact from "./features/Contact";
-import Countries from "./features/Countries";
-import Demo from "./features/Demo";
-import Features from "./features/Features";
-import Footer from "./features/Footer";
 import GetStarted from "./features/GetStarted";
 import Header from "./features/Header";
-import KeaDemo from "./features/Kea";
-import Ticker from "./features/Ticker";
-import Why from "./features/Why";
 import messages_ar from "./lang/ar.json";
 
 import { Route, Routes } from "react-router-dom";
-import ConferenceMeeting from "./conference/Meeting";
-import PrivacyPolicy from "./features/PrivacyPolicy";
-import TermsOfService from "./features/TermsOfService";
 import messages_de from "./lang/de.json";
 import messages_en from "./lang/en.json";
 import messages_fr from "./lang/fr.json";
@@ -30,6 +19,17 @@ import messages_th from "./lang/th.json";
 import messages_tr from "./lang/tr.json";
 import messages_zh from "./lang/zh.json";
 import { sitePalette } from "./util/siteTheme";
+
+const Contact = lazy(() => import("./features/Contact"));
+const Countries = lazy(() => import("./features/Countries"));
+const Demo = lazy(() => import("./features/Demo"));
+const Features = lazy(() => import("./features/Features"));
+const Footer = lazy(() => import("./features/Footer"));
+const KeaDemo = lazy(() => import("./features/Kea"));
+const Ticker = lazy(() => import("./features/Ticker"));
+const Why = lazy(() => import("./features/Why"));
+const PrivacyPolicy = lazy(() => import("./features/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./features/TermsOfService"));
 
 // addLocaleData([...locale_en, ...locale_ar, ...locale_fr]);
 
@@ -55,21 +55,6 @@ const handleScrollTopClick = () => {
   const element = document.getElementById("home");
   if (element) {
     element.scrollIntoView({ block: "start", behavior: "smooth" });
-  }
-};
-
-onscroll = function () {
-  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  const backToTopButton = document.getElementById("back-to-top");
-
-  if (!backToTopButton) {
-    return;
-  }
-
-  if (scrollTop > 300) {
-    backToTopButton.style.visibility = "visible";
-  } else {
-    backToTopButton.style.visibility = "hidden";
   }
 };
 
@@ -163,15 +148,39 @@ function App() {
     localStorage.setItem("langOverride", lang);
   };
 
-  document.dir = dir;
-  document.documentElement.lang = language;
+  useEffect(() => {
+    document.dir = dir;
+    document.documentElement.lang = language;
+  }, [dir, language]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const backToTopButton = document.getElementById("back-to-top");
+
+      if (!backToTopButton) {
+        return;
+      }
+
+      backToTopButton.style.visibility = scrollTop > 300 ? "visible" : "hidden";
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div>
       <ThemeProvider theme={theme}>
         <IntlProvider messages={messages[language]} locale={language}>
           <Header onLanguageChange={handleLanguageChange} lang={language} />
-          <Ticker />
+          <Suspense fallback={null}>
+            <Ticker />
+          </Suspense>
           <Routes>
             <Route
               path="/"
@@ -181,32 +190,59 @@ function App() {
                     <GetStarted />
                   </Grid2>
                   <Grid2 item>
-                    <Countries />
+                    <Suspense fallback={null}>
+                      <Countries />
+                    </Suspense>
                   </Grid2>
                   <Grid2 item>
-                    <Features />
+                    <Suspense fallback={null}>
+                      <Features />
+                    </Suspense>
                   </Grid2>
                   <Grid2 item>
-                    <KeaDemo lang={language} />
+                    <Suspense fallback={null}>
+                      <KeaDemo lang={language} />
+                    </Suspense>
                   </Grid2>
                   <Grid2 item>
-                    <Demo />
+                    <Suspense fallback={null}>
+                      <Demo />
+                    </Suspense>
                   </Grid2>
                   <Grid2 item>
-                    <Why />
+                    <Suspense fallback={null}>
+                      <Why />
+                    </Suspense>
                   </Grid2>
                   <Grid2 item>
-                    <Contact />
+                    <Suspense fallback={null}>
+                      <Contact />
+                    </Suspense>
                   </Grid2>
                   <Grid2 item>
-                    <Footer />
+                    <Suspense fallback={null}>
+                      <Footer />
+                    </Suspense>
                   </Grid2>
                 </Grid2>
               }
             ></Route>
-            <Route path="/conference" element={<ConferenceMeeting />}></Route>
-            <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
-            <Route path="/terms-of-service" element={<TermsOfService />}></Route>
+            <Route
+              path="/privacy-policy"
+              element={
+                <Suspense fallback={null}>
+                  <PrivacyPolicy />
+                </Suspense>
+              }
+            ></Route>
+            <Route
+              path="/terms-of-service"
+              element={
+                <Suspense fallback={null}>
+                  <TermsOfService />
+                </Suspense>
+              }
+            ></Route>
           </Routes>
         </IntlProvider>
       </ThemeProvider>

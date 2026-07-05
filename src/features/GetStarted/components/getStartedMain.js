@@ -9,14 +9,12 @@ import {
 } from "@mui/material";
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { useIntl } from "react-intl";
-import getStartedImage from "../../../images/get-started.png";
+import getStartedImage from "../../../images/get-started-optimized.jpg";
 import { sitePalette } from "../../../util/siteTheme";
 
 const GetStartedMain = ({ onStart }) => {
   const theme = useTheme();
   const aboveSmall = useMediaQuery(theme.breakpoints.up("sm"));
-  const intl = useIntl();
 
   return (
     <Container maxWidth="lg">
@@ -74,31 +72,6 @@ const GetStartedMain = ({ onStart }) => {
             >
               <FormattedMessage id="get-started" />
             </Button>
-
-            <Button
-              onClick={() =>
-                window.open("https://meet.google.com/eap-zdrm-abh", "_blank")
-              }
-              variant="outlined"
-              sx={{
-                borderColor: sitePalette.darkSoft,
-                color: sitePalette.darkSoft,
-                fontSize: "1.1rem",
-                fontWeight: 600,
-                px: 4,
-                py: 1.5,
-                backgroundColor: "rgba(255,255,255,0.55)",
-                transition: "transform 0.2s ease, background-color 0.2s ease",
-                "&:hover": {
-                  borderColor: sitePalette.primary,
-                  backgroundColor: "rgba(255,255,255,0.86)",
-                  color: sitePalette.primary,
-                  transform: "translateY(-2px)",
-                },
-              }}
-            >
-              {intl.formatMessage({ id: "getstarted.meet-now" })}
-            </Button>
           </Box>
         </Grid>
 
@@ -109,6 +82,8 @@ const GetStartedMain = ({ onStart }) => {
               <img
                 src={getStartedImage}
                 alt="Hajonsoft software"
+                loading="lazy"
+                decoding="async"
                 className="anim-float-in"
                 style={{ width: "100%", maxWidth: "340px", filter: "drop-shadow(0 18px 30px rgba(15, 38, 29, 0.18))" }}
               />
