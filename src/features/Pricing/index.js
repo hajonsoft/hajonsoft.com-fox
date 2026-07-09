@@ -1,4 +1,4 @@
-import { Container, Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import React from "react";
 import { useIntl } from "react-intl";
 import PriceCard from "./components/PriceCard";
@@ -80,36 +80,38 @@ const Pricing = () => {
   const [sectionRef, sectionInView] = useInView();
 
   return (
-    <Container id="pricing" ref={sectionRef} style={{ marginTop: "-5rem" }}>
-      <Grid container justify="space-between" spacing={2}>
-        {priceCards.map((priceCard, idx) => (
-          <Grid
-            item
-            sm={12}
-            md={3}
-            lg
-            key={priceCard.name}
-            style={{
-              opacity: sectionInView ? 1 : 0,
-              animation: sectionInView
-                ? `slideUp 0.65s cubic-bezier(0.22,1,0.36,1) ${idx * 0.12}s both`
-                : "none",
-            }}
-          >
-            <PriceCard
-              name={priceCard.name}
-              price={priceCard.price}
-              paymentTerm={priceCard.paymentTerm}
-              subHeader={priceCard.subHeader}
-              inclusions={priceCard.inclusions}
-              background={priceCard.background}
-              learnMore={priceCard.learnMore}
-              paymentLink={priceCard.paymentLink}
-            />
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <Box component="section" sx={{ mt: { xs: 6, md: 8 }, pt: { xs: 2, md: 3 } }}>
+      <Container id="pricing" ref={sectionRef}>
+        <Grid container justify="space-between" spacing={2}>
+          {priceCards.map((priceCard, idx) => (
+            <Grid
+              item
+              sm={12}
+              md={3}
+              lg
+              key={priceCard.name}
+              style={{
+                opacity: sectionInView ? 1 : 0,
+                animation: sectionInView
+                  ? `slideUp 0.65s cubic-bezier(0.22,1,0.36,1) ${idx * 0.12}s both`
+                  : "none",
+              }}
+            >
+              <PriceCard
+                name={priceCard.name}
+                price={priceCard.price}
+                paymentTerm={priceCard.paymentTerm}
+                subHeader={priceCard.subHeader}
+                inclusions={priceCard.inclusions}
+                background={priceCard.background}
+                learnMore={priceCard.learnMore}
+                paymentLink={priceCard.paymentLink}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 

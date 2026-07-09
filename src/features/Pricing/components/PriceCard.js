@@ -41,8 +41,11 @@ const PriceCard = ({
     >
       <CardHeader
         style={{ backgroundColor: background || sitePalette.surfaceStrong, color: sitePalette.text }}
+        sx={{ textAlign: "center" }}
         title={trans(name)}
         subheader={trans(subHeader)}
+        titleTypographyProps={{ align: "center" }}
+        subheaderTypographyProps={{ align: "center" }}
       />
       <CardContent sx={{ flexGrow: 1 }}>
         {price === null ? (

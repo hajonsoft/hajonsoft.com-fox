@@ -96,7 +96,7 @@ const Header = ({ onLanguageChange, lang }) => {
                 {[
                   ["home", "header.home"],
                   ["features", "header.features"],
-                  // ["pricing", "header.pricing"],
+                  ["pricing", "header.pricing"],
                   ["contact", "header.demo"],
                 ].map(([id, label]) => (
                   <Grid item key={id}>

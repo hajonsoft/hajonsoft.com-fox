@@ -26,6 +26,7 @@ const Demo = lazy(() => import("./features/Demo"));
 const Features = lazy(() => import("./features/Features"));
 const Footer = lazy(() => import("./features/Footer"));
 const KeaDemo = lazy(() => import("./features/Kea"));
+const Pricing = lazy(() => import("./features/Pricing"));
 const Ticker = lazy(() => import("./features/Ticker"));
 const Why = lazy(() => import("./features/Why"));
 const PrivacyPolicy = lazy(() => import("./features/PrivacyPolicy"));
@@ -197,6 +198,11 @@ function App() {
                   <Grid2 item>
                     <Suspense fallback={null}>
                       <Features />
+                    </Suspense>
+                  </Grid2>
+                  <Grid2 item>
+                    <Suspense fallback={null}>
+                      <Pricing />
                     </Suspense>
                   </Grid2>
                   <Grid2 item>
