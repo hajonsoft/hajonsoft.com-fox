@@ -33,8 +33,11 @@ const KeaDemo = ({lang}) => {
         <Typography className={classes.title}>
           {t("kea.title")}
         </Typography>
-        <Typography sx={{ color: sitePalette.textMuted, maxWidth: 760, margin: "0 auto 1.5rem auto" }}>
+        <Typography sx={{ color: sitePalette.textMuted, maxWidth: 760, margin: "0 auto 0.75rem auto" }}>
           {t("introduction-to-hajonsoft-kea")}
+        </Typography>
+        <Typography sx={{ color: sitePalette.textMuted, maxWidth: 760, margin: "0 auto 1.5rem auto" }}>
+          {t("kea.support-description")}
         </Typography>
         <Box
           style={{

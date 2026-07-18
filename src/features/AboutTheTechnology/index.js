@@ -119,6 +119,9 @@ const AboutTheTechnology = () => {
           <FormattedMessage id="technology.kea.p1" />
         </Typography>
         <Typography variant="body1" sx={bodySx}>
+          <FormattedMessage id="technology.kea.p3" />
+        </Typography>
+        <Typography variant="body1" sx={bodySx}>
           <FormattedMessage id="technology.kea.p2" />
         </Typography>
 
