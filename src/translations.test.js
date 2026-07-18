@@ -47,7 +47,7 @@ describe('en.json AI Agent copy', () => {
 
   test('hero section mentions AI Agent', () => {
     expect(en['get-started.more-than-software']).toContain('AI Agent');
-    expect(en['get-started.we-are-team']).toContain('AI Agent');
+    expect(en['hero.slide.overview.body']).toContain('AI Agent');
   });
 
   test('contains required new i18n keys', () => {
@@ -63,6 +63,13 @@ describe('en.json AI Agent copy', () => {
       'footer.webmail-login', 'countries.global-reach', 'kea.title',
       'legal.translation-notice', 'privacy.title', 'terms.title', 'technology.title',
       'ticker.default', 'getstarted.meet-now', 'pricing.get-a-quote',
+      'hero.overview-label', 'hero.slide.overview.title', 'hero.slide.overview.body',
+      'hero.unique.title', 'hero.unique.no-install', 'hero.unique.web-based',
+      'hero.capability.captcha', 'hero.capability.otp',
+      'hero.capability.resize', 'hero.capability.forms',
+      'hero.slide.umrah.title', 'hero.slide.enjaz.title',
+      'hero.slide.hajj-global.title', 'hero.slide.hajj-mission.title',
+      'hero.slide.visit-visa.title',
     ];
     requiredKeys.forEach((key) => {
       expect(en[key]).toBeDefined();

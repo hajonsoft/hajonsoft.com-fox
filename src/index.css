@@ -1,16 +1,17 @@
 :root {
-  --brand-text: #123024;
-  --brand-text-muted: #436253;
-  --brand-dark: #0f261d;
-  --brand-dark-soft: #173a2c;
-  --brand-primary: #2f7d57;
-  --brand-primary-hover: #276a49;
-  --brand-primary-soft: #8fc4a0;
-  --brand-surface: #f4faf6;
-  --brand-surface-alt: #e6f2ea;
-  --brand-surface-strong: #d6eadc;
-  --brand-border: #bfd8c8;
-  --brand-shadow: 0 18px 40px rgba(15, 38, 29, 0.12);
+  --brand-text: #1a2330;
+  --brand-text-muted: #5a6878;
+  --brand-dark: #0f1724;
+  --brand-dark-soft: #1a2740;
+  --brand-primary: #4090d0;
+  --brand-primary-hover: #2f74b0;
+  --brand-primary-soft: #8ebce6;
+  --brand-secondary: #333333;
+  --brand-surface: #f4f8fc;
+  --brand-surface-alt: #e8f1f9;
+  --brand-surface-strong: #d5e6f5;
+  --brand-border: #bfd4e6;
+  --brand-shadow: 0 18px 40px rgba(15, 38, 60, 0.14);
   --font-latin: "Manrope", "Segoe UI", sans-serif;
   --font-arabic: "Noto Sans Arabic", "Segoe UI", sans-serif;
 }
@@ -26,8 +27,8 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(143, 196, 160, 0.2), transparent 28%),
-    linear-gradient(180deg, #f9fcfa 0%, #f2f8f4 100%);
+    radial-gradient(circle at top left, rgba(64, 144, 208, 0.16), transparent 28%),
+    linear-gradient(180deg, #f8fbfe 0%, #eef4fa 100%);
   color: var(--brand-text);
   font-family: var(--font-latin);
   -webkit-font-smoothing: antialiased;
@@ -68,7 +69,7 @@ a:hover {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -76,31 +77,26 @@ code {
    Business-Oriented Sales Page Animations
    ===================================================== */
 
-/* Fade in upward — used for hero text blocks and feature cards */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(36px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Fade in from the left — hero headline */
 @keyframes fadeInLeft {
   from { opacity: 0; transform: translateX(-48px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
-/* Fade in from the right — hero image */
 @keyframes fadeInRight {
   from { opacity: 0; transform: translateX(48px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
-/* Continuous floating — keeps hero image alive */
 @keyframes float {
   0%,  100% { transform: translateY(0px); }
   50%        { transform: translateY(-14px); }
 }
 
-/* Combine initial fade-in-right with persistent float */
 @keyframes floatIn {
   0%   { opacity: 0; transform: translateX(48px) translateY(0); }
   30%  { opacity: 1; transform: translateX(0)    translateY(0); }
@@ -108,26 +104,22 @@ code {
   100% { transform: translateX(0) translateY(0); }
 }
 
-/* Flag wave entrance — used for each flag chip */
 @keyframes waveFlag {
   0%   { opacity: 0; transform: scale(0.4) rotateY(90deg); }
   60%  { transform: scale(1.08) rotateY(-6deg); }
   100% { opacity: 1; transform: scale(1) rotateY(0deg); }
 }
 
-/* Awake-flag green glow pulse */
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 5px rgba(47, 125, 87, 0.25); }
-  50%       { box-shadow: 0 0 16px rgba(47, 125, 87, 0.5), 0 0 28px rgba(47, 125, 87, 0.2); }
+  0%, 100% { box-shadow: 0 0 5px rgba(64, 144, 208, 0.25); }
+  50%       { box-shadow: 0 0 16px rgba(64, 144, 208, 0.5), 0 0 28px rgba(64, 144, 208, 0.2); }
 }
 
-/* Slide up — pricing cards */
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(64px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Card hover lift helper (applied as CSS class) */
 .anim-hover-lift {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -136,22 +128,18 @@ code {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18) !important;
 }
 
-/* Hero text entry */
 .anim-fade-in-left {
   animation: fadeInLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Hero sub-text — slightly delayed */
 .anim-fade-in-up {
   animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Hero image — float in then keep floating */
 .anim-float-in {
   animation: floatIn 4s ease-in-out infinite;
 }
 
-/* Scroll-visible base state */
 .scroll-hidden {
   opacity: 0;
   transform: translateY(32px);
@@ -160,7 +148,6 @@ code {
   animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* Pricing card scroll entrance */
 .price-card-hidden {
   opacity: 0;
   transform: translateY(56px);

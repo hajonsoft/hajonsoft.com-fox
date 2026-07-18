@@ -18,6 +18,11 @@ import messages_ru from "./lang/ru.json";
 import messages_th from "./lang/th.json";
 import messages_tr from "./lang/tr.json";
 import messages_zh from "./lang/zh.json";
+import {
+  detectPreferredLanguageAsync,
+  detectPreferredLanguageSync,
+} from "./util/detectPreferredLanguage";
+import SeoHead from "./util/SeoHead";
 import { sitePalette } from "./util/siteTheme";
 
 const Contact = lazy(() => import("./features/Contact"));
@@ -33,8 +38,6 @@ const PrivacyPolicy = lazy(() => import("./features/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./features/TermsOfService"));
 const AboutTheTechnology = lazy(() => import("./features/AboutTheTechnology"));
 
-// addLocaleData([...locale_en, ...locale_ar, ...locale_fr]);
-
 const messages = {
   fr: messages_fr,
   ar: messages_ar,
@@ -49,10 +52,9 @@ const messages = {
   zh: messages_zh,
   tr: messages_tr,
 };
-let navigatorLanguage = navigator.language.split(/[-_]/)[0];
-if (!messages[navigatorLanguage]) {
-  navigatorLanguage = "en";
-}
+
+const initialLanguage = detectPreferredLanguageSync();
+
 const handleScrollTopClick = () => {
   const element = document.getElementById("home");
   if (element) {
@@ -61,12 +63,8 @@ const handleScrollTopClick = () => {
 };
 
 function App() {
-  const [language, setLanguage] = useState(
-    localStorage.getItem("langOverride") || navigatorLanguage
-  );
-  const [dir, setDir] = useState(
-    localStorage.getItem("langOverride") === "ar" ? "rtl" : "ltr"
-  );
+  const [language, setLanguage] = useState(initialLanguage);
+  const [dir, setDir] = useState(initialLanguage === "ar" ? "rtl" : "ltr");
 
   const theme = useMemo(
     () =>
@@ -80,7 +78,7 @@ function App() {
             contrastText: sitePalette.textOnDark,
           },
           secondary: {
-            main: sitePalette.darkSoft,
+            main: sitePalette.secondary,
             contrastText: sitePalette.textOnDark,
           },
           text: {
@@ -155,6 +153,27 @@ function App() {
     document.documentElement.lang = language;
   }, [dir, language]);
 
+  // Strengthen language from timezone / visitor country when the user has not
+  // manually chosen a language and the browser only offered English (or nothing).
+  useEffect(() => {
+    let cancelled = false;
+
+    const applyLanguage = (lang) => {
+      if (cancelled || !lang || !messages[lang] || lang === language) return;
+      if (localStorage.getItem("langOverride")) return;
+      setLanguage(lang);
+      setDir(lang === "ar" ? "rtl" : "ltr");
+    };
+
+    detectPreferredLanguageAsync().then(applyLanguage);
+
+    return () => {
+      cancelled = true;
+    };
+    // Run once on mount — intentional empty deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -179,10 +198,8 @@ function App() {
     <div>
       <ThemeProvider theme={theme}>
         <IntlProvider messages={messages[language]} locale={language}>
+          <SeoHead language={language} />
           <Header onLanguageChange={handleLanguageChange} lang={language} />
-          <Suspense fallback={null}>
-            <Ticker />
-          </Suspense>
           <Routes>
             <Route
               path="/"
@@ -190,6 +207,11 @@ function App() {
                 <Grid2 container spacing={0} direction="column">
                   <Grid2 item>
                     <GetStarted />
+                  </Grid2>
+                  <Grid2 item>
+                    <Suspense fallback={null}>
+                      <Ticker />
+                    </Suspense>
                   </Grid2>
                   <Grid2 item>
                     <Suspense fallback={null}>

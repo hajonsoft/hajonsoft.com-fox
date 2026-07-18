@@ -36,12 +36,11 @@ const Footer = () => {
                   alt="logo"
                   width="96"
                   loading="eager"
-                  style={{ filter: sitePalette.logoFilter }}
                 />
               </Box>
             </Grid>
             <Grid item sm={12} md={12} lg={12}>
-              <Typography variant="body2">hajonsoft@gmail.com</Typography>
+              <Typography variant="body2">admin@hajonsoft.net</Typography>
             </Grid>
             <Grid item sm={12} md={12} lg={12}>
               <Button

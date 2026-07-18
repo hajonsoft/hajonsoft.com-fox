@@ -1,3 +1,5 @@
-# https://www.robotstxt.org/robotstxt.html
+# https://hajonsoft.com/robots.txt
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://hajonsoft.com/sitemap.xml

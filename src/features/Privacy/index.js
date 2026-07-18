@@ -156,7 +156,7 @@ const Privacy = () => {
           </Typography>
           <Box component="ul" sx={{ pl: 3 }}>
             <Typography component="li" variant="body1" sx={{ mb: 0.5 }}>
-              Email: <a href="mailto:hajonsoft@gmail.com" style={{ color: sitePalette.primary }}>hajonsoft@gmail.com</a>
+              Email: <a href="mailto:admin@hajonsoft.net" style={{ color: sitePalette.primary }}>admin@hajonsoft.net</a>
             </Typography>
             <Typography component="li" variant="body1" sx={{ mb: 0.5 }}>
               Phone: +1 (949) 522-1879

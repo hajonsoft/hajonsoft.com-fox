@@ -5,7 +5,6 @@ import {
   Box,
   Button,
   Container,
-  Grid,
   IconButton,
   Link,
   Popover,
@@ -18,111 +17,85 @@ import { sitePalette } from "../../util/siteTheme";
 import useInView from "../../util/useInView";
 
 const svgIcons = {
-  dove: (
-    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Online Sales">
-      <rect x="6" y="6" width="52" height="52" rx="14" fill="#E9F5EF" />
-      <path d="M17 22h31l-2 12H22l-2-12z" fill="#2F7D57" />
-      <path d="M24 22c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#173A2C" strokeWidth="3" strokeLinecap="round" />
-      <circle cx="28" cy="44" r="3.5" fill="#173A2C" />
-      <circle cx="42" cy="44" r="3.5" fill="#173A2C" />
-      <path d="M32 30v-7" stroke="#F5FBF8" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M28.5 33.5L32 30l3.5 3.5" stroke="#F5FBF8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-  passportReader: (
-    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Passport Scanning">
-      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EEF6F1" />
-      <rect x="14" y="17" width="26" height="30" rx="4" fill="#24513C" />
-      <path d="M21 24h12" stroke="#DFF1E6" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="27" cy="32" r="5" stroke="#DFF1E6" strokeWidth="2" />
-      <path d="M22.5 32h9" stroke="#DFF1E6" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M27 27.5v9" stroke="#DFF1E6" strokeWidth="1.8" strokeLinecap="round" />
-      <rect x="41" y="20" width="9" height="24" rx="3" fill="#7AAF8D" />
-      <path d="M44.5 24v16M47 24v16" stroke="#F8FAFF" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  ),
   ministry: (
-    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eHaj Integration">
-      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EEF3E7" />
-      <path d="M18 43h28" stroke="#486B2C" strokeWidth="3" strokeLinecap="round" />
-      <path d="M24 43V31h16v12" fill="#6D9443" />
-      <path d="M22 31h20L32 22 22 31z" fill="#486B2C" />
-      <circle cx="48" cy="39" r="8" fill="#2A7B4B" />
-      <path d="M44.5 39.5l2.3 2.3 4.7-5.2" stroke="#F4FBF6" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Enjaz">
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EAF2F9" />
+      <path d="M18 43h28" stroke="#2F74B0" strokeWidth="3" strokeLinecap="round" />
+      <path d="M24 43V31h16v12" fill="#4090D0" />
+      <path d="M22 31h20L32 22 22 31z" fill="#2F74B0" />
+      <circle cx="48" cy="39" r="8" fill="#2F74B0" />
+      <path d="M44.5 39.5l2.3 2.3 4.7-5.2" stroke="#F4F8FC" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   masarUmrah: (
-    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Masar Umrah">
-      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EEF8F8" />
-      <circle cx="19" cy="45" r="4.5" fill="#1E7D7A" />
-      <circle cx="32" cy="30" r="4.5" fill="#249B94" />
-      <circle cx="46" cy="20" r="4.5" fill="#1E7D7A" />
-      <path d="M22.5 42L28 35.8c1.5-1.7 4-1.9 5.7-.5l3.6 2.9c1.8 1.5 4.5 1.2 6-.6L49 30" stroke="#166563" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nusuk Umrah">
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EAF2F9" />
+      <circle cx="19" cy="45" r="4.5" fill="#2F74B0" />
+      <circle cx="32" cy="30" r="4.5" fill="#4090D0" />
+      <circle cx="46" cy="20" r="4.5" fill="#2F74B0" />
+      <path d="M22.5 42L28 35.8c1.5-1.7 4-1.9 5.7-.5l3.6 2.9c1.8 1.5 4.5 1.2 6-.6L49 30" stroke="#1A2740" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   masarHajj: (
-    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Masar Hajj">
-      <rect x="6" y="6" width="52" height="52" rx="14" fill="#F3F7EE" />
-      <rect x="22" y="23" width="20" height="20" rx="2" fill="#173A2C" />
-      <rect x="22" y="23" width="20" height="5" fill="#9FC784" />
-      <path d="M17 46h30" stroke="#678F54" strokeWidth="3" strokeLinecap="round" />
-      <circle cx="32" cy="16" r="3" fill="#678F54" />
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nusuk Hajj Global">
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EAF2F9" />
+      <rect x="22" y="23" width="20" height="20" rx="2" fill="#1A2740" />
+      <rect x="22" y="23" width="20" height="5" fill="#8EBCE6" />
+      <path d="M17 46h30" stroke="#5A8FBF" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="32" cy="16" r="3" fill="#5A8FBF" />
     </svg>
   ),
   visitVisa: (
-    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Visit Visa">
-      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EEF6F1" />
-      <rect x="14" y="15" width="36" height="34" rx="5" fill="#2A6D4C" />
-      <circle cx="26" cy="29" r="5" fill="#E8F4EC" />
-      <path d="M35 26h9M35 31h11M19 39h26" stroke="#E8F4EC" strokeWidth="2.2" strokeLinecap="round" />
-      <path d="M48 14v11" stroke="#7AAF8D" strokeWidth="3" strokeLinecap="round" />
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Visit Saudi">
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EAF2F9" />
+      <rect x="14" y="15" width="36" height="34" rx="5" fill="#2F74B0" />
+      <circle cx="26" cy="29" r="5" fill="#E8F1F9" />
+      <path d="M35 26h9M35 31h11M19 39h26" stroke="#E8F1F9" strokeWidth="2.2" strokeLinecap="round" />
+      <path d="M48 14v11" stroke="#8EBCE6" strokeWidth="3" strokeLinecap="round" />
     </svg>
   ),
-  additional: (
-    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Additional Features">
-      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EEF5F0" />
-      <circle cx="21" cy="32" r="5" fill="#4E8B69" />
-      <circle cx="32" cy="21" r="5" fill="#2A6D4C" />
-      <circle cx="43" cy="32" r="5" fill="#4E8B69" />
-      <circle cx="32" cy="43" r="5" fill="#2A6D4C" />
-      <path d="M24.5 29.5l5-5M39.5 29.5l-5-5M24.5 34.5l5 5M39.5 34.5l-5 5" stroke="#173A2C" strokeWidth="2" strokeLinecap="round" />
+  mission: (
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nusuk Hajj Missions">
+      <rect x="6" y="6" width="52" height="52" rx="14" fill="#EAF2F9" />
+      <circle cx="21" cy="32" r="5" fill="#5A9FD6" />
+      <circle cx="32" cy="21" r="5" fill="#2F74B0" />
+      <circle cx="43" cy="32" r="5" fill="#5A9FD6" />
+      <circle cx="32" cy="43" r="5" fill="#2F74B0" />
+      <path d="M24.5 29.5l5-5M39.5 29.5l-5-5M24.5 34.5l5 5M39.5 34.5l-5 5" stroke="#1A2740" strokeWidth="2" strokeLinecap="round" />
     </svg>
   ),
 };
 
 const players = [
   {
-    title: "features.quality-passport-reader",
-    icon: svgIcons.passportReader,
-    description: "features.quality-passport-reader-description",
-    downloads: [
-      { url: "https://firebasestorage.googleapis.com/v0/b/breno-tours.appspot.com/o/scanner-software%2FAT9000.zip?alt=media&token=a3f5feda-b7ef-44b7-b3a2-be09530c3355", name: "3M AT9000 Mk2" },
-      { url: "https://firebasestorage.googleapis.com/v0/b/breno-tours.appspot.com/o/scanner-software%2FComboSmart2.zip?alt=media&token=03e85505-600a-40a2-8d97-813d6c98f04a", name: "ARH Combo Smart" },
-      { url: "https://firebasestorage.googleapis.com/v0/b/breno-tours.appspot.com/o/scanner-software%2FGemalto.zip?alt=media&token=61c1fdc5-9076-440f-a852-c2e3dde787a5", name: "Gemalto 32 bit" },
-      { url: "https://firebasestorage.googleapis.com/v0/b/breno-tours.appspot.com/o/scanner-software%2FGemalto64.zip?alt=media&token=ee83bdcd-a25b-4c17-993a-eea92dd5067a", name: "Gemalto 64 bit" },
-      { url: "https://firebasestorage.googleapis.com/v0/b/breno-tours.appspot.com/o/scanner-software%2FOCR640.zip?alt=media&token=82c4ff45-f2ad-41f7-97bb-9acc8cc1a0ae", name: "OCR640" },
-      { url: "https://firebasestorage.googleapis.com/v0/b/breno-tours.appspot.com/o/scanner-software%2FCR100.zip?alt=media&token=860eaca3-f86c-4d81-a6cb-0df4232a8d56", name: "CR100" },
-    ],
+    title: "features.masar-umrah",
+    icon: svgIcons.masarUmrah,
+    description: "features.wtu-sender-description",
+    targetUrl: "https://masar.nusuk.sa/",
   },
   {
     title: "features.ehaj-integration",
     icon: svgIcons.ministry,
     description: "features.ehaj-integration-description",
+    targetUrl: "https://services.ksavisa.sa/",
   },
   {
-    title: "features.masar-umrah",
-    icon: svgIcons.masarUmrah,
-    description: "features.wtu-sender-description",
+    title: "features.masar-hajj",
+    icon: svgIcons.masarHajj,
+    description: "features.twf-sender-description",
+    targetUrl: "https://hajj.nusuk.sa/",
+  },
+  {
+    title: "features.much-more",
+    icon: svgIcons.mission,
+    description: "features.bau-sender-description",
+    targetUrl: "https://masar.nusuk.sa/",
   },
   {
     title: "features.visit-visa",
     icon: svgIcons.visitVisa,
     description: "features.gma-sender-description",
-  },
-  {
-    title: "features.much-more",
-    icon: svgIcons.additional,
-    description: "features.twf-sender-description",
+    targetUrl: "https://visa.visitsaudi.com/",
   },
 ];
 
@@ -177,68 +150,101 @@ const Features = () => {
           </Typography>
         </Stack>
 
-        <Grid container spacing={3} alignItems="stretch" justifyContent="center">
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, minmax(0, 1fr))",
+              md: "repeat(3, minmax(0, 1fr))",
+              lg: "repeat(5, minmax(0, 1fr))",
+            },
+            gap: 2.5,
+            alignItems: "stretch",
+            px: { xs: 2, md: 0 },
+          }}
+        >
           {players.map((player, idx) => {
             const isActive = selectedIndex === idx && popoverOpen;
 
             return (
-              <Grid item xs={12} sm={6} md={4} key={player.title}>
+              <Box
+                key={player.title}
+                className="anim-hover-lift"
+                sx={{
+                  height: "100%",
+                  minHeight: { xs: 300, lg: 360 },
+                  display: "flex",
+                  flexDirection: "column",
+                  padding: 2.5,
+                  borderRadius: 4,
+                  backgroundColor: isActive ? "rgba(255,255,255,0.98)" : "rgba(255,255,255,0.9)",
+                  border: `1px solid ${isActive ? sitePalette.primarySoft : sitePalette.border}`,
+                  boxShadow: isActive ? sitePalette.shadow : "0 10px 24px rgba(15, 38, 60, 0.08)",
+                  opacity: sectionInView ? 1 : 0,
+                  animation: sectionInView
+                    ? `fadeInUp 0.65s cubic-bezier(0.22,1,0.36,1) ${idx * 0.1}s both`
+                    : "none",
+                  transition:
+                    "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
+                  "&:hover": {
+                    borderColor: sitePalette.primarySoft,
+                    boxShadow: sitePalette.shadow,
+                  },
+                }}
+              >
                 <Box
-                  className="anim-hover-lift"
                   sx={{
-                    cursor: "default",
-                    padding: 3,
-                    borderRadius: 4,
-                    backgroundColor: isActive ? "rgba(255,255,255,0.98)" : "rgba(255,255,255,0.85)",
-                    border: `1px solid ${isActive ? sitePalette.primarySoft : sitePalette.border}`,
-                    boxShadow: isActive ? sitePalette.shadow : "0 10px 24px rgba(15, 38, 29, 0.08)",
-                    opacity: sectionInView ? 1 : 0,
+                    mb: 1.5,
                     animation: sectionInView
-                      ? `fadeInUp 0.6s cubic-bezier(0.22,1,0.36,1) ${Math.min(idx * 0.1, 0.6)}s both`
+                      ? `float 4.5s ease-in-out ${idx * 0.2}s infinite`
                       : "none",
+                    width: "fit-content",
                   }}
                 >
-                  <Stack spacing={2}>
-                    <Box>{player.icon}</Box>
-                    <Typography variant="h6">
-                      <FormattedMessage id={player.title} />
-                    </Typography>
-                    <Box
-                      component="p"
-                      sx={{
-                        margin: "16px",
-                        fontSize: "0.95rem",
-                        color: sitePalette.textMuted,
-                        lineHeight: 1.65,
-                      }}
-                    >
-                      <FormattedMessage id={player.description} />
-                      {" "}
-                      <Link
-                        component="button"
-                        underline="hover"
-                        onClick={(event) => handleOpenDetails(event, idx)}
-                        sx={{
-                          fontSize: "0.95rem",
-                          fontWeight: 700,
-                          color: isActive ? sitePalette.primaryHover : sitePalette.primary,
-                          cursor: "pointer",
-                          textAlign: "left",
-                          alignSelf: "flex-start",
-                          "&:hover": {
-                            color: sitePalette.primaryHover,
-                          },
-                        }}
-                      >
-                        <FormattedMessage id="pricing.learn-more" />
-                      </Link>
-                    </Box>
-                  </Stack>
+                  {player.icon}
                 </Box>
-              </Grid>
+                <Typography variant="h6" sx={{ mb: 1.25, fontSize: "1.05rem", lineHeight: 1.3 }}>
+                  <FormattedMessage id={player.title} />
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: sitePalette.textMuted,
+                    lineHeight: 1.65,
+                    flex: 1,
+                    display: "-webkit-box",
+                    WebkitLineClamp: 6,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                    mb: 1.5,
+                  }}
+                >
+                  <FormattedMessage id={player.description} />
+                </Typography>
+                <Link
+                  component="button"
+                  underline="hover"
+                  onClick={(event) => handleOpenDetails(event, idx)}
+                  sx={{
+                    mt: "auto",
+                    fontSize: "0.95rem",
+                    fontWeight: 700,
+                    color: isActive ? sitePalette.primaryHover : sitePalette.primary,
+                    cursor: "pointer",
+                    textAlign: "left",
+                    alignSelf: "flex-start",
+                    "&:hover": {
+                      color: sitePalette.primaryHover,
+                    },
+                  }}
+                >
+                  <FormattedMessage id="pricing.learn-more" />
+                </Link>
+              </Box>
             );
           })}
-        </Grid>
+        </Box>
 
         <Popover
           open={popoverOpen}
@@ -255,7 +261,7 @@ const Features = () => {
                 borderRadius: 4,
                 border: `1px solid ${sitePalette.primarySoft}`,
                 boxShadow: sitePalette.shadow,
-                background: "linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(244,250,246,0.98) 100%)",
+                background: sitePalette.softGradient,
               },
             },
           }}
@@ -278,35 +284,30 @@ const Features = () => {
                 <FormattedMessage id={activePlayer.description} />
               </Typography>
 
-              {activePlayer.downloads && (
-                <Stack spacing={1.5}>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>
-                    <FormattedMessage id="header.downloads" />
-                  </Typography>
-                  {activePlayer.downloads.map((download) => (
-                    <Button
-                      key={download.name}
-                      component="a"
-                      href={download.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      variant="outlined"
-                      endIcon={<OpenInNewRoundedIcon />}
-                      sx={{
-                        justifyContent: "space-between",
-                        borderColor: sitePalette.border,
-                        color: sitePalette.darkSoft,
-                        backgroundColor: "rgba(255,255,255,0.75)",
-                        "&:hover": {
-                          borderColor: sitePalette.primary,
-                          backgroundColor: "rgba(47, 125, 87, 0.05)",
-                        },
-                      }}
-                    >
-                      {download.name}
-                    </Button>
-                  ))}
-                </Stack>
+              {activePlayer.targetUrl && (
+                <Button
+                  component="a"
+                  href={activePlayer.targetUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outlined"
+                  endIcon={<OpenInNewRoundedIcon />}
+                  sx={{
+                    justifyContent: "space-between",
+                    borderColor: sitePalette.border,
+                    color: sitePalette.darkSoft,
+                    backgroundColor: "rgba(255,255,255,0.75)",
+                    textTransform: "none",
+                    "&:hover": {
+                      borderColor: sitePalette.primary,
+                      backgroundColor: "rgba(64, 144, 208, 0.08)",
+                    },
+                  }}
+                >
+                  {activePlayer.targetUrl
+                    .replace(/^https?:\/\//, "")
+                    .replace(/\/+$/, "")}
+                </Button>
               )}
 
               <Button
