@@ -59,6 +59,9 @@ describe('en.json AI Agent copy', () => {
       'why.reason4.title', 'why.reason4.description',
       'demo.title', 'demo.description', 'demo.watch-demo', 'demo.try-free',
       'footer.tagline', 'footer.description', 'footer.privacy-terms', 'footer.meet-now',
+      'footer.privacy-policy', 'footer.terms-of-service', 'footer.about-the-technology',
+      'footer.webmail-login', 'countries.global-reach', 'kea.title',
+      'legal.translation-notice', 'privacy.title', 'terms.title', 'technology.title',
       'ticker.default', 'getstarted.meet-now', 'pricing.get-a-quote',
     ];
     requiredKeys.forEach((key) => {

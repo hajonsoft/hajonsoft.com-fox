@@ -59,7 +59,7 @@ const Footer = () => {
                   },
                 }}
               >
-                Webmail Login
+                <FormattedMessage id="footer.webmail-login" />
               </Button>
             </Grid>
             <Grid item sm={12} md={12} lg={12}>
@@ -108,7 +108,10 @@ const Footer = () => {
         <Grid container justify="space-between" spacing={1} alignItems="center">
           <Grid item style={{ marginLeft: "2rem" }}>
             <Grid container spacing={1} alignItems="center">
-              <Grid item>© {new Date().getFullYear()} HAJonSoft</Grid>
+              <Grid item>
+                © {new Date().getFullYear()}{" "}
+                <FormattedMessage id="brand.name" />
+              </Grid>
               <Grid item>
                 <img src={owl} alt="hajonsoft owl" width="30" height="30"></img>
               </Grid>
@@ -117,7 +120,7 @@ const Footer = () => {
                   to="/privacy-policy"
                   style={{ color: "inherit", textDecoration: "underline" }}
                 >
-                  Privacy Policy
+                  <FormattedMessage id="footer.privacy-policy" />
                 </Link>
               </Grid>
               <Grid item>·</Grid>
@@ -126,7 +129,16 @@ const Footer = () => {
                   to="/terms-of-service"
                   style={{ color: "inherit", textDecoration: "underline" }}
                 >
-                  Terms of Service
+                  <FormattedMessage id="footer.terms-of-service" />
+                </Link>
+              </Grid>
+              <Grid item>·</Grid>
+              <Grid item>
+                <Link
+                  to="/about-the-technology"
+                  style={{ color: "inherit", textDecoration: "underline" }}
+                >
+                  <FormattedMessage id="footer.about-the-technology" />
                 </Link>
               </Grid>
             </Grid>

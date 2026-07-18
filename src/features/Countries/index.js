@@ -162,7 +162,6 @@ const Countries = () => {
       >
         <FormattedMessage
           id="countries.global-reach"
-          defaultMessage="Serving clients across {count} countries — our software speaks every language of business."
           values={{ count: hosCountries.length }}
         />
       </Typography>

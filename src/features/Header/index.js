@@ -60,7 +60,7 @@ const Header = ({ onLanguageChange, lang }) => {
           <Grid item>
             <Box display="flex" alignItems="center">
               <Typography variant="body2" sx={{ marginRight: "0.5rem" }}>
-                +1-949-522-1879
+                <FormattedMessage id="header.telephone" />
               </Typography>
               <IconButton
                 color="inherit"

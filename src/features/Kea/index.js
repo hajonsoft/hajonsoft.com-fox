@@ -31,10 +31,10 @@ const KeaDemo = ({lang}) => {
     <>
       <Box className={classes.root}>
         <Typography className={classes.title}>
-          HAJonSoft Kea
+          {t("kea.title")}
         </Typography>
         <Typography sx={{ color: sitePalette.textMuted, maxWidth: 760, margin: "0 auto 1.5rem auto" }}>
-          {t('introduction-to-hajonsoft-kea')}
+          {t("introduction-to-hajonsoft-kea")}
         </Typography>
         <Box
           style={{

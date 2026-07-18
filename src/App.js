@@ -31,6 +31,7 @@ const Ticker = lazy(() => import("./features/Ticker"));
 const Why = lazy(() => import("./features/Why"));
 const PrivacyPolicy = lazy(() => import("./features/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./features/TermsOfService"));
+const AboutTheTechnology = lazy(() => import("./features/AboutTheTechnology"));
 
 // addLocaleData([...locale_en, ...locale_ar, ...locale_fr]);
 
@@ -246,6 +247,14 @@ function App() {
               element={
                 <Suspense fallback={null}>
                   <TermsOfService />
+                </Suspense>
+              }
+            ></Route>
+            <Route
+              path="/about-the-technology"
+              element={
+                <Suspense fallback={null}>
+                  <AboutTheTechnology />
                 </Suspense>
               }
             ></Route>
