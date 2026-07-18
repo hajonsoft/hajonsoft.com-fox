@@ -1,5 +1,5 @@
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
-import { Box, Container, Grid, Tooltip, Typography } from "@mui/material";
+import { Box, Container, Grid, Tooltip, Typography, useMediaQuery } from "@mui/material";
 import { countries, findFlagUrlByCountryName } from "country-flags-svg";
 import moment from "moment-timezone";
 import { useState } from "react";
@@ -113,8 +113,11 @@ const regionTooltip = (region) => (
   </>
 );
 
+const MOBILE_FLAG_PREVIEW = 8;
+
 const Countries = () => {
   const world = hosWorld();
+  const isMobile = useMediaQuery("(max-width:900px)");
   const [sectionRef, sectionInView] = useInView({ once: false, threshold: 0.18 });
 
   const awake = world
@@ -125,24 +128,38 @@ const Countries = () => {
     .filter((country) => !country.isAwake)
     .sort((a, b) => a.meanTime.format("HHmm") - b.meanTime.format("HHmm"));
 
+  const mobilePreview = [...awake, ...asleep].slice(0, MOBILE_FLAG_PREVIEW);
+  const moreCount = Math.max(hosCountries.length - MOBILE_FLAG_PREVIEW, 0);
+
   return (
     <Container
       ref={sectionRef}
       sx={{
-        marginTop: 4,
-        padding: 4,
+        marginTop: { xs: 2, md: 4 },
+        mx: { xs: 2.5, md: "auto" },
+        width: { xs: "auto", md: undefined },
+        padding: { xs: 2.5, sm: 3, md: 4 },
         backgroundImage: `linear-gradient(180deg, rgba(244, 250, 246, 0.96), rgba(230, 242, 234, 0.92)), url(${lisbon})`,
         backgroundSize: "cover",
-        borderRadius: 6,
+        borderRadius: { xs: 3, md: 6 },
         border: `1px solid ${sitePalette.border}`,
         boxShadow: sitePalette.shadow,
         opacity: sectionInView ? 1 : 0,
         transform: sectionInView ? "translateY(0)" : "translateY(32px)",
         transition: "opacity 0.7s ease, transform 0.7s ease",
+        overflow: "hidden",
       }}
     >
       <Typography align="center" gutterBottom component="div">
-        <Box letterSpacing={5} fontSize={32}>
+        <Box
+          sx={{
+            letterSpacing: { xs: 1.5, md: 5 },
+            fontSize: { xs: "1.25rem", sm: "1.6rem", md: "2rem" },
+            fontWeight: 700,
+            lineHeight: 1.3,
+            px: 0.5,
+          }}
+        >
           <FormattedMessage
             id="countries.in-countries"
             values={{ countries: hosCountries.length }}
@@ -150,14 +167,14 @@ const Countries = () => {
         </Box>
       </Typography>
 
-      {/* Sub-headline describing global software reach */}
       <Typography
         align="center"
         variant="body2"
         sx={{
-          mb: 3,
+          mb: { xs: 2, md: 3 },
           color: sitePalette.textMuted,
           letterSpacing: 0.5,
+          display: { xs: "none", md: "block" },
         }}
       >
         <FormattedMessage
@@ -166,34 +183,69 @@ const Countries = () => {
         />
       </Typography>
 
-      <Grid container spacing={2} alignItems="center" justifyContent="center">
-        {awake.map((region, idx) => (
-          <Grid item key={`awake-${region.country}`}>
+      {isMobile ? (
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 1.5,
+          }}
+        >
+          {mobilePreview.map((region, idx) => (
             <FlagItem
+              key={`mobile-${region.country}`}
               region={region}
-              variant="awake"
+              variant={region.isAwake ? "awake" : "asleep"}
+              showName={false}
               animIndex={idx}
               sectionVisible={sectionInView}
             />
-          </Grid>
-        ))}
+          ))}
+          {moreCount > 0 && (
+            <Typography
+              sx={{
+                fontWeight: 800,
+                color: sitePalette.primary,
+                fontSize: "0.95rem",
+                px: 1,
+              }}
+            >
+              <FormattedMessage id="countries.and-more" values={{ count: moreCount }} />
+            </Typography>
+          )}
+        </Box>
+      ) : (
+        <Grid container spacing={2} alignItems="center" justifyContent="center">
+          {awake.map((region, idx) => (
+            <Grid item key={`awake-${region.country}`}>
+              <FlagItem
+                region={region}
+                variant="awake"
+                animIndex={idx}
+                sectionVisible={sectionInView}
+              />
+            </Grid>
+          ))}
 
-        <Grid item>
-          <WbSunnyOutlinedIcon />
+          <Grid item>
+            <WbSunnyOutlinedIcon />
+          </Grid>
+
+          {asleep.map((region, idx) => (
+            <Grid item key={`asleep-${region.country}`}>
+              <FlagItem
+                region={region}
+                variant="asleep"
+                showName={false}
+                animIndex={awake.length + 1 + idx}
+                sectionVisible={sectionInView}
+              />
+            </Grid>
+          ))}
         </Grid>
-
-        {asleep.map((region, idx) => (
-          <Grid item key={`asleep-${region.country}`}>
-            <FlagItem
-              region={region}
-              variant="asleep"
-              showName={false}
-              animIndex={awake.length + 1 + idx}
-              sectionVisible={sectionInView}
-            />
-          </Grid>
-        ))}
-      </Grid>
+      )}
     </Container>
   );
 };

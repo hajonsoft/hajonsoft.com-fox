@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -33,6 +34,18 @@ body {
   font-family: var(--font-latin);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+#root {
+  overflow-x: hidden;
 }
 
 body,

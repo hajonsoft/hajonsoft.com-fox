@@ -1,8 +1,15 @@
+import MenuIcon from "@mui/icons-material/Menu";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import {
   AppBar,
   Box,
+  Button,
+  Divider,
+  Drawer,
   IconButton,
+  List,
+  ListItemButton,
+  ListItemText,
   MenuItem,
   Select,
   Toolbar,
@@ -16,8 +23,31 @@ import logo from "../../images/logo.png";
 import { sitePalette } from "../../util/siteTheme";
 import Styled from "./components/styled-components";
 
+const MENU_ITEMS = [
+  ["home", "header.home"],
+  ["features", "header.features"],
+  ["pricing", "header.pricing"],
+  ["contact", "header.demo"],
+];
+
+const LANGUAGES = [
+  ["en", "English"],
+  ["ar", "العربية"],
+  ["fr", "Français"],
+  ["tr", "Türkçe"],
+  ["de", "Deutsch"],
+  ["it", "Italiano"],
+  ["ja", "日本語"],
+  ["zh", "中文"],
+  ["th", "ไทย"],
+  ["ms", "Melayu"],
+  ["ru", "Русский"],
+  ["hi", "हिन्दी"],
+];
+
 const Header = ({ onLanguageChange, lang }) => {
   const [language, setLanguage] = useState(lang);
+  const [menuOpen, setMenuOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width:900px)");
 
   useEffect(() => {
@@ -31,6 +61,7 @@ const Header = ({ onLanguageChange, lang }) => {
   };
 
   const handleBookmarkClick = (bookmark) => {
+    setMenuOpen(false);
     const element = document.getElementById(bookmark);
     analytics.logEvent(bookmark);
     if (element) {
@@ -38,27 +69,32 @@ const Header = ({ onLanguageChange, lang }) => {
     }
   };
 
+  const goLogin = () => {
+    setMenuOpen(false);
+    analytics.logEvent("login");
+    window.location.href = "https://hajonsoft-kea.web.app";
+  };
+
   return (
     <AppBar
       id="home"
       component="header"
-      position="static"
+      position="sticky"
       elevation={0}
       sx={{
-        marginBottom: 0,
         backgroundColor: sitePalette.white,
         color: sitePalette.text,
         borderBottom: `1px solid ${sitePalette.border}`,
-        boxShadow: "0 8px 24px rgba(15, 38, 60, 0.06)",
+        boxShadow: "0 6px 18px rgba(15, 38, 60, 0.05)",
       }}
     >
       <Toolbar
         disableGutters
         sx={{
           minHeight: { xs: 64, md: 72 },
-          px: { xs: 1.25, md: 2.5 },
-          alignItems: "center",
-          gap: { xs: 1, md: 2 },
+          px: { xs: 1, md: 2.5 },
+          gap: { xs: 0.5, md: 1.5 },
+          position: "relative",
         }}
       >
         <Box
@@ -69,163 +105,249 @@ const Header = ({ onLanguageChange, lang }) => {
             e.preventDefault();
             handleBookmarkClick("home");
           }}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0,
-            textDecoration: "none",
-            py: 0.5,
-          }}
+          sx={{ display: "flex", alignItems: "center", flexShrink: 0, zIndex: 1 }}
         >
           <Box
             component="img"
             src={logo}
             alt="HAJonSoft"
-            width={isMobile ? 96 : 118}
-            height="auto"
             sx={{
               display: "block",
-              borderRadius: 0,
-              maxHeight: { xs: 44, md: 52 },
+              height: { xs: 30, md: 52 },
               width: "auto",
             }}
           />
         </Box>
 
-        <Box
-          component="nav"
-          aria-label="Primary"
-          sx={{
-            flex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: { xs: 1, md: 2 },
-            minWidth: 0,
-          }}
-        >
-          {!isMobile && (
-            <Box display="flex" alignItems="center" gap={0.5} flexWrap="wrap">
-              {[
-                ["home", "header.home"],
-                ["features", "header.features"],
-                ["pricing", "header.pricing"],
-                ["contact", "header.demo"],
-              ].map(([id, label]) => (
-                <Styled.HeaderButton
-                  key={id}
-                  color="inherit"
-                  onClick={() => handleBookmarkClick(id)}
-                >
-                  <Typography variant="body1">
-                    <FormattedMessage id={label} />
-                  </Typography>
-                </Styled.HeaderButton>
-              ))}
+        {!isMobile && (
+          <Box
+            component="nav"
+            sx={{
+              flex: 1,
+              display: "flex",
+              alignItems: "center",
+              gap: 0.5,
+              minWidth: 0,
+            }}
+          >
+            {MENU_ITEMS.map(([id, label]) => (
               <Styled.HeaderButton
+                key={id}
                 color="inherit"
-                onClick={() => {
-                  window.location.href = "https://hajonsoft-kea.web.app";
-                }}
+                onClick={() => handleBookmarkClick(id)}
               >
                 <Typography variant="body1">
-                  <FormattedMessage id="header.kea" />
+                  <FormattedMessage id={label} />
                 </Typography>
               </Styled.HeaderButton>
-            </Box>
-          )}
+            ))}
+            <Styled.HeaderButton color="inherit" onClick={goLogin}>
+              <Typography variant="body1">
+                <FormattedMessage id="header.kea" />
+              </Typography>
+            </Styled.HeaderButton>
+          </Box>
+        )}
 
-          {isMobile && <Box flex={1} />}
-
+        {/* Mobile: Login + WhatsApp centered in the header */}
+        {isMobile && (
           <Box
-            display="flex"
-            alignItems="center"
-            gap={{ xs: 0.75, md: 1.5 }}
-            flexShrink={0}
+            sx={{
+              position: "absolute",
+              left: "50%",
+              transform: "translateX(-50%)",
+              display: "flex",
+              alignItems: "center",
+              gap: 1.25,
+              zIndex: 1,
+            }}
           >
-            <Box
+            <Button
+              variant="contained"
+              onClick={goLogin}
+              sx={{
+                backgroundColor: sitePalette.primary,
+                color: sitePalette.textOnDark,
+                fontWeight: 800,
+                px: 3,
+                py: 1.15,
+                minWidth: 120,
+                height: 48,
+                fontSize: "1.05rem",
+                letterSpacing: 0.3,
+                borderRadius: 999,
+                boxShadow: "0 6px 18px rgba(64, 144, 208, 0.45)",
+                "&:hover": {
+                  backgroundColor: sitePalette.primaryHover,
+                  boxShadow: "0 8px 22px rgba(47, 116, 176, 0.5)",
+                },
+              }}
+            >
+              <FormattedMessage id="header.kea" />
+            </Button>
+            <IconButton
               component="a"
               href="https://wa.me/19495221879"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => analytics.logEvent("whatsapp")}
+              aria-label="WhatsApp"
               sx={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 0.75,
-                color: sitePalette.text,
-                textDecoration: "none",
-                borderRadius: 999,
-                px: { xs: 0.75, md: 1.25 },
-                py: 0.5,
-                backgroundColor: "rgba(37, 211, 102, 0.1)",
-                border: "1px solid rgba(37, 211, 102, 0.35)",
-                transition: "background-color 0.2s ease",
+                color: "#fff",
+                backgroundColor: "#25D366",
+                width: 48,
+                height: 48,
+                boxShadow: "0 6px 18px rgba(37, 211, 102, 0.4)",
                 "&:hover": {
-                  backgroundColor: "rgba(37, 211, 102, 0.18)",
+                  backgroundColor: "#1ebe57",
                 },
               }}
             >
-              <IconButton
-                color="inherit"
-                size="small"
-                component="span"
-                sx={{
-                  p: 0.25,
-                  color: "#25D366",
-                }}
-                aria-hidden
-                tabIndex={-1}
-              >
-                <WhatsAppIcon fontSize="small" />
-              </IconButton>
-              {!isMobile && (
-                <Typography variant="body2" sx={{ fontWeight: 600, whiteSpace: "nowrap" }}>
-                  <FormattedMessage id="header.telephone" />
-                </Typography>
-              )}
-            </Box>
-
-            <Select
-              value={language}
-              onChange={handleLanguageChange}
-              variant="standard"
-              aria-label="Language"
-              sx={{
-                color: sitePalette.text,
-                borderBottom: `1px solid ${sitePalette.border}`,
-                minWidth: { xs: 72, md: 110 },
-                "&:before, &:after": {
-                  borderBottomColor: sitePalette.border,
-                },
-                ".MuiSvgIcon-root": {
-                  color: sitePalette.textMuted,
-                },
-              }}
-            >
-              {[
-                ["en", "English"],
-                ["ar", "اللغه العربيه"],
-                ["fr", "Française"],
-                ["tr", "Türkçe"],
-                ["de", "Deutsch"],
-                ["it", "Italiano"],
-                ["ja", "日本語"],
-                ["zh", "中文"],
-                ["th", "ไทย"],
-                ["ms", "Bahasa Melayu"],
-                ["ru", "русский"],
-                ["hi", "हिन्दी"],
-              ].map(([val, label]) => (
-                <MenuItem key={val} value={val}>
-                  <Typography variant="body1">{label}</Typography>
-                </MenuItem>
-              ))}
-            </Select>
+              <WhatsAppIcon sx={{ fontSize: 28 }} />
+            </IconButton>
           </Box>
+        )}
+
+        <Box
+          sx={{
+            ml: "auto",
+            display: "flex",
+            alignItems: "center",
+            gap: { xs: 0.25, md: 1.25 },
+            zIndex: 1,
+          }}
+        >
+          {!isMobile && (
+            <>
+              <IconButton
+                component="a"
+                href="https://wa.me/19495221879"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => analytics.logEvent("whatsapp")}
+                aria-label="WhatsApp"
+                sx={{
+                  color: "#25D366",
+                  backgroundColor: "rgba(37, 211, 102, 0.1)",
+                  border: "1px solid rgba(37, 211, 102, 0.3)",
+                  width: 40,
+                  height: 40,
+                }}
+              >
+                <WhatsAppIcon sx={{ fontSize: 22 }} />
+              </IconButton>
+              <Box
+                component="a"
+                href="https://wa.me/19495221879"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  display: { xs: "none", lg: "inline-flex" },
+                  color: sitePalette.text,
+                  textDecoration: "none",
+                  fontWeight: 600,
+                  fontSize: "0.9rem",
+                }}
+              >
+                <FormattedMessage id="header.telephone" />
+              </Box>
+              <Select
+                value={language}
+                onChange={handleLanguageChange}
+                variant="standard"
+                aria-label="Language"
+                sx={{
+                  color: sitePalette.text,
+                  minWidth: 110,
+                  ".MuiSvgIcon-root": { color: sitePalette.textMuted },
+                }}
+              >
+                {LANGUAGES.map(([val, label]) => (
+                  <MenuItem key={val} value={val}>
+                    {label}
+                  </MenuItem>
+                ))}
+              </Select>
+            </>
+          )}
+
+          {isMobile && (
+            <IconButton
+              aria-label="Open menu"
+              onClick={() => setMenuOpen(true)}
+              sx={{ color: sitePalette.text, width: 44, height: 44 }}
+            >
+              <MenuIcon sx={{ fontSize: 28 }} />
+            </IconButton>
+          )}
         </Box>
       </Toolbar>
+
+      <Drawer
+        anchor="right"
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        PaperProps={{
+          sx: { width: "min(82vw, 300px)", backgroundColor: sitePalette.white },
+        }}
+      >
+        <Box sx={{ px: 2, py: 1.5 }}>
+          <Typography variant="subtitle2" sx={{ color: sitePalette.textMuted, fontWeight: 700 }}>
+            Menu
+          </Typography>
+        </Box>
+        <Divider />
+        <List dense>
+          {MENU_ITEMS.map(([id, label]) => (
+            <ListItemButton key={id} onClick={() => handleBookmarkClick(id)}>
+              <ListItemText
+                primary={<FormattedMessage id={label} />}
+                primaryTypographyProps={{ fontWeight: 700 }}
+              />
+            </ListItemButton>
+          ))}
+        </List>
+        <Divider />
+        <Box sx={{ px: 2, py: 2 }}>
+          <Typography
+            variant="caption"
+            sx={{ color: sitePalette.textMuted, fontWeight: 700, display: "block", mb: 1 }}
+          >
+            Language
+          </Typography>
+          <Select
+            fullWidth
+            value={language}
+            onChange={handleLanguageChange}
+            size="small"
+            sx={{ mb: 2 }}
+          >
+            {LANGUAGES.map(([val, label]) => (
+              <MenuItem key={val} value={val}>
+                {label}
+              </MenuItem>
+            ))}
+          </Select>
+          <Box
+            component="a"
+            href="https://wa.me/19495221879"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              color: sitePalette.text,
+              textDecoration: "none",
+              fontWeight: 700,
+              fontSize: "0.9rem",
+            }}
+          >
+            <WhatsAppIcon sx={{ color: "#25D366", fontSize: 20 }} />
+            <FormattedMessage id="header.telephone" />
+          </Box>
+        </Box>
+      </Drawer>
     </AppBar>
   );
 };

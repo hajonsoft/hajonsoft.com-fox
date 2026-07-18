@@ -23,18 +23,18 @@ const Contact = () => {
       id="contact"
       ref={sectionRef}
       sx={{
-        py: { xs: 6, md: 9 },
-        px: 2,
+        py: { xs: 4, md: 9 },
+        px: { xs: 1.5, md: 2 },
       }}
     >
-      <Container maxWidth="md">
+      <Container maxWidth="md" disableGutters>
         <Box
           sx={{
             position: "relative",
             overflow: "hidden",
-            borderRadius: { xs: 4, md: 5 },
-            px: { xs: 3, md: 6 },
-            py: { xs: 4.5, md: 6 },
+            borderRadius: { xs: 3, md: 5 },
+            px: { xs: 2.25, md: 6 },
+            py: { xs: 3.5, md: 6 },
             textAlign: "center",
             background: sitePalette.darkGradient,
             color: sitePalette.textOnDark,

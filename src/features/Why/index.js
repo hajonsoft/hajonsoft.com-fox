@@ -40,30 +40,36 @@ const Why = () => {
     <Box
       id="why"
       sx={{
-        py: 6,
-        px: 2,
+        py: { xs: 4, md: 6 },
+        px: { xs: 1.5, md: 2 },
         background: sitePalette.softGradient,
       }}
     >
       <Container maxWidth="lg">
-        <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
+        <Typography
+          variant="h4"
+          align="center"
+          fontWeight="bold"
+          gutterBottom
+          sx={{ fontSize: { xs: "1.4rem", md: "2.125rem" } }}
+        >
           {intl.formatMessage({ id: "why.title" })}
         </Typography>
         <Typography
           variant="body1"
           align="center"
           color="text.secondary"
-          sx={{ mb: 5, maxWidth: 600, mx: "auto" }}
+          sx={{ mb: { xs: 3, md: 5 }, maxWidth: 600, mx: "auto", fontSize: { xs: "0.92rem", md: "1rem" } }}
         >
           {intl.formatMessage({ id: "why.subtitle" })}
         </Typography>
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={{ xs: 2, md: 4 }} justifyContent="center">
           {reasons.map((reason, idx) => (
             <Grid item xs={12} sm={6} md={3} key={idx}>
               <Box
                 sx={{
                   textAlign: "center",
-                  p: 3,
+                  p: { xs: 2.25, md: 3 },
                   borderRadius: 3,
                   backgroundColor: "rgba(255,255,255,0.9)",
                   border: `1px solid ${sitePalette.border}`,

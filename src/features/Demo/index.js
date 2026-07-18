@@ -10,30 +10,41 @@ const Demo = () => {
   return (
     <Box
       sx={{
-        py: 6,
-        px: 2,
+        py: { xs: 4, md: 6 },
+        px: { xs: 1.5, md: 2 },
         background: sitePalette.darkGradient,
         color: sitePalette.textOnDark,
       }}
     >
       <Container maxWidth="md">
-        <Grid container spacing={3} alignItems="center" justifyContent="center">
+        <Grid container spacing={2} alignItems="center" justifyContent="center">
           <Grid item xs={12}>
-            <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
+            <Typography
+              variant="h4"
+              align="center"
+              fontWeight="bold"
+              gutterBottom
+              sx={{ fontSize: { xs: "1.4rem", md: "2.125rem" } }}
+            >
               {intl.formatMessage({ id: "demo.title" })}
             </Typography>
             <Typography
               variant="body1"
               align="center"
-              sx={{ mb: 4, color: "rgba(245, 251, 247, 0.82)" }}
+              sx={{
+                mb: { xs: 3, md: 4 },
+                color: "rgba(245, 251, 247, 0.82)",
+                fontSize: { xs: "0.92rem", md: "1rem" },
+              }}
             >
               {intl.formatMessage({ id: "demo.description" })}
             </Typography>
           </Grid>
-          <Grid item>
+          <Grid item xs={12} sm="auto" sx={{ width: { xs: "100%", sm: "auto" } }}>
             <Button
               variant="contained"
               size="large"
+              fullWidth
               startIcon={<PlayCircleOutlineIcon />}
               onClick={() =>
                 window.open("https://player.vimeo.com/video/738277759", "_blank")
@@ -49,10 +60,11 @@ const Demo = () => {
               {intl.formatMessage({ id: "demo.watch-demo" })}
             </Button>
           </Grid>
-          <Grid item>
+          <Grid item xs={12} sm="auto" sx={{ width: { xs: "100%", sm: "auto" } }}>
             <Button
               variant="outlined"
               size="large"
+              fullWidth
               startIcon={<RocketLaunchIcon />}
               onClick={() =>
                 window.open("https://hajonsoft-kea.web.app/", "_blank")

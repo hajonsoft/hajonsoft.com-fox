@@ -1,8 +1,7 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import { FormattedMessage } from "react-intl";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
-
 import owl from "../../images/owl.svg";
 import { sitePalette } from "../../util/siteTheme";
 
@@ -15,138 +14,142 @@ const Footer = () => {
       sx={{
         background: sitePalette.darkGradient,
         color: sitePalette.textOnDark,
-        marginTop: 4,
-        paddingTop: 6,
+        marginTop: { xs: 2, md: 4 },
+        paddingTop: { xs: 4, md: 6 },
       }}
     >
-      <Container>
-        <Grid container alignItems="stretch" spacing={3}>
-          <Grid item sm={12} md={3} lg container>
-            <Grid item sm={12} md={12} lg={12}>
+      <Container sx={{ px: { xs: 2, md: 3 } }}>
+        <Stack
+          direction={{ xs: "column", md: "row" }}
+          spacing={{ xs: 3, md: 4 }}
+          alignItems={{ xs: "flex-start", md: "stretch" }}
+        >
+          <Stack spacing={1.5} sx={{ minWidth: { md: 220 } }}>
+            <Box
+              sx={{
+                display: "inline-flex",
+                backgroundColor: sitePalette.white,
+                borderRadius: 0,
+                px: 1.25,
+                py: 0.75,
+                width: "fit-content",
+              }}
+            >
               <Box
-                sx={{
-                  display: "inline-flex",
-                  backgroundColor: "rgba(255,255,255,0.95)",
-                  borderRadius: "50%",
-                  padding: "0.85rem",
-                }}
-              >
-                <img
-                  src={logo}
-                  alt="logo"
-                  width="96"
-                  loading="eager"
-                />
-              </Box>
-            </Grid>
-            <Grid item sm={12} md={12} lg={12}>
-              <Typography variant="body2">admin@hajonsoft.net</Typography>
-            </Grid>
-            <Grid item sm={12} md={12} lg={12}>
-              <Button
-                href={WEBMAIL_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="outlined"
-                size="small"
-                sx={{
-                  color: sitePalette.textOnDark,
-                  borderColor: "rgba(255,255,255,0.55)",
-                  "&:hover": {
-                    borderColor: sitePalette.textOnDark,
-                    backgroundColor: "rgba(255,255,255,0.08)",
-                  },
-                }}
-              >
-                <FormattedMessage id="footer.webmail-login" />
-              </Button>
-            </Grid>
-            <Grid item sm={12} md={12} lg={12}>
-              <Typography variant="body2" align="center" sx={{ color: "rgba(245, 251, 247, 0.72)" }}>
-                {USER_TIMEZONE}
-              </Typography>
-            </Grid>
-            <Grid item sm={12} md={12} lg={12}>
-              <Typography variant="body2">
-                <FormattedMessage id="header.telephone" />
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid
-            item
-            sm={12}
-            md={7}
-            lg
-            container
-            spacing={2}
-            alignContent="flex-start"
-          >
-            <Grid item xs={12}>
-              <Typography variant="h6" gutterBottom>
-                <FormattedMessage id="footer.tagline" />
-              </Typography>
-              <Typography variant="body1" sx={{ color: "rgba(245, 251, 247, 0.76)", maxWidth: 680 }}>
-                <FormattedMessage id="footer.description" />
-              </Typography>
-            </Grid>
-          </Grid>
-        </Grid>
+                component="img"
+                src={logo}
+                alt="HAJonSoft"
+                sx={{ width: { xs: 96, md: 110 }, height: "auto", display: "block" }}
+              />
+            </Box>
+            <Typography variant="body2">admin@hajonsoft.net</Typography>
+            <Typography variant="body2">
+              <FormattedMessage id="header.telephone" />
+            </Typography>
+            <Button
+              href={WEBMAIL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outlined"
+              size="small"
+              sx={{
+                alignSelf: "flex-start",
+                color: sitePalette.textOnDark,
+                borderColor: "rgba(255,255,255,0.55)",
+                "&:hover": {
+                  borderColor: sitePalette.textOnDark,
+                  backgroundColor: "rgba(255,255,255,0.08)",
+                },
+              }}
+            >
+              <FormattedMessage id="footer.webmail-login" />
+            </Button>
+            <Typography variant="caption" sx={{ color: "rgba(245, 251, 247, 0.6)" }}>
+              {USER_TIMEZONE}
+            </Typography>
+          </Stack>
+
+          <Box sx={{ flex: 1, minWidth: 0 }}>
+            <Typography variant="h6" gutterBottom sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" } }}>
+              <FormattedMessage id="footer.tagline" />
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                color: "rgba(245, 251, 247, 0.76)",
+                maxWidth: 680,
+                fontSize: { xs: "0.92rem", md: "1rem" },
+                lineHeight: 1.7,
+              }}
+            >
+              <FormattedMessage id="footer.description" />
+            </Typography>
+          </Box>
+        </Stack>
       </Container>
-      <div
-        style={{
+
+      <Box
+        sx={{
           width: "100%",
-          minHeight: "4.5rem",
+          mt: { xs: 3, md: 4 },
+          py: 2,
+          px: { xs: 2, md: 3 },
           backgroundColor: "rgba(6, 18, 14, 0.42)",
-          marginTop: "2rem",
-          display: "flex",
-          alignItems: "center",
-          color: "white",
           borderTop: "1px solid rgba(255,255,255,0.08)",
         }}
       >
-        <Grid container justify="space-between" spacing={1} alignItems="center">
-          <Grid item style={{ marginLeft: "2rem" }}>
-            <Grid container spacing={1} alignItems="center">
-              <Grid item>
+        <Container disableGutters>
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={1.5}
+            alignItems={{ xs: "flex-start", sm: "center" }}
+            flexWrap="wrap"
+            useFlexGap
+          >
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <Typography variant="body2">
                 © {new Date().getFullYear()}{" "}
                 <FormattedMessage id="brand.name" />
-              </Grid>
-              <Grid item>
-                <img src={owl} alt="hajonsoft owl" width="30" height="30"></img>
-              </Grid>
-              <Grid item>
-                <Link
-                  to="/privacy-policy"
-                  style={{ color: "inherit", textDecoration: "underline" }}
-                >
-                  <FormattedMessage id="footer.privacy-policy" />
-                </Link>
-              </Grid>
-              <Grid item>·</Grid>
-              <Grid item>
-                <Link
-                  to="/terms-of-service"
-                  style={{ color: "inherit", textDecoration: "underline" }}
-                >
-                  <FormattedMessage id="footer.terms-of-service" />
-                </Link>
-              </Grid>
-              <Grid item>·</Grid>
-              <Grid item>
-                <Link
-                  to="/about-the-technology"
-                  style={{ color: "inherit", textDecoration: "underline" }}
-                >
-                  <FormattedMessage id="footer.about-the-technology" />
-                </Link>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item></Grid>
-          <Grid item></Grid>
-          <Grid item style={{ marginRight: "1rem" }}></Grid>
-        </Grid>
-      </div>
+              </Typography>
+              <Box component="img" src={owl} alt="" width={28} height={28} />
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: { xs: 1, sm: 1.5 },
+                alignItems: "center",
+                rowGap: 0.75,
+              }}
+            >
+              <Link
+                to="/privacy-policy"
+                style={{ color: "inherit", textDecoration: "underline", fontSize: "0.875rem" }}
+              >
+                <FormattedMessage id="footer.privacy-policy" />
+              </Link>
+              <Typography component="span" variant="body2" sx={{ opacity: 0.5 }}>
+                ·
+              </Typography>
+              <Link
+                to="/terms-of-service"
+                style={{ color: "inherit", textDecoration: "underline", fontSize: "0.875rem" }}
+              >
+                <FormattedMessage id="footer.terms-of-service" />
+              </Link>
+              <Typography component="span" variant="body2" sx={{ opacity: 0.5 }}>
+                ·
+              </Typography>
+              <Link
+                to="/about-the-technology"
+                style={{ color: "inherit", textDecoration: "underline", fontSize: "0.875rem" }}
+              >
+                <FormattedMessage id="footer.about-the-technology" />
+              </Link>
+            </Box>
+          </Stack>
+        </Container>
+      </Box>
     </Box>
   );
 };

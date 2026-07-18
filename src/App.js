@@ -1,5 +1,5 @@
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import { Button, createTheme, Grid2, ThemeProvider } from "@mui/material";
+import { Button, createTheme, Grid2, ThemeProvider, useMediaQuery } from "@mui/material";
 import { Suspense, lazy, useEffect, useMemo, useState } from "react";
 import { IntlProvider } from "react-intl";
 import GetStarted from "./features/GetStarted";
@@ -65,6 +65,7 @@ const handleScrollTopClick = () => {
 function App() {
   const [language, setLanguage] = useState(initialLanguage);
   const [dir, setDir] = useState(initialLanguage === "ar" ? "rtl" : "ltr");
+  const isMobile = useMediaQuery("(max-width:900px)");
 
   const theme = useMemo(
     () =>
@@ -208,51 +209,74 @@ function App() {
                   <Grid2 item>
                     <GetStarted />
                   </Grid2>
-                  <Grid2 item>
-                    <Suspense fallback={null}>
-                      <Ticker />
-                    </Suspense>
-                  </Grid2>
-                  <Grid2 item>
-                    <Suspense fallback={null}>
-                      <Countries />
-                    </Suspense>
-                  </Grid2>
-                  <Grid2 item>
-                    <Suspense fallback={null}>
-                      <Features />
-                    </Suspense>
-                  </Grid2>
-                  <Grid2 item>
-                    <Suspense fallback={null}>
-                      <Pricing />
-                    </Suspense>
-                  </Grid2>
-                  <Grid2 item>
-                    <Suspense fallback={null}>
-                      <KeaDemo lang={language} />
-                    </Suspense>
-                  </Grid2>
-                  <Grid2 item>
-                    <Suspense fallback={null}>
-                      <Demo />
-                    </Suspense>
-                  </Grid2>
-                  <Grid2 item>
-                    <Suspense fallback={null}>
-                      <Why />
-                    </Suspense>
-                  </Grid2>
-                  <Grid2 item>
-                    <Suspense fallback={null}>
-                      <Contact />
-                    </Suspense>
-                  </Grid2>
-                  <Grid2 item>
-                    <Suspense fallback={null}>
-                      <Footer />
-                    </Suspense>
-                  </Grid2>
+                  {/* Mobile home: hero → countries → pricing → footer */}
+                  {isMobile ? (
+                    <>
+                      <Grid2 item>
+                        <Suspense fallback={null}>
+                          <Countries />
+                        </Suspense>
+                      </Grid2>
+                      <Grid2 item>
+                        <Suspense fallback={null}>
+                          <Pricing />
+                        </Suspense>
+                      </Grid2>
+                      <Grid2 item>
+                        <Suspense fallback={null}>
+                          <Footer />
+                        </Suspense>
+                      </Grid2>
+                    </>
+                  ) : (
+                    <>
+                      <Grid2 item>
+                        <Suspense fallback={null}>
+                          <Ticker />
+                        </Suspense>
+                      </Grid2>
+                      <Grid2 item>
+                        <Suspense fallback={null}>
+                          <Countries />
+                        </Suspense>
+                      </Grid2>
+                      <Grid2 item>
+                        <Suspense fallback={null}>
+                          <Features />
+                        </Suspense>
+                      </Grid2>
+                      <Grid2 item>
+                        <Suspense fallback={null}>
+                          <Pricing />
+                        </Suspense>
+                      </Grid2>
+                      <Grid2 item>
+                        <Suspense fallback={null}>
+                          <KeaDemo lang={language} />
+                        </Suspense>
+                      </Grid2>
+                      <Grid2 item>
+                        <Suspense fallback={null}>
+                          <Demo />
+                        </Suspense>
+                      </Grid2>
+                      <Grid2 item>
+                        <Suspense fallback={null}>
+                          <Why />
+                        </Suspense>
+                      </Grid2>
+                      <Grid2 item>
+                        <Suspense fallback={null}>
+                          <Contact />
+                        </Suspense>
+                      </Grid2>
+                      <Grid2 item>
+                        <Suspense fallback={null}>
+                          <Footer />
+                        </Suspense>
+                      </Grid2>
+                    </>
+                  )}
                 </Grid2>
               }
             ></Route>
@@ -287,9 +311,8 @@ function App() {
         id="back-to-top"
         style={{
           position: "fixed",
-          bottom: "6rem",
+          bottom: "1.25rem",
           right: "1rem",
-          padding: "1rem",
           visibility: "hidden",
           zIndex: 20,
         }}
@@ -297,10 +320,11 @@ function App() {
       >
         <Button
           variant="contained"
+          aria-label="Back to top"
           sx={{
             minWidth: 0,
-            width: 56,
-            height: 56,
+            width: { xs: 44, md: 56 },
+            height: { xs: 44, md: 56 },
             background: sitePalette.darkGradient,
             boxShadow: sitePalette.shadow,
             "&:hover": {
@@ -308,7 +332,7 @@ function App() {
             },
           }}
         >
-          <ArrowUpwardIcon fontSize="large" sx={{ color: sitePalette.textOnDark }} />
+          <ArrowUpwardIcon sx={{ color: sitePalette.textOnDark, fontSize: { xs: 22, md: 28 } }} />
         </Button>
       </div>
     </div>

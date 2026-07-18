@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import React from "react";
 import { analytics } from "../../analytics";
 import { sitePalette } from "../../util/siteTheme";
@@ -10,26 +11,20 @@ const GetStarted = () => {
   };
 
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         background: sitePalette.heroGradient,
         color: sitePalette.text,
-        minHeight: "28rem",
         marginTop: 0,
-        marginInline: 0,
-        padding: "1.5rem 1rem 2.25rem",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        borderRadius: 0,
-        border: "none",
+        px: { xs: 0, md: 1 },
+        py: { xs: 2, md: 3 },
+        pb: { xs: 2.5, md: 3.5 },
         borderBottom: `1px solid ${sitePalette.border}`,
-        boxShadow: "none",
-        overflow: "hidden",
+        overflowX: "hidden",
       }}
     >
       <GetStartedMain onStart={handleStart} />
-    </div>
+    </Box>
   );
 };
 

@@ -80,13 +80,14 @@ const Pricing = () => {
   const [sectionRef, sectionInView] = useInView();
 
   return (
-    <Box component="section" sx={{ mt: { xs: 6, md: 8 }, pt: { xs: 2, md: 3 } }}>
-      <Container id="pricing" ref={sectionRef}>
-        <Grid container justify="space-between" spacing={2}>
+    <Box component="section" sx={{ mt: { xs: 3, md: 8 }, pt: { xs: 1, md: 3 }, px: { xs: 0, md: 0 } }}>
+      <Container id="pricing" ref={sectionRef} sx={{ px: { xs: 2.5, md: 3 } }}>
+        <Grid container justifyContent="space-between" spacing={2}>
           {priceCards.map((priceCard, idx) => (
             <Grid
               item
-              sm={12}
+              xs={12}
+              sm={6}
               md={3}
               lg
               key={priceCard.name}

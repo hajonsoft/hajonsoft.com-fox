@@ -5,11 +5,14 @@ import {
   Box,
   Button,
   Container,
+  Dialog,
+  DialogContent,
   IconButton,
   Link,
   Popover,
   Stack,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import React, { useState } from "react";
 import { FormattedMessage } from "react-intl";
@@ -103,13 +106,14 @@ const Features = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [sectionRef, sectionInView] = useInView();
+  const isMobile = useMediaQuery("(max-width:600px)");
   const activePlayer = selectedIndex >= 0 ? players[selectedIndex] : null;
-  const popoverOpen = Boolean(anchorEl) && activePlayer !== null;
+  const detailsOpen = Boolean(anchorEl) && activePlayer !== null;
 
   const handleOpenDetails = (event, idx) => {
     event.preventDefault();
 
-    if (popoverOpen && selectedIndex === idx) {
+    if (detailsOpen && selectedIndex === idx) {
       setAnchorEl(null);
       setSelectedIndex(-1);
       return;
@@ -137,14 +141,25 @@ const Features = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Stack spacing={2} sx={{ mb: 4, px: { xs: 2, md: 0 } }}>
-          <Typography variant="h4" align="center">
+        <Stack spacing={2} sx={{ mb: { xs: 3, md: 4 }, px: { xs: 0.5, md: 0 } }}>
+          <Typography
+            variant="h4"
+            align="center"
+            sx={{ fontSize: { xs: "1.4rem", md: "2.125rem" }, px: 1 }}
+          >
             <FormattedMessage id="features.manage-effortlessly" />
           </Typography>
           <Typography
             variant="body1"
             align="center"
-            sx={{ color: sitePalette.textMuted, maxWidth: 920, mx: "auto" }}
+            sx={{
+              color: sitePalette.textMuted,
+              maxWidth: 920,
+              mx: "auto",
+              fontSize: { xs: "0.92rem", md: "1rem" },
+              px: 0.5,
+              display: { xs: "none", md: "block" },
+            }}
           >
             <FormattedMessage id="features.complete-software" />
           </Typography>
@@ -159,13 +174,13 @@ const Features = () => {
               md: "repeat(3, minmax(0, 1fr))",
               lg: "repeat(5, minmax(0, 1fr))",
             },
-            gap: 2.5,
+            gap: { xs: 1.75, md: 2.5 },
             alignItems: "stretch",
-            px: { xs: 2, md: 0 },
+            px: { xs: 0.5, md: 0 },
           }}
         >
           {players.map((player, idx) => {
-            const isActive = selectedIndex === idx && popoverOpen;
+            const isActive = selectedIndex === idx && detailsOpen;
 
             return (
               <Box
@@ -173,10 +188,10 @@ const Features = () => {
                 className="anim-hover-lift"
                 sx={{
                   height: "100%",
-                  minHeight: { xs: 300, lg: 360 },
+                  minHeight: { xs: "auto", lg: 360 },
                   display: "flex",
                   flexDirection: "column",
-                  padding: 2.5,
+                  padding: { xs: 2, md: 2.5 },
                   borderRadius: 4,
                   backgroundColor: isActive ? "rgba(255,255,255,0.98)" : "rgba(255,255,255,0.9)",
                   border: `1px solid ${isActive ? sitePalette.primarySoft : sitePalette.border}`,
@@ -213,8 +228,8 @@ const Features = () => {
                     color: sitePalette.textMuted,
                     lineHeight: 1.65,
                     flex: 1,
-                    display: "-webkit-box",
-                    WebkitLineClamp: 6,
+                    display: { xs: "none", sm: "-webkit-box" },
+                    WebkitLineClamp: 5,
                     WebkitBoxOrient: "vertical",
                     overflow: "hidden",
                     mb: 1.5,
@@ -246,89 +261,123 @@ const Features = () => {
           })}
         </Box>
 
-        <Popover
-          open={popoverOpen}
-          anchorEl={anchorEl}
-          onClose={handleCloseDetails}
-          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-          transformOrigin={{ vertical: "top", horizontal: "left" }}
-          slotProps={{
-            paper: {
+        {isMobile ? (
+          <Dialog
+            open={detailsOpen}
+            onClose={handleCloseDetails}
+            fullWidth
+            maxWidth="sm"
+            PaperProps={{
               sx: {
-                width: { xs: "min(94vw, 420px)", sm: 460 },
-                maxHeight: { xs: "74vh", sm: "70vh" },
-                overflowY: "auto",
-                borderRadius: 4,
-                border: `1px solid ${sitePalette.primarySoft}`,
-                boxShadow: sitePalette.shadow,
+                m: 1.5,
+                borderRadius: 3,
                 background: sitePalette.softGradient,
+                border: `1px solid ${sitePalette.primarySoft}`,
               },
-            },
-          }}
-        >
-          {activePlayer && (
-            <Stack spacing={2} sx={{ p: 3 }}>
-              <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 2 }}>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                  {activePlayer.icon}
-                  <Typography variant="h6">
-                    <FormattedMessage id={activePlayer.title} />
-                  </Typography>
-                </Box>
-                <IconButton size="small" onClick={handleCloseDetails}>
-                  <CloseRoundedIcon fontSize="small" />
-                </IconButton>
+            }}
+          >
+            {activePlayer && (
+              <DialogContent sx={{ p: 2.5 }}>
+                <FeatureDetails
+                  activePlayer={activePlayer}
+                  onClose={handleCloseDetails}
+                />
+              </DialogContent>
+            )}
+          </Dialog>
+        ) : (
+          <Popover
+            open={detailsOpen}
+            anchorEl={anchorEl}
+            onClose={handleCloseDetails}
+            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+            transformOrigin={{ vertical: "top", horizontal: "left" }}
+            slotProps={{
+              paper: {
+                sx: {
+                  width: 460,
+                  maxHeight: "70vh",
+                  overflowY: "auto",
+                  borderRadius: 4,
+                  border: `1px solid ${sitePalette.primarySoft}`,
+                  boxShadow: sitePalette.shadow,
+                  background: sitePalette.softGradient,
+                },
+              },
+            }}
+          >
+            {activePlayer && (
+              <Box sx={{ p: 3 }}>
+                <FeatureDetails
+                  activePlayer={activePlayer}
+                  onClose={handleCloseDetails}
+                />
               </Box>
-
-              <Typography variant="body2" sx={{ color: sitePalette.text, lineHeight: 1.75 }}>
-                <FormattedMessage id={activePlayer.description} />
-              </Typography>
-
-              {activePlayer.targetUrl && (
-                <Button
-                  component="a"
-                  href={activePlayer.targetUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="outlined"
-                  endIcon={<OpenInNewRoundedIcon />}
-                  sx={{
-                    justifyContent: "space-between",
-                    borderColor: sitePalette.border,
-                    color: sitePalette.darkSoft,
-                    backgroundColor: "rgba(255,255,255,0.75)",
-                    textTransform: "none",
-                    "&:hover": {
-                      borderColor: sitePalette.primary,
-                      backgroundColor: "rgba(64, 144, 208, 0.08)",
-                    },
-                  }}
-                >
-                  {activePlayer.targetUrl
-                    .replace(/^https?:\/\//, "")
-                    .replace(/\/+$/, "")}
-                </Button>
-              )}
-
-              <Button
-                startIcon={<ArrowBackRoundedIcon />}
-                variant="text"
-                onClick={handleCloseDetails}
-                sx={{
-                  justifyContent: "flex-start",
-                  px: 0,
-                  color: sitePalette.primary,
-                  "&:hover": { backgroundColor: "transparent", color: sitePalette.primaryHover },
-                }}
-              >
-                <FormattedMessage id="header.features" />
-              </Button>
-            </Stack>
-          )}
-        </Popover>
+            )}
+          </Popover>
+        )}
       </Container>
     </Box>
   );
 };
+
+const FeatureDetails = ({ activePlayer, onClose }) => (
+  <Stack spacing={2}>
+    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 2 }}>
+      <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, minWidth: 0 }}>
+        {activePlayer.icon}
+        <Typography variant="h6" sx={{ fontSize: { xs: "1.05rem", md: "1.25rem" } }}>
+          <FormattedMessage id={activePlayer.title} />
+        </Typography>
+      </Box>
+      <IconButton size="small" onClick={onClose} aria-label="Close">
+        <CloseRoundedIcon fontSize="small" />
+      </IconButton>
+    </Box>
+
+    <Typography variant="body2" sx={{ color: sitePalette.text, lineHeight: 1.75 }}>
+      <FormattedMessage id={activePlayer.description} />
+    </Typography>
+
+    {activePlayer.targetUrl && (
+      <Button
+        component="a"
+        href={activePlayer.targetUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="outlined"
+        endIcon={<OpenInNewRoundedIcon />}
+        sx={{
+          justifyContent: "space-between",
+          borderColor: sitePalette.border,
+          color: sitePalette.darkSoft,
+          backgroundColor: "rgba(255,255,255,0.75)",
+          textTransform: "none",
+          wordBreak: "break-all",
+          "&:hover": {
+            borderColor: sitePalette.primary,
+            backgroundColor: "rgba(64, 144, 208, 0.08)",
+          },
+        }}
+      >
+        {activePlayer.targetUrl.replace(/^https?:\/\//, "").replace(/\/+$/, "")}
+      </Button>
+    )}
+
+    <Button
+      startIcon={<ArrowBackRoundedIcon />}
+      variant="text"
+      onClick={onClose}
+      sx={{
+        justifyContent: "flex-start",
+        px: 0,
+        color: sitePalette.primary,
+        "&:hover": { backgroundColor: "transparent", color: sitePalette.primaryHover },
+      }}
+    >
+      <FormattedMessage id="header.features" />
+    </Button>
+  </Stack>
+);
 
 export default Features;
