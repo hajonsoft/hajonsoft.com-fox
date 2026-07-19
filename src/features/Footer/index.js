@@ -33,13 +33,20 @@ const Footer = () => {
                 px: 1.25,
                 py: 0.75,
                 width: "fit-content",
+                boxShadow: "0 10px 24px rgba(6, 18, 14, 0.28)",
+                transform: "translateY(-2px)",
               }}
             >
               <Box
                 component="img"
                 src={logo}
                 alt="HAJonSoft"
-                sx={{ width: { xs: 96, md: 110 }, height: "auto", display: "block" }}
+                sx={{
+                  width: { xs: 96, md: 110 },
+                  height: "auto",
+                  display: "block",
+                  filter: "drop-shadow(0 2px 6px rgba(6, 18, 14, 0.18))",
+                }}
               />
             </Box>
             <Typography variant="body2">admin@hajonsoft.net</Typography>
