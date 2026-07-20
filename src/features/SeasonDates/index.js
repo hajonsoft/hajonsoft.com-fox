@@ -1,4 +1,7 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
+import ArrowDownwardRoundedIcon from "@mui/icons-material/ArrowDownwardRounded";
+import ArrowUpwardRoundedIcon from "@mui/icons-material/ArrowUpwardRounded";
+import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
+import { Box, Chip, Container, Stack, Typography } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 import { useIntl } from "react-intl";
 import { sitePalette } from "../../util/siteTheme";
@@ -24,6 +27,19 @@ const getHijriDateParts = (date, timeZone) => {
     year: getNumericPart(parts, "year"),
     month: getNumericPart(parts, "month"),
     day: getNumericPart(parts, "day"),
+  };
+};
+
+const getHijriMonthDayParts = (date, timeZone, locale) => {
+  const parts = new Intl.DateTimeFormat(`${locale}-u-ca-islamic-umalqura`, {
+    timeZone,
+    month: "long",
+    day: "numeric",
+  }).formatToParts(date);
+
+  return {
+    month: parts.find((part) => part.type === "month")?.value || "",
+    day: parts.find((part) => part.type === "day")?.value || "",
   };
 };
 
@@ -193,10 +209,14 @@ const buildSectionData = (now, timeZone, locale) => {
   const untilDhuAlQadah = dhuAlQadah25Ymd
     ? diffAsMonthsAndDays(todayGregorianYmd, dhuAlQadah25Ymd)
     : null;
+  const untilDhuAlQadahDays = dhuAlQadah25Ymd
+    ? Math.abs(dayDiffFromYmd(todayGregorianYmd, dhuAlQadah25Ymd))
+    : null;
 
   const untilArafah = arafahYmd
     ? diffAsMonthsAndDays(todayGregorianYmd, arafahYmd)
     : null;
+  const untilArafahDays = arafahYmd ? Math.abs(dayDiffFromYmd(todayGregorianYmd, arafahYmd)) : null;
 
   return {
     hijriYear: todayHijri.year,
@@ -208,8 +228,10 @@ const buildSectionData = (now, timeZone, locale) => {
     umrahReadable,
     dhuAlQadah25Date,
     untilDhuAlQadah,
+    untilDhuAlQadahDays,
     arafahDate,
     untilArafah,
+    untilArafahDays,
   };
 };
 
@@ -239,10 +261,103 @@ const formatCountdown = (intl, diff) => {
   return intl.formatMessage({ id: "season.countdown.remaining" }, { duration });
 };
 
+const badgeStyles = {
+  liveChip: {
+    height: "auto",
+    minWidth: 104,
+    maxWidth: 152,
+    alignItems: "stretch",
+    borderRadius: 2.5,
+    border: `1px solid ${sitePalette.primaryHover}`,
+    backgroundColor: sitePalette.primary,
+    boxShadow: "0 10px 22px rgba(18,44,74,0.12)",
+    "& .MuiChip-icon": {
+      color: sitePalette.white,
+      ml: 1,
+      mr: 0,
+      fontSize: 18,
+      alignSelf: "center",
+    },
+    "& .MuiChip-label": {
+      display: "block",
+      px: 1,
+      py: 0.8,
+      maxWidth: 116,
+      whiteSpace: "normal",
+    },
+  },
+  counterChip: {
+    height: 38,
+    minWidth: 68,
+    maxWidth: 86,
+    borderRadius: 999,
+    display: "inline-flex",
+    alignItems: "center",
+    boxShadow: "0 10px 22px rgba(24,42,66,0.12)",
+    border: `1px solid ${sitePalette.primaryHover}`,
+    backgroundColor: sitePalette.primary,
+    color: sitePalette.white,
+    "& .MuiChip-label": {
+      display: "flex",
+      alignItems: "center",
+      gap: 0.45,
+      justifyContent: "center",
+      width: "100%",
+      paddingLeft: 8,
+      paddingRight: 8,
+      fontSize: "0.9rem",
+      fontWeight: 800,
+      lineHeight: 1,
+    },
+  },
+};
+
+const SeasonCardBadge = ({ badge, isRtl }) => {
+  if (!badge) return null;
+
+  if (badge.variant === "live") {
+    return (
+      <Chip
+        icon={<CalendarMonthRoundedIcon />}
+        label={
+          <Box sx={{ textAlign: isRtl ? "right" : "left" }}>
+            <Typography sx={{ fontSize: "0.67rem", lineHeight: 1.05, fontWeight: 700, color: "rgba(255,255,255,0.88)" }}>
+              {badge.label}
+            </Typography>
+            <Typography sx={{ fontSize: "1.15rem", lineHeight: 1, fontWeight: 800, color: sitePalette.white }}>
+              {badge.value}
+            </Typography>
+          </Box>
+        }
+        sx={badgeStyles.liveChip}
+      />
+    );
+  }
+
+  const isUp = badge.variant === "umrah";
+  const ArrowIcon = isUp ? ArrowUpwardRoundedIcon : ArrowDownwardRoundedIcon;
+
+  return (
+    <Chip
+      label={
+        <Box sx={{ display: "inline-flex", alignItems: "center", gap: 0.45 }}>
+          <ArrowIcon sx={{ fontSize: 19, color: sitePalette.white }} />
+          <Box component="span">{badge.value}</Box>
+        </Box>
+      }
+      sx={{
+        ...badgeStyles.counterChip,
+        direction: isRtl ? "rtl" : "ltr",
+      }}
+    />
+  );
+};
+
 const SeasonDates = () => {
   const intl = useIntl();
   const [now, setNow] = useState(new Date());
   const [sectionRef, sectionInView] = useInView({ threshold: 0.18 });
+  const isRtl = intl.locale === "ar" || intl.locale.startsWith("ar-");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -253,11 +368,20 @@ const SeasonDates = () => {
   }, []);
 
   const seasonData = useMemo(() => buildSectionData(now, USER_TIMEZONE, intl.locale), [intl.locale, now]);
+  const todayMonthDay = useMemo(
+    () => getHijriMonthDayParts(now, USER_TIMEZONE, intl.locale),
+    [intl.locale, now]
+  );
 
   const cards = [
     {
       eyebrow: intl.formatMessage({ id: "season.card.live.eyebrow" }),
       title: intl.formatMessage({ id: "season.card.live.title" }),
+      badge: {
+        variant: "live",
+        label: todayMonthDay.month,
+        value: todayMonthDay.day,
+      },
       lines: [
         intl.formatMessage({ id: "season.line.hijri" }, { value: seasonData.nowHijri }),
         intl.formatMessage({ id: "season.line.gregorian" }, { value: seasonData.nowGregorian }),
@@ -267,6 +391,13 @@ const SeasonDates = () => {
     {
       eyebrow: intl.formatMessage({ id: "season.card.umrah.eyebrow" }),
       title: intl.formatMessage({ id: "season.card.umrah.title" }, { year: seasonData.hijriYear }),
+      badge:
+        typeof seasonData.daysInsideUmrahSeason === "number"
+          ? {
+              variant: "umrah",
+              value: seasonData.daysInsideUmrahSeason,
+            }
+          : null,
       lines: seasonData.hijriYearStartDate
         ? [
             intl.formatMessage(
@@ -290,6 +421,13 @@ const SeasonDates = () => {
     {
       eyebrow: intl.formatMessage({ id: "season.card.hajj-prep.eyebrow" }),
       title: intl.formatMessage({ id: "season.card.hajj-prep.title" }),
+      badge:
+        seasonData.untilDhuAlQadah
+          ? {
+              variant: "prep",
+              value: seasonData.untilDhuAlQadahDays,
+            }
+          : null,
       lines: seasonData.dhuAlQadah25Date
         ? [
             intl.formatMessage(
@@ -310,6 +448,13 @@ const SeasonDates = () => {
     {
       eyebrow: intl.formatMessage({ id: "season.card.arafah.eyebrow" }),
       title: intl.formatMessage({ id: "season.card.arafah.title" }),
+      badge:
+        seasonData.untilArafah
+          ? {
+              variant: "arafah",
+              value: seasonData.untilArafahDays,
+            }
+          : null,
       lines: seasonData.arafahDate
         ? [
             intl.formatMessage(
@@ -389,6 +534,7 @@ const SeasonDates = () => {
             <Box
               key={card.title}
               sx={{
+                position: "relative",
                 backgroundColor: "rgba(255,255,255,0.9)",
                 border: "1px solid rgba(26,39,64,0.1)",
                 borderRadius: 3,
@@ -404,13 +550,29 @@ const SeasonDates = () => {
                 },
               }}
             >
+              <Box sx={{ position: "absolute", top: 16, ...(isRtl ? { left: 16 } : { right: 16 }) }}>
+                <SeasonCardBadge badge={card.badge} isRtl={isRtl} />
+              </Box>
               <Typography
                 variant="overline"
-                sx={{ color: sitePalette.primaryHover, letterSpacing: 1.4, fontWeight: 700 }}
+                sx={{
+                  color: sitePalette.primaryHover,
+                  letterSpacing: 1.4,
+                  fontWeight: 700,
+                  ...(isRtl ? { pl: 11 } : { pr: 11 }),
+                }}
               >
                 {card.eyebrow}
               </Typography>
-              <Typography variant="h6" sx={{ mb: 1, fontWeight: 700, color: sitePalette.dark }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  mb: 1,
+                  fontWeight: 700,
+                  color: sitePalette.dark,
+                  ...(isRtl ? { pl: 11 } : { pr: 11 }),
+                }}
+              >
                 {card.title}
               </Typography>
               <Stack spacing={0.7}>
